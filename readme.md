@@ -54,7 +54,7 @@ To install Arcadia locally on XAMPP or MAMP, follow these steps:
 
 ## Authors
 
-- MickaelGP - [@your_name](link_to_your_github_profile)
+- MickaelGP - https://github.com/MickaelGP
 
 ## License
 
