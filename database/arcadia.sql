@@ -116,6 +116,8 @@ INSERT INTO animals (prenom, etat, race_id, habitat_id)
   VALUES ('Sheldon', 'Un python royal', 2, 2);
 INSERT INTO animals (prenom, etat, race_id, habitat_id) 
   VALUES ('Rio', 'Un perroquet', 3, 3);
+INSERT INTO animals (prenom, etat, race_id, habitat_id) 
+  VALUES ('Kong', 'Un Gorille de 12 ans', 1, 3);
 
 -- Table `utilisateur`
 DROP TABLE IF EXISTS users;
@@ -159,5 +161,11 @@ CREATE TABLE alimentations (
     FOREIGN KEY (animal_id) REFERENCES animals(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+INSERT INTO alimentations (date_alimentation, heure_alimentation, nourriture, quantite, animal_id, user_id) 
+VALUES 
+('2024-04-07', '09:00:00', 'Granulés pour girafe', 1550, 3, 3),
+('2024-04-07', '10:30:00', 'souris', 27.50, 2, 3),
+('2024-04-07', '12:00:00', 'Fruits et légumes pour singes', 3025, 4, 3),
+('2024-04-07', '15:00:00', 'Viande crue', 5750, 1, 3);
 
 
