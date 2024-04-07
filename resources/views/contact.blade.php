@@ -26,7 +26,8 @@
             <div class="conatiner text-center">
                 <h1>Envoyez nous un message</h1>
                 <div class="container w-50 pt-5">
-                    <form>
+                    <form action="{{route('send')}}" method="POST">
+                        @csrf
                         <div class="mb-3">
                             <input type="text" class="form-control shadow" name="pseudo" id="textInput" required
                                 placeholder="Pseudo">
@@ -42,6 +43,11 @@
                     </form>
                 </div>
             </div>
+            @if (session('success'))
+            <div class="alert alert-success container w-50 pt-3">
+                {{ session('success') }}
+            </div>
+        @endif
         </div>
     </div>
 @endsection

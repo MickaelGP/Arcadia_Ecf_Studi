@@ -1,19 +1,20 @@
 <?php
 
-use App\Http\Controllers\Gestion\AnimalController;
-use App\Http\Controllers\Gestion\AlimentationController;
-use App\Http\Controllers\Gestion\AviController;
-use App\Http\Controllers\Gestion\ConsultationRapportController;
-use App\Http\Controllers\Gestion\CreateUserController;
 use Illuminate\Support\Facades\Route;
-//use App\Http\Middleware\CheckUserRole;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmailController;
+use App\Http\Controllers\Gestion\AviController;
+use App\Http\Controllers\Gestion\RaceController;
+//use App\Http\Middleware\CheckUserRole;
+use App\Http\Controllers\Gestion\AnimalController;
 use App\Http\Controllers\Gestion\GestionController;
+use App\Http\Controllers\Gestion\HoraireController;
+use App\Http\Controllers\Gestion\CreateUserController;
+use App\Http\Controllers\Gestion\AlimentationController;
 use App\Http\Controllers\Gestion\GestionHabitatController;
 use App\Http\Controllers\Gestion\GestionServicesController;
-use App\Http\Controllers\Gestion\HoraireController;
-use App\Http\Controllers\Gestion\RaceController;
+use App\Http\Controllers\Gestion\ConsultationRapportController;
 
 //use App\Http\Middleware\GetUserInformation;
 
@@ -21,6 +22,7 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/nos-services',[HomeController::class,'showServices'])->name('service');
 Route::get('/nos-habitats',[HomeController::class,'showHabitats'])->name('habitat');
 Route::get('/contact',[HomeController::class,'showContact'])->name('contact');
+Route::post('/contact',[EmailController::class,'send'])->name('send');
 Route::post('/avis',[AviController::class,'store'])->name('store');
 Route::get('/connexion',[UserController::class,'connexion'])->name('connexion');
 Route::post('/login',[UserController::class,'login'])->name('login');
