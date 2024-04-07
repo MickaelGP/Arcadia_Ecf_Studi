@@ -1,0 +1,234 @@
+html,
+body {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+#wrapper {
+    box-sizing: border-box;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#navbar {
+    background-color: rgb(157, 188, 152);
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
+    color: rgb(235, 217, 180);
+
+}
+.nav-link{
+    color: rgb(67,104,80);
+}
+#pageBody {
+    flex-grow: 1;
+}
+.footer {
+    background-color: rgb(157, 188, 152);
+    color: rgb(67,104,80);
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+#main {
+    position: relative;
+    filter: brightness(0.9);
+    width: 100%;
+    height: 800px;
+    background-image: url('/img/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    color: rgb(235, 217, 180);
+    text-align: center;
+}
+#titreHero h1 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    font-size: 80px;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 20px;
+}
+#textHero {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    font-size: 23px;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 20px;
+}
+#servicesSection {
+    position: absolute;
+    width: 100%;
+    background-color: rgb(249, 239, 219);
+}
+.icons {
+    font-size: 70px;
+    color: rgb(99, 136, 137);
+}
+ .fa-comment{
+    color: rgb(99, 136, 137);
+    font-size: 70px;
+    padding-top: 10px;
+}
+.services{
+    background-color: rgb(249, 239, 219);
+    height: 500px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.637), 
+              0px 4px 8px rgba(0,0,0,0.15), 
+              0px 8px 16px rgba(0,0,0,0.15), 
+              0px 16px 32px rgba(0,0,0,0.15);
+}
+.service{
+    background-color: rgb(235, 217, 180);
+    color: rgb(67,104,80);
+}
+.services h1{
+    color: rgb(67,104,80);
+}
+.card-body{
+    margin-top: 20%;
+    margin-bottom: 20%;
+}
+.service a{
+    background-color:rgb(157, 188, 152) ;
+    color: rgb(249, 239, 219);
+}
+.service a:hover{
+    background-color:rgb(157, 188, 152) ;
+    color: rgb(249, 239, 219);
+}
+.habitats{
+    background-color: rgb(235, 217, 180);
+    height: 800px;
+    color: rgb(67,104,80);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.637), 
+              0px 4px 8px rgba(0,0,0,0.15), 
+              0px 8px 16px rgba(0,0,0,0.15), 
+              0px 16px 32px rgba(0,0,0,0.15);
+}
+.habitat{
+    background-color: rgb(249, 239, 219);
+    color: rgb(67,104,80);
+
+}
+.habitat a{
+    background-color:rgb(99, 136, 137) ;
+    color: rgb(249, 239, 219);
+}
+.habitat a:hover{
+    background-color:rgb(99, 136, 137) ;
+    color: rgb(249, 239, 219);
+}
+.avis{
+    background-color: rgb(249, 239, 219);
+    height: 800px;
+    color: rgb(67,104,80);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.637), 
+              0px 4px 8px rgba(0,0,0,0.15), 
+              0px 8px 16px rgba(0,0,0,0.15), 
+              0px 16px 32px rgba(0,0,0,0.15);
+}
+.avis input, .avis textarea{
+    background-color: rgb(249, 239, 219);
+    border-color:rgb(249, 239, 219) ;
+}
+.avi{
+    background-color: rgb(235, 217, 180);
+    color: rgb(67,104,80);
+}
+.avi button{
+    background-color:rgb(157, 188, 152) ;
+    color: rgb(249, 239, 219);
+}
+.avi button:hover{
+    background-color:rgb(157, 188, 152) ;
+    color: rgb(249, 239, 219);
+}
+#divRestauration, #divGuide{
+    background-color: rgb(235, 217, 180);
+    color: rgb(67,104,80);
+    font-size: 25px;
+}
+#divVisite{
+    background-color: rgb(249, 239, 219);
+    color: rgb(67,104,80);
+    font-size: 25px;
+}
+#frontHabitats{
+    background-color: rgb(249, 239, 219);
+}
+#frontHabitats h1, h3{
+    color: rgb(67,104,80);
+    padding-top: 10px;
+}
+#divJungle, #divMarais{
+    background-color: rgb(235, 217, 180);
+    height: 800px;
+}
+#divJungle .btn, #divMarais .btn{
+    background-color:rgb(157, 188, 152) ;
+    color: rgb(249, 239, 219);
+}
+#divSavane{
+    background-color: rgb(249, 239, 219);
+    height: 800px;
+}
+#divSavane .btn{
+    background-color:rgb(99, 136, 137) ;
+    color: rgb(249, 239, 219);
+}
+#pageConnexion{
+    background-color: rgb(249, 239, 219);
+    height: 600px;
+}
+#pageConnexion h1{
+    color: rgb(67,104,80);
+}
+#pageConnexion .btn{
+    background-color:rgb(157, 188, 152) ;
+    color: rgb(249, 239, 219);
+}
+#pageConnexion input{
+    background-color: rgb(235, 217, 180);
+    border-color: rgb(235, 217, 180);
+}
+#pageContact{
+    background-color: rgb(235, 217, 180);
+}
+#pageContact h1{
+    color: rgb(67,104,80);
+}
+#contactPhrase{
+    color: rgb(67,104,80);
+    background-color: rgb(249, 239, 219); 
+    height:300px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    text-align: center;
+    font-size: 30px;
+}
+#formContact{
+    background-color: rgb(235, 217, 180);
+    padding-top: 100px;
+    height:600px;
+}
+#formContact h1{
+    color: rgb(67,104,80);
+}
+#formContact .btn{
+    background-color:rgb(157, 188, 152) ;
+    color: rgb(249, 239, 219);
+}
+#formContact input{
+    background-color: rgb(249, 239, 219);
+    border-color: rgb(249, 239, 219);
+}
+#formContact textarea{
+    background-color: rgb(249, 239, 219);
+    border-color: rgb(249, 239, 219);
+}
