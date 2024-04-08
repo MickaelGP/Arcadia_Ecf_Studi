@@ -22,4 +22,8 @@ class Animal extends Model
     {
         return $this->belongsTo(Race::class);
     }
+    public function habitat()
+    {
+        return $this->belongsTo(Habitat::class);
+    }
 }
