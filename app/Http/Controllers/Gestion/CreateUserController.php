@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Gestion;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Mail\CreationUtilisateurMail;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class CreateUserController extends Controller
 {
@@ -36,13 +38,16 @@ class CreateUserController extends Controller
             'role_id'=>['required','int']
         ]);
         if($data){
-            User::create([
+           $user =  User::create([
                 'username' => $data['username'],
                 'password' => Hash::make($data['password']),
                 'nom' =>$data['nom'] ,
                 'prenom' =>$data['prenom'] ,
                 'role_id'=>$data['role_id'],
             ]);
+            if($user){
+                Mail::send(new CreationUtilisateurMail($user));
+            }
             return redirect()->back()->with('success', 'L\'utilisateur à été créer' );
         }
 
