@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Avi;
+use App\Models\Habitat;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -37,7 +38,9 @@ class HomeController extends Controller
      */
     public function showHabitats()
     {
-        return view('habitat');
+        $habitats = Habitat::all();
+
+        return view('habitat',compact('habitats'));
     }
      /**
      * Affiche la vue Contact.

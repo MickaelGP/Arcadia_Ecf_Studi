@@ -15,4 +15,8 @@ class Habitat extends Model
         'description',
         'commentaire'
     ];
+    public function animals()
+    {
+        return $this->hasMany(Animal::class);
+    }
 }
