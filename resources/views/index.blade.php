@@ -113,9 +113,26 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="container pt-5 ">
-                        <h4>Avis de Test User</h4>
-                        <p>Super Zoo </p>
+                    <div class="container w-50 pt-5">
+                        <h2 class="pb-5">Les avis des visiteurs</h2>
+                        <div id="carouselAvis" class="carousel slide pt-3">
+                            <div class="carousel-inner">
+                                @foreach ($avis as $key => $avi)
+                                    <div class="carousel-item {{ $key == 0 ? 'active' : '' }} rounded">
+                                        <h5>{{ $avi->pseudo }}</h5>
+                                        <p>{{ $avi->commentaire }}</p>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAvis" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselAvis" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"  aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

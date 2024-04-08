@@ -16,7 +16,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $avis = Avi::where('isValide',1)->get();
+
+        return view('index',compact('avis'));
     }
     /**
      * Récupère tous les services et les affiche dans la vue service.
