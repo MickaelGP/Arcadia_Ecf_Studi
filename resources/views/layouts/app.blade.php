@@ -68,9 +68,9 @@
                     <div class="col-md-3 mt-3">
                         <ul class="list-unstyled mt-3">
                             <li>Du lundi au vendredi : </li>
-                            <li>De 09h00 à 18h00</li>
+                            <li>De {{$horaires[0]->ouverture_matin}}H à {{$horaires[0]->fermeture_soir}}H</li>
                             <li>Le samedi :</li>
-                            <li> De 10h00 à 17h00</li>
+                            <li> De {{$horaires[1]->ouverture_matin}}H à {{$horaires[1]->fermeture_soir}}H</li>
                             <li>Le dimanche :</li>
                             <li> Fermé</li>
                         </ul>

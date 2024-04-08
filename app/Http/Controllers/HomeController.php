@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Avi;
 use App\Models\Habitat;
+use App\Models\Horaire;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
 
+    private $horaires;
+    public function __construct()
+    {
+        $this->horaires = Horaire::all();
+    }
     /**
      * Affiche la vue Principale.
      *
@@ -19,7 +25,10 @@ class HomeController extends Controller
     {
         $avis = Avi::where('isValide',1)->get();
 
-        return view('index',compact('avis'));
+        return view('index',[
+            'avis' => $avis,
+            'horaires' => $this->horaires
+        ]);
     }
     /**
      * Récupère tous les services et les affiche dans la vue service.
@@ -29,7 +38,10 @@ class HomeController extends Controller
     public function showServices()
     {
         $services = Service::all();
-        return view('service', compact('services'));
+        return view('service', [
+            'services' => $services,
+            'horaires' => $this->horaires
+        ]);
     }
      /**
      * Affiche la vue Habitat.
@@ -40,7 +52,10 @@ class HomeController extends Controller
     {
         $habitats = Habitat::all();
 
-        return view('habitat',compact('habitats'));
+        return view('habitat',[
+            'habitats' => $habitats,
+            'horaires' => $this->horaires
+        ]);
     }
      /**
      * Affiche la vue Contact.
@@ -49,7 +64,9 @@ class HomeController extends Controller
      */
     public function showContact()
     {
-        return view('contact');
+        return view('contact',[
+            'horaires' => $this->horaires
+        ]);
     }
     /**
      * Stocke un nouvel avis dans la base de données.

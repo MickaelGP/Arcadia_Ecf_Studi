@@ -84,34 +84,8 @@
         </div>
         <footer class="footer  ">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <ul class="list-unstyled mt-3">
-                            <li><a class="nav-link" href="{{ route('home') }}">Acceuil</a></li>
-                            <li><a class="nav-link" href="{{ route('service') }}">Nos service</a></li>
-                            <li><a class="nav-link" href="{{ route('habitat') }}">Les Habitats</a></li>
-                            <li><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
-                            <li><a class="nav-link" href="{{ route('connexion') }}">Connexion</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 mt-5">
-                        <ul class="list-unstyled mt-3">
-                            <li>Adresse : 123 route du zoo brocéliande</li>
-                            <li>Telephone : 00.00.00.00.00</li>
-                            <li>Mail : contact@arcadia.fr</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 mt-3">
-                        <ul class="list-unstyled mt-3">
-                            <li>Du lundi au vendredi : </li>
-                            <li>De 09h00 à 18h00</li>
-                            <li>Le samedi :</li>
-                            <li> De 10h00 à 17h00</li>
-                            <li>Le dimanche :</li>
-                            <li> Fermé</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
+                <div class="row text-center">
+                    <div class="col">
                         <h5>Mettre logo</h5>
                     </div>
                 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Horaire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -9,9 +10,17 @@ use Illuminate\Support\Facades\Session;
 class UserController extends Controller
 {
     //
+    private $horaires;
+    
+    public function __construct()
+    {
+        $this->horaires = Horaire::all();
+    }
     public function connexion()
     {
-        return view('connexion');
+        return view('connexion',[
+            'horaires' => $this->horaires
+        ]);
     }
     public function login(Request $request)
     {
