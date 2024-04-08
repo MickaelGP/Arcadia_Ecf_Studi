@@ -1,6 +1,6 @@
 
 <x-mail::message>
-# Nouvelle demande de contact
+# Nouvelle demande : {{$data['titre']}}
 
 
 **Pseudo :**</br>

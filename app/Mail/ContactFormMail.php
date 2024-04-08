@@ -28,7 +28,7 @@ class ContactFormMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            to: 'mg@test.fr',
+            to: 'employe@arcadia.fr',
             replyTo: $this->data['email'],
             subject: 'Demande info zoo'
             

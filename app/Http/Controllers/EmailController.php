@@ -11,9 +11,10 @@ class EmailController extends Controller
     public function send(Request $request)
     {
        $data = $request->validate([
-            'pseudo' => 'required',
-            'email' => 'required|email',
-            'description' => 'required',
+            'titre' =>['required','string','max:255'],
+            'pseudo' => ['required','string','max:255'],
+            'email' => ['required','email'],
+            'description' => ['required','string','max:255'],
         ]);
 
        
