@@ -91,7 +91,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p class="text-center">© 2024 Votre entreprise. Tous droits réservés.</p>
+                        <p class="text-center">© 2024 Arcadia. Tous droits réservés.</p>
                     </div>
                 </div>
             </div>

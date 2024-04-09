@@ -104,11 +104,11 @@ DROP TABLE IF EXISTS animals;
 CREATE TABLE animals (
   id INT AUTO_INCREMENT PRIMARY KEY,
   prenom VARCHAR(50) NOT NULL,
-  description VARCHAR(255) NOT NULL,
+  etat VARCHAR(255) NOT NULL,
   race_id INT,
   habitat_id INT,
   FOREIGN KEY (race_id) REFERENCES races(id),
-  FOREIGN KEY (habitat_id) REFERENCES habitats(id)
+  FOREIGN KEY (habitat_id) REFERENCES habitats(id) ON DELETE SET NULL
 );
 INSERT INTO animals (prenom, etat, race_id, habitat_id) 
   VALUES ('Simba', 'Un lion de 1O ans', 1, 1);
@@ -132,6 +132,7 @@ CREATE TABLE users (
 );
 INSERT INTO users (username, password, nom, prenom, role_id) VALUES('admin@arcadia.fr', '$2y$12$nPL5T6p2Srsh0Nccwm7.PembOVN/L1LD93hTbjDwJ/mLChn8KMoSu','Doe','John',1);
 INSERT INTO users (username, password, nom, prenom, role_id) VALUES('veterinaire@arcadia.fr', '$2y$12$nPL5T6p2Srsh0Nccwm7.PembOVN/L1LD93hTbjDwJ/mLChn8KMoSu','Doe','Bob',2);
+INSERT INTO users (username, password, nom, prenom, role_id) VALUES('employe@arcadia.fr', '$2y$12$nPL5T6p2Srsh0Nccwm7.PembOVN/L1LD93hTbjDwJ/mLChn8KMoSu','Robert','Dupont',3);
 
 -- Table `rapport_veterinaire`
 DROP TABLE IF EXISTS rapport_veterinaires;
@@ -158,7 +159,7 @@ CREATE TABLE alimentations (
     quantite DECIMAL(10,2),
     animal_id INT,
     user_id INT,
-    FOREIGN KEY (animal_id) REFERENCES animals(id),
+    FOREIGN KEY (animal_id) REFERENCES animals(id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 INSERT INTO alimentations (date_alimentation, heure_alimentation, nourriture, quantite, animal_id, user_id) 
@@ -167,5 +168,15 @@ VALUES
 ('2024-04-07', '10:30:00', 'souris', 27.50, 2, 3),
 ('2024-04-07', '12:00:00', 'Fruits et légumes pour singes', 3025, 4, 3),
 ('2024-04-07', '15:00:00', 'Viande crue', 5750, 1, 3);
-
-
+-- Table Horarire
+CREATE TABLE horaires (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  ouverture_matin TIME NOT NULL,
+  ouverture_soir TIME,
+  fermeture_matin TIME,
+  fermeture_soir TIME NOT NULL
+);
+INSERT INTO horaires (ouverture_matin, fermeture_soir) 
+VALUES ('08:00:00', '20:00:00');
+INSERT INTO horaires (ouverture_matin, fermeture_soir) 
+VALUES ('09:00:00', '19:00:00');

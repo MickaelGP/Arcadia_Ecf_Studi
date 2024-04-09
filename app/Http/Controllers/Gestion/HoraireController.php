@@ -25,11 +25,12 @@ class HoraireController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'ouverture_matin' => ['required','string','max:50'],
-            'ouverture_soir' => ['nullable','string','max:50'],
-            'fermeture_matin' => ['nullable','string','max:50'],
-            'fermeture_soir' => ['required','string','max:50']
+            'ouverture_matin' => ['required', 'date_format:H:i'],
+            'ouverture_soir' => ['nullable','date_format:H:i'],
+            'fermeture_matin' => ['nullable','date_format:H:i'],
+            'fermeture_soir' => ['required','date_format:H:i']
         ]);
+
 
         Horaire::create($data);
 

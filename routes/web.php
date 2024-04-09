@@ -5,8 +5,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\Gestion\AviController;
-use App\Http\Controllers\Gestion\RaceController;
-//use App\Http\Middleware\CheckUserRole;
 use App\Http\Controllers\Gestion\AnimalController;
 use App\Http\Controllers\Gestion\GestionController;
 use App\Http\Controllers\Gestion\HoraireController;
@@ -15,6 +13,7 @@ use App\Http\Controllers\Gestion\AlimentationController;
 use App\Http\Controllers\Gestion\GestionHabitatController;
 use App\Http\Controllers\Gestion\GestionServicesController;
 use App\Http\Controllers\Gestion\ConsultationRapportController;
+use App\Http\Controllers\Gestion\RaceController;
 
 //use App\Http\Middleware\GetUserInformation;
 
@@ -28,52 +27,87 @@ Route::get('/connexion',[UserController::class,'connexion'])->name('connexion');
 Route::post('/login',[UserController::class,'login'])->name('login');
 Route::get('/logout',[UserController::class,'logout'])->name('logout');
 //Route gestion
-Route::get('/gestion',[GestionController::class,'index'])->name('gestion');
-//Route gestion Compte
-Route::get('/gestion/creation-de-compte',[CreateUserController::class,'index'])->name('create.comptes');
-Route::post('/gestion/ajout-utilisateur',[CreateUserController::class,'store'])->name('store.comptes');
-//Route gestion services
-Route::get('/gestion/gestion-services', [GestionServicesController::class,'index'])->name('gestion.services');
-Route::get('/gestion/gestion-services/create', [GestionServicesController::class,'create'])->name('gestion.services.create');
-Route::get('/gestion/gestion-services/{service}/edit', [GestionServicesController::class,'edit'])->name('gestion.services.edit');
-Route::patch('/gestion/gestion-services/{service}/update-service', [GestionServicesController::class,'update'])->name('gestion.services.update');
-Route::post('/gestion/gestion-services/store', [GestionServicesController::class,'store'])->name('gestion.services.store');
-Route::delete('/gestion/gestion-services/{service}', [GestionServicesController::class,'destroy'])->name('gestion.services.destroy');
-//Route gestion Horaire
-Route::get('/gestion/gestion-horaires', [HoraireController::class,'index'])->name('gestion.horaires');
-Route::get('/gestion/gestion-horaires/create', [HoraireController::class,'create'])->name('gestion.horaires.create');
-Route::get('/gestion/gestion-horaires/{horaire}/edit', [HoraireController::class,'edit'])->name('gestion.horaires.edit');
-Route::post('/gestion/gestion-horaires/store', [HoraireController::class,'store'])->name('gestion.horaires.store');
-Route::patch('/gestion/gestion-horaires/{horaire}/update-horaire', [HoraireController::class,'update'])->name('gestion.horaires.update');
-// Route gestion Habitat
-Route::get('/gestion/gestion-habitats', [GestionHabitatController::class,'index'])->name('gestion.habitats');
-Route::get('/gestion/gestion-habitats/create', [GestionHabitatController::class,'create'])->name('gestion.habitats.create');
-Route::get('/gestion/gestion-habitats/{habitat}/edit', [GestionHabitatController::class,'edit'])->name('gestion.habitats.edit');
-Route::patch('/gestion/gestion-habitats/{habitat}/update-habitat', [GestionHabitatController::class,'update'])->name('gestion.habitats.update');
-Route::post('/gestion/gestion-habitats/store', [GestionHabitatController::class,'store'])->name('gestion.habitats.store');
-Route::delete('/gestion/gestion-habitats/{habitat}', [GestionHabitatController::class,'destroy'])->name('gestion.habitats.destroy');
-//Route Gestion Animaux
-Route::get('/gestion/gestion-animaux',[AnimalController::class,'index'])->name('gestion.animals');
-Route::get('/gestion/gestion-animaux/create',[AnimalController::class,'create'])->name('gestion.animals.create');
-Route::get('/gestion/gestion-animaux/{animal}/edit', [AnimalController::class,'edit'])->name('gestion.animals.edit');
-Route::post('/gestion/gestion-animaux/store', [AnimalController::class,'store'])->name('gestion.animals.store');
-Route::patch('/gestion/gestion-animaux/{animal}/update-animal', [AnimalController::class,'update'])->name('gestion.animals.update');
-Route::delete('/gestion/gestion-animaux/{animal}', [AnimalController::class,'destroy'])->name('gestion.animals.destroy');
-Route::get('/gestion/gestion-animaux-races/create',[RaceController::class,'create'])->name('gestion.races');
-Route::post('/gestion/gestion-animaux-race/store', [RaceController::class,'store'])->name('gestion.races.store');
+Route::get('/gestion', [GestionController::class, 'index'])->name('gestion')->middleware('auth');
 
-//Route Consultation comptes rendu veterinaire
-Route::get('/gestion/rapports',[ConsultationRapportController::class,'index'])->name('gestion.rapports');
-Route::get('gestion/rapports/search',[ConsultationRapportController::class,'search'])->name('gestion.rapports.search');
-Route::get('/gestion/rapports/create', [ConsultationRapportController::class,'create'])->name('gestion.rapports.create');
-Route::post('/gestion/rpports/store', [ConsultationRapportController::class,'store'])->name('gestion.rapports.store');
-Route::get('/gestion/rapports/{id}/show', [ConsultationRapportController::class,'show'])->name('gestion.rapports.show');
-//Route gestion employe
-Route::get('/gestion/gestion-avis/{avi}/edit', [AviController::class,'edit'])->name('gestion.avis.edit');
-Route::patch('/gestion/gestion-avis/{avi}/update-avi', [AviController::class,'update'])->name('gestion.avis.update');
-Route::get('/gestion/gestion-alimentations', [AlimentationController::class,'index'])->name('gestion.alimentations');
-Route::post('/gestion/gestion-alimentations/store', [AlimentationController::class,'store'])->name('gestion.alimentations.store');
+//Gestion admin
+Route::middleware('role:administrateur')->group(function () {
+    //Route creation de compte
+    Route::controller(CreateUserController::class)->prefix('/gestion')->group(function (){
+        Route::get('/creation-de-compte', 'index')->name('create.comptes');
+        Route::post('/ajout-utilisateur', 'store')->name('store.comptes');
+    });
+    //Route gestion services
+    Route::controller(GestionServicesController::class)->prefix('/gestion')->group(function(){
+        Route::get('/gestion-services/create', 'create')->name('gestion.services.create');
+        Route::post('/gestion-services/store', 'store')->name('gestion.services.store');
+        Route::delete('/gestion/gestion-services/{service}', 'destroy')->name('gestion.services.destroy');
+    });
+    //Route gestion Horaire
+    Route::controller(HoraireController::class)->prefix('/gestion')->group(function(){
+        Route::get('/gestion-horaires', 'index')->name('gestion.horaires');
+        Route::get('/gestion-horaires/create',  'create')->name('gestion.horaires.create');
+        Route::get('/gestion-horaires/{horaire}/edit', 'edit')->name('gestion.horaires.edit');
+        Route::post('/gestion-horaires/store', 'store')->name('gestion.horaires.store');
+        Route::patch('/gestion-horaires/{horaire}/update-horaire', 'update')->name('gestion.horaires.update');
+    });
+   
+    // Route gestion Habitat
+    Route::controller(GestionHabitatController::class)->prefix('/gestion')->group(function(){
+        Route::get('/gestion-habitats/create', 'create')->name('gestion.habitats.create');
+        Route::post('/gestion-habitats/store', 'store')->name('gestion.habitats.store');
+        Route::delete('/gestion-habitats/{habitat}', 'destroy')->name('gestion.habitats.destroy');
+    });      
+   
+    //Route Gestion Animaux
+    Route::controller(AnimalController::class)->prefix('/gestion')->group(function(){
+        Route::get('/gestion-animaux', 'index')->name('gestion.animals');
+        Route::get('/gestion-animaux/create', 'create')->name('gestion.animals.create');
+        Route::get('/gestion-animaux/{animal}/edit', 'edit')->name('gestion.animals.edit');
+        Route::post('/gestion-animaux/store', 'store')->name('gestion.animals.store');
+        Route::patch('/gestion-animaux/{animal}/update-animal', 'update')->name('gestion.animals.update');
+        Route::delete('/gestion-animaux/{animal}', 'destroy')->name('gestion.animals.destroy');
+    });
+    Route::controller(RaceController::class)->prefix('/gestion')->group(function (){
+        Route::get('/gestion-animaux-races/create', 'create')->name('gestion.races');
+        Route::post('/gestion-animaux-race/store', 'store')->name('gestion.races.store');
+    });
 
+});
+
+//Gestion employe
+Route::middleware('role:employé')->group(function () {
+    Route::get('/gestion/gestion-avis/{avi}/edit', [AviController::class, 'edit'])->name('gestion.avis.edit');
+    Route::patch('/gestion/gestion-avis/{avi}/update-avi', [AviController::class, 'update'])->name('gestion.avis.update');
+    Route::get('/gestion/gestion-alimentations', [AlimentationController::class, 'index'])->name('gestion.alimentations');
+    Route::post('/gestion/gestion-alimentations/store', [AlimentationController::class, 'store'])->name('gestion.alimentations.store');
+});
+
+//Gestion veterinaire
+Route::middleware('role:vétérinaire')->group(function () {
+    Route::controller(ConsultationRapportController::class)->prefix('/gestion')->group(function(){
+        Route::get('/rapports/create', 'create')->name('gestion.rapports.create');
+        Route::post('/rpports/store', 'store')->name('gestion.rapports.store');
+    });
+});
+
+//admin et employé
+Route::middleware('role:administrateur,employé')->group(function(){
+    Route::controller(GestionServicesController::class)->prefix('/gestion')->group(function(){
+        Route::get('/gestion-services', 'index')->name('gestion.services');
+        Route::get('/gestion-services/{service}/edit', 'edit')->name('gestion.services.edit');
+        Route::patch('/gestion-services/{service}/update-service', 'update')->name('gestion.services.update');
+    });
+});
+
+//admin et veterinaire
+Route::middleware('role:administrateur,vétérinaire')->group(function () {
+    Route::get('/gestion/gestion-habitats', [GestionHabitatController::class, 'index'])->name('gestion.habitats');
+    Route::get('/gestion/gestion-habitats/{habitat}/edit', [GestionHabitatController::class, 'edit'])->name('gestion.habitats.edit');
+    Route::patch('/gestion/gestion-habitats/{habitat}/update-habitat', [GestionHabitatController::class, 'update'])->name('gestion.habitats.update');
+    Route::get('/gestion/rapports', [ConsultationRapportController::class, 'index'])->name('gestion.rapports');
+    Route::get('gestion/rapports/search', [ConsultationRapportController::class, 'search'])->name('gestion.rapports.search');
+    Route::get('/gestion/rapports/{id}/show', [ConsultationRapportController::class, 'show'])->name('gestion.rapports.show');
+});
 
 
 
