@@ -12,10 +12,10 @@
         <div class="pt-3"> 
              <h1>Nos services</h1>
         </div>
-        <div class="container pt-3">
+        <div class="container pt-3 reveal">
         <div class="row">
             <div class="col-4 ">
-                <div class="card service shadow">
+                <div class="card service shadow reveal-2">
                     <div class="card-body">
                         <i class="fa-solid fa-utensils icons"></i>
                         <p>Snack, restaurant etc</p>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="card service shadow">
+                <div class="card service shadow reveal-3">
                     <div class="card-body">
                         <i class="fa-solid fa-train icons"></i>
                         <p>Visite du zoo en petit train</p>
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="card service shadow">
+                <div class="card service shadow reveal-4">
                     <div class="card-body">
                         <i class="fa-solid fa-signs-post icons"></i>
                         <p>Visite des habitats avec un guide</p>
@@ -48,10 +48,10 @@
         <div class="pt-5">
             <h1>Nos Habitats</h1>
         </div>
-        <div class="container pt-3">
+        <div class="container pt-3 reveal">
             <div class="row">
                 <div class="col-4">
-                    <div class="card habitat shadow">
+                    <div class="card habitat shadow reveal-2">
                         <img src="https://picsum.photos/200/140" class="card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title">Savane</h5>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="card habitat shadow">
+                    <div class="card habitat shadow reveal-3">
                         <img src="https://picsum.photos/200/140" class="card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title">Jungle</h5>
@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="card habitat shadow">
+                    <div class="card habitat shadow reveal-4">
                         <img src="https://picsum.photos/200/140" class="card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title">Marais</h5>
@@ -88,10 +88,10 @@
     <div class="avis text-center">
         <div class="pt-2"><h1>Les avis</h1></div>
         <div class="conatiner pt-5 ">
-            <div class="row">
+            <div class="row reveal">
                 <div class="col-6">
                     <div class="container">
-                        <div class="card avi shadow">
+                        <div class="card avi shadow reveal-2">
                             <div class="card-title pt-5">
                                 <h1>Laissez nous votre avis</h1>
                             </div>
@@ -115,7 +115,7 @@
                 <div class="col-6">
                     <div class="container w-50 pt-5">
                         <h2 class="pb-5">Les avis des visiteurs</h2>
-                        <div id="carouselAvis" class="carousel slide pt-3">
+                        <div id="carouselAvis" class="carousel slide pt-3 reveal-3">
                             <div class="carousel-inner">
                                 @foreach ($avis as $key => $avi)
                                     <div class="carousel-item {{ $key == 0 ? 'active' : '' }} rounded">
