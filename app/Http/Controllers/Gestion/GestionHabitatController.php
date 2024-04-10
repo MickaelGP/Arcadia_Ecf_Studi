@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Gestion;
 
+use App\Models\Image;
+use App\Models\Habitat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Habitat;
 
 class GestionHabitatController extends Controller
 {
@@ -31,10 +32,21 @@ class GestionHabitatController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'nom'=>['required','string','max:255'],
-            'description'=>['required','string','max:255']
+            'nom' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'max:255'],
+            'commentaire' => ['nullable', 'string', 'max:255'],
+            'image_data' => ['image', 'nullable'], 
         ]);
-        Habitat::create($data);
+    
+        $habitat = Habitat::create($data); 
+        
+        if ($request->hasFile('image_data')) {
+            $imagePath = $request->file('image_data')->store('img', 'public');
+            $image = Image::create(['image_data' => $imagePath]); 
+
+            $habitat->images()->attach($image->id);
+
+        }
 
         return redirect()->route('gestion.habitats')->with('success','L\'habitat à bien été ajouté');
     }
@@ -58,8 +70,6 @@ class GestionHabitatController extends Controller
                 'commentaire' => ['nullable','string','max:255']
             ]);
         }
-       
-
         $habitat->update($data);
 
         return redirect()->route('gestion.habitats')->with('success','L\'habitat à bien été modifié');

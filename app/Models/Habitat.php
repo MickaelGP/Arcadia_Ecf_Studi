@@ -19,4 +19,8 @@ class Habitat extends Model
     {
         return $this->hasMany(Animal::class);
     }
+    public function images()
+    {
+        return $this->belongsToMany(Image::class);
+    }
 }

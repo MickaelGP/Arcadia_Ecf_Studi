@@ -17,9 +17,7 @@ CREATE TABLE habitats (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nom VARCHAR(50) NOT NULL,
   description VARCHAR(255) NOT NULL,
-  commentaire VARCHAR(255) NULL,
-  image_id INT,
-  FOREIGN KEY (image_id) REFERENCES images(id)
+  commentaire VARCHAR(255) NULL
 );
 INSERT INTO habitats (nom, description)
  VALUES('La savane',
@@ -180,3 +178,11 @@ INSERT INTO horaires (ouverture_matin, fermeture_soir)
 VALUES ('08:00:00', '20:00:00');
 INSERT INTO horaires (ouverture_matin, fermeture_soir) 
 VALUES ('09:00:00', '19:00:00');
+-- Table pivot habitats images
+CREATE TABLE habitat_image (
+    id INT  AUTO_INCREMENT PRIMARY KEY,
+    habitat_id INT,
+    image_id INT,
+    FOREIGN KEY (habitat_id) REFERENCES habitats(id) ON DELETE CASCADE,
+    FOREIGN KEY (image_id) REFERENCES images(id) ON DELETE CASCADE
+);

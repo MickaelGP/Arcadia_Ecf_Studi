@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container py-4 mt-5 shadow rounded">
-        <h1 class="text-center">Ajouter un habitat</h1>
+        <h1 class="text-center">Modifier un habitat</h1>
         <form method="POST" action="{{ route('gestion.habitats.update', $habitat) }}">
             @csrf
             @method('PATCH')
