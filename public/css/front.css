@@ -1,21 +1,15 @@
-html,
-body {
-    box-sizing: border-box;
+html{
     height: 100%;
-    padding: 0;
-    margin: 0;
-    font-family:"Montserrat", sans-serif;
 }
-#wrapper {
-    box-sizing: border-box;
+body {
+    position: relative;
     min-height: 100%;
-    display: flex;
-    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family:"Montserrat", sans-serif;
 }
 #navbar {
     background-color: rgb(157, 188, 152);
-    flex-grow: 0;
-    flex-shrink: 0;
 }
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
     color: rgb(235, 217, 180);
@@ -24,17 +18,18 @@ body {
 .nav-link{
     color: rgb(67,104,80);
 }
-#pageBody {
-    flex-grow: 1;
-}
 .footer {
     background-color: rgb(157, 188, 152);
     color: rgb(67,104,80);
-    flex-grow: 0;
-    flex-shrink: 0;
+    position: absolute; 
+    margin: 0;
+    left: 0; 
+    right: 0;
 }
+
+/* Page Home */
 #main {
-    position: relative;
+    /* position: relative; */
     filter: brightness(0.9);
     width: 100%;
     height: 800px;
@@ -62,177 +57,151 @@ body {
     margin: 0;
     padding: 20px;
 }
-#servicesSection {
-    position: absolute;
-    width: 100%;
+
+#homeSectionServices, #sectionHomeAvis{
     background-color: rgb(249, 239, 219);
 }
-.icons {
-    font-size: 70px;
-    color: rgb(99, 136, 137);
-}
- .fa-comment{
-    color: rgb(99, 136, 137);
-    font-size: 70px;
-    padding-top: 10px;
-}
-.services{
-    background-color: rgb(249, 239, 219);
-    height: 500px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.637), 
-              0px 4px 8px rgba(0,0,0,0.15), 
-              0px 8px 16px rgba(0,0,0,0.15), 
-              0px 16px 32px rgba(0,0,0,0.15);
-}
-.service{
+
+#homeSectionServices .card{
     background-color: rgb(235, 217, 180);
     color: rgb(67,104,80);
 }
-.services h1{
+
+#homeSectionServices a,
+#sectionHomeAvis .btn{
+    background-color:rgb(157, 188, 152) ;
+    color: rgb(249, 239, 219);
+}
+
+#homeSectionServices h1, 
+#sectionHomeHabitats h1, 
+#sectionHomeAvis h1 {
     color: rgb(67,104,80);
 }
-.card-body{
-    margin-top: 20%;
-    margin-bottom: 20%;
+
+.icons{
+    font-size: 70px;
+    color: rgb(99, 136, 137);
 }
-.service a{
-    background-color:rgb(157, 188, 152) ;
-    color: rgb(249, 239, 219);
-}
-.service a:hover{
-    background-color:rgb(157, 188, 152) ;
-    color: rgb(249, 239, 219);
-}
-.habitats{
+
+#sectionHomeHabitats,
+#sectionHomeAvis .card{
     background-color: rgb(235, 217, 180);
-    height: 800px;
-    color: rgb(67,104,80);
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.637), 
-              0px 4px 8px rgba(0,0,0,0.15), 
-              0px 8px 16px rgba(0,0,0,0.15), 
-              0px 16px 32px rgba(0,0,0,0.15);
 }
-.habitat{
+
+#sectionHomeHabitats .card{
     background-color: rgb(249, 239, 219);
+    color: rgb(67,104,80);
+}
+#sectionHomeHabitats a{
+    background-color:rgb(99, 136, 137) ;
+    color: rgb(249, 239, 219);
+}
+#sectionHomeAvis h2{
+    color: rgb(67,104,80);
+}
+#sectionHomeAvis .carousel{
+    color: rgb(67,104,80);
+}
+#sectionHomeAvis input, #sectionHomeAvis textarea {
+    background-color: rgb(249, 239, 219);
+    border-color:rgb(249, 239, 219) ;
+    color: rgb(67,104,80);
+}
+
+/* Page Services */
+#sectionServicesRestauration{
+    background-color: rgb(249, 239, 219);
+    color: rgb(67,104,80);
+}
+#sectionServicesTrain{
+    background-color: rgb(235, 217, 180);
+    color: rgb(67,104,80);
+}
+#sectionServicesHabitats{
+    background-color: rgb(249, 239, 219);
+    color: rgb(67,104,80); 
+}
+
+/* Page Habitats */
+.titre-habitats{
+    background-color: rgb(235, 217, 180);
+    height: 100px;
     color: rgb(67,104,80);
 
 }
-.habitat a{
-    background-color:rgb(99, 136, 137) ;
-    color: rgb(249, 239, 219);
-}
-.habitat a:hover{
-    background-color:rgb(99, 136, 137) ;
-    color: rgb(249, 239, 219);
-}
-.avis{
+#sectionHabitatsJungle, #sectionHabitatsMarais{
     background-color: rgb(249, 239, 219);
-    height: 800px;
     color: rgb(67,104,80);
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.637), 
-              0px 4px 8px rgba(0,0,0,0.15), 
-              0px 8px 16px rgba(0,0,0,0.15), 
-              0px 16px 32px rgba(0,0,0,0.15);
 }
-.avis input, .avis textarea{
+#sectionHabitatsJungle .btn, #sectionHabitatsMarais .btn{
+    background-color:rgb(157, 188, 152) ;
+    color: rgb(249, 239, 219);
+}
+#sectionHabitatsSavane{
+    background-color: rgb(235, 217, 180);
+    color: rgb(67,104,80);
+}
+#sectionHabitatsSavane .btn{
+    background-color:rgb(99, 136, 137) ;
+    color: rgb(249, 239, 219);
+}
+.modal-content{
+    background-color: rgb(235, 217, 180);
+    color: rgb(67,104,80);
+}
+.modal-content li{
+    background-color: rgb(249, 239, 219);
+    border-color: rgb(249, 239, 219);
+    color: rgb(67,104,80);
+}
+.modal-content .btn{
+    background-color:rgb(99, 136, 137) ;
+    color: rgb(249, 239, 219);
+}
+.modal-content a{
+    color: rgb(157, 188, 152);
+
+}
+
+/* Page Contact */
+#sectionContactTitre, #sectionContactForm{
+    background-color: rgb(235, 217, 180);
+    color: rgb(67,104,80);
+}
+#sectionContactPhrase{
+    background-color: rgb(249, 239, 219);
+    color: rgb(67,104,80);
+    font-size: 20px;
+    height: 140px;
+}
+#sectionContactForm input,#sectionContactForm textarea {
     background-color: rgb(249, 239, 219);
     border-color:rgb(249, 239, 219) ;
-}
-.avi{
-    background-color: rgb(235, 217, 180);
     color: rgb(67,104,80);
 }
-.avi button{
-    background-color:rgb(157, 188, 152) ;
-    color: rgb(249, 239, 219);
-}
-.avi button:hover{
-    background-color:rgb(157, 188, 152) ;
-    color: rgb(249, 239, 219);
-}
-#divRestauration, #divGuide{
-    background-color: rgb(235, 217, 180);
-    color: rgb(67,104,80);
-    font-size: 25px;
-}
-#divVisite{
-    background-color: rgb(249, 239, 219);
-    color: rgb(67,104,80);
-    font-size: 25px;
-}
-#frontHabitats{
-    background-color: rgb(249, 239, 219);
-}
-#frontHabitats h1, h3{
-    color: rgb(67,104,80);
-    padding-top: 10px;
-}
-#divJungle, #divMarais{
-    background-color: rgb(235, 217, 180);
-    height: 800px;
-}
-#divJungle .btn, #divMarais .btn{
-    background-color:rgb(157, 188, 152) ;
-    color: rgb(249, 239, 219);
-}
-#divSavane{
-    background-color: rgb(249, 239, 219);
-    height: 800px;
-}
-#divSavane .btn{
+#sectionContactForm .btn{
     background-color:rgb(99, 136, 137) ;
     color: rgb(249, 239, 219);
 }
-#pageConnexion{
-    background-color: rgb(249, 239, 219);
-    height: 600px;
-}
-#pageConnexion h1{
-    color: rgb(67,104,80);
-}
-#pageConnexion .btn{
-    background-color:rgb(157, 188, 152) ;
-    color: rgb(249, 239, 219);
-}
-#pageConnexion input{
+
+/* Page Connexion */
+#sectionConnexionForm{
     background-color: rgb(235, 217, 180);
-    border-color: rgb(235, 217, 180);
-}
-#pageContact{
-    background-color: rgb(235, 217, 180);
-}
-#pageContact h1{
     color: rgb(67,104,80);
+    height: 400px;
 }
-#contactPhrase{
-    color: rgb(67,104,80);
-    background-color: rgb(249, 239, 219); 
-    height:300px;
-    padding-top: 70px;
-    padding-bottom: 70px;
-    text-align: center;
-    font-size: 30px;
-}
-#formContact{
-    background-color: rgb(235, 217, 180);
-    padding-top: 100px;
-    height:600px;
-}
-#formContact h1{
-    color: rgb(67,104,80);
-}
-#formContact .btn{
-    background-color:rgb(157, 188, 152) ;
-    color: rgb(249, 239, 219);
-}
-#formContact input{
+#sectionConnexionForm input{
     background-color: rgb(249, 239, 219);
-    border-color: rgb(249, 239, 219);
+    border-color:rgb(249, 239, 219) ;
+    color: rgb(67,104,80); 
 }
-#formContact textarea{
-    background-color: rgb(249, 239, 219);
-    border-color: rgb(249, 239, 219);
+#sectionConnexionForm .btn{
+    background-color:rgb(99, 136, 137) ;
+    color: rgb(249, 239, 219); 
 }
+
+/* Animantion JS */
 .reveal [class*= "reveal-"]{
     opacity: 0;
     transform: translateY(30px);
