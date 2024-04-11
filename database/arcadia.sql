@@ -1,8 +1,6 @@
--- Création de la base de données
-DROP DATABASE IF EXISTS arcadia;
-CREATE DATABASE arcadia;
 
-USE arcadia;
+
+USE mickaelgp_arcadia;
 
 -- Table `image`
 DROP TABLE IF EXISTS images;
