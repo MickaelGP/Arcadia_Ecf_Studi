@@ -56,9 +56,9 @@
             </div>
         </nav>
     </header>
-    <div id="pageBody">
-        @yield('content')
-    </div>
+        <main id="pageBody">
+            @yield('content')
+        </main>
     <footer class="footer">
         <div class="container">
             <div class="row">

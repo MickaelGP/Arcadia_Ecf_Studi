@@ -1,12 +1,14 @@
+-- Création de la base de données
+DROP DATABASE IF EXISTS arcadia;
+CREATE DATABASE arcadia;
 
-
-USE mickaelgp_arcadia;
+USE arcadia;
 
 -- Table `image`
 DROP TABLE IF EXISTS images;
 CREATE TABLE images (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  image_data BLOB NOT NULL
+  image_data VARCHAR(255) NOT NULL
 );
 
 -- Table `habitat`
@@ -55,12 +57,11 @@ INSERT INTO roles (label) VALUES('vétérinaire');
 INSERT INTO roles (label) VALUES('employé');
 
 -- Table `service`
-DROP TABLE IF EXISTS service;
+DROP TABLE IF EXISTS services;
 CREATE TABLE services (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nom VARCHAR(50) NOT NULL,
-  description VARCHAR(255) NOT NULL,
-  isValide BOOLEAN
+  description VARCHAR(255) NOT NULL
 );
 INSERT INTO services(nom, description) 
   VALUES ('Restauration', 
@@ -103,7 +104,7 @@ CREATE TABLE animals (
   etat VARCHAR(255) NOT NULL,
   race_id INT,
   habitat_id INT,
-  FOREIGN KEY (race_id) REFERENCES races(id),
+  FOREIGN KEY (race_id) REFERENCES races(id) ON DELETE SET NULL,
   FOREIGN KEY (habitat_id) REFERENCES habitats(id) ON DELETE SET NULL
 );
 INSERT INTO animals (prenom, etat, race_id, habitat_id) 
