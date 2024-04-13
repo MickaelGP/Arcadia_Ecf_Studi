@@ -24,7 +24,11 @@ class ContactFormMail extends Mailable
     {
         $this->data = $data;
     }
-
+    /**
+     * Spécifie les détails de l'enveloppe de l'e-mail.
+     *
+     * @return Envelope
+     */
     public function envelope(): Envelope
     {
         return new Envelope(
@@ -34,7 +38,11 @@ class ContactFormMail extends Mailable
             
         );
     }
-
+    /**
+     * Spécifie le contenu de l'e-mail.
+     *
+     * @return Content
+     */
     public function content(): Content
     {
         return new Content(

@@ -1,16 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Gestion;
+namespace App\Http\Controllers\Gestion\Habitat;
 
 use App\Models\Image;
 use App\Models\Habitat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class GestionHabitatController extends Controller
 {
-     
-    public function index()
+     /**
+     * Affiche la liste des habitats.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function index(): View
     {
         //
         $user = auth()->user();
@@ -20,16 +26,25 @@ class GestionHabitatController extends Controller
 
         return view('gestion.habitats.index', compact('user','habitats'));
     }
-    
-    public function create()
+    /**
+     * Affiche le formulaire de création d'un habitat.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function create():View
     {
         //
         $user = auth()->user();
 
         return view('gestion.habitats.create',compact('user'));
     }
-    
-    public function store(Request $request)
+    /**
+     * Stocke un nouvel habitat dans la base de données.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request): RedirectResponse
     {
         $data = $request->validate([
             'nom' => ['required', 'string', 'max:255'],
@@ -50,14 +65,25 @@ class GestionHabitatController extends Controller
 
         return redirect()->route('gestion.habitats')->with('success','L\'habitat à bien été ajouté');
     }
-    
-    public function edit(Habitat $habitat)
+    /**
+     * Affiche le formulaire d'édition d'un habitat.
+     *
+     * @param \App\Models\Habitat $habitat
+     * @return \Illuminate\View\View
+     */
+    public function edit(Habitat $habitat): View
     {
         $user = auth()->user();
         return view('gestion.habitats.edit',compact('habitat','user'));
     }
- 
-    public function update(Request $request, Habitat $habitat)
+    /**
+     * Met à jour les informations d'un habitat.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Habitat $habitat
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request, Habitat $habitat): RedirectResponse
     {
         if(auth()->user()->role->id === 'administrateur'){
             $data = $request->validate([
@@ -74,8 +100,13 @@ class GestionHabitatController extends Controller
 
         return redirect()->route('gestion.habitats')->with('success','L\'habitat à bien été modifié');
     }
-    
-    public function destroy(Habitat $habitat)
+    /**
+     * Supprime un habitat de la base de données.
+     *
+     * @param \App\Models\Habitat $habitat
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Habitat $habitat): RedirectResponse
     {
         $habitat->delete();
 

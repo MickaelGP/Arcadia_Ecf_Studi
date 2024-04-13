@@ -1,16 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Gestion;
+namespace App\Http\Controllers\Gestion\Alimentation;
 
 use App\Models\Animal;
+use Illuminate\View\View;
 use App\Models\Alimentation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 
 class AlimentationController extends Controller
 {
-    //
-    public function index()
+      /**
+     * Affiche la vue index pour la gestion des alimentations.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function index(): View
     {
         $user = auth()->user();
 
@@ -18,7 +24,13 @@ class AlimentationController extends Controller
 
         return view('gestion.alimentations.index', compact('user','animals'));
     }
-    public function store(Request $request)
+    /**
+     * Stocke une nouvelle alimentation dans la base de données.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request): RedirectResponse
     {
         
         $data = $request->validate([

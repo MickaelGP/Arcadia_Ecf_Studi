@@ -4,16 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmailController;
-use App\Http\Controllers\Gestion\AviController;
-use App\Http\Controllers\Gestion\AnimalController;
+use App\Http\Controllers\Gestion\Avi\AviController;
+use App\Http\Controllers\Gestion\Animal\AnimalController;
 use App\Http\Controllers\Gestion\GestionController;
-use App\Http\Controllers\Gestion\HoraireController;
-use App\Http\Controllers\Gestion\CreateUserController;
-use App\Http\Controllers\Gestion\AlimentationController;
-use App\Http\Controllers\Gestion\GestionHabitatController;
-use App\Http\Controllers\Gestion\GestionServicesController;
-use App\Http\Controllers\Gestion\ConsultationRapportController;
-use App\Http\Controllers\Gestion\RaceController;
+use App\Http\Controllers\Gestion\Horaire\HoraireController;
+use App\Http\Controllers\Gestion\Compte\CreateUserController;
+use App\Http\Controllers\Gestion\Alimentation\AlimentationController;
+use App\Http\Controllers\Gestion\Habitat\GestionHabitatController;
+use App\Http\Controllers\Gestion\Service\GestionServicesController;
+use App\Http\Controllers\Gestion\Rapport\ConsultationRapportController;
+use App\Http\Controllers\Gestion\Race\RaceController;
 
 //use App\Http\Middleware\GetUserInformation;
 

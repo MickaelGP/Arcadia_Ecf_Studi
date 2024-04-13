@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Alimentation extends Model
 {
@@ -18,11 +19,22 @@ class Alimentation extends Model
     ];
     public $timestamps = false;
 
-    public function animal()
+    /**
+     * Récupère l'animal associé à cette alimentation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function animal(): BelongsTo
     {
         return $this->belongsTo(Animal::class);
     }
-    public function user()
+
+    /**
+     * Récupère l'utilisateur associé à cette alimentation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

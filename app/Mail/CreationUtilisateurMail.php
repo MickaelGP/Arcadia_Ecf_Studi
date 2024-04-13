@@ -15,16 +15,20 @@ class CreationUtilisateurMail extends Mailable
 
     public $data;
 
-    /**
-     * Create a new message instance.
+     /**
+     * Création d'une nouvelle instance.
+     *
+     * @return void
      */
     public function __construct($data)
     {
         $this->data = $data;
     }
 
-    /**
-     * Get the message envelope.
+      /**
+     * Spécifie les détails de l'enveloppe de l'e-mail.
+     *
+     * @return Envelope
      */
     public function envelope(): Envelope
     {
@@ -35,9 +39,10 @@ class CreationUtilisateurMail extends Mailable
             
         );
     }
-
     /**
-     * Get the message content definition.
+     * Spécifie le contenu de l'e-mail.
+     *
+     * @return Content
      */
     public function content(): Content
     {
@@ -46,13 +51,4 @@ class CreationUtilisateurMail extends Mailable
         );
     }
 
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
-    public function attachments(): array
-    {
-        return [];
-    }
 }

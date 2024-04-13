@@ -1,16 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Gestion;
+namespace App\Http\Controllers\Gestion\Animal;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Models\Race;
 use App\Models\Animal;
 use App\Models\Habitat;
-use App\Models\Race;
+use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 
 class AnimalController extends Controller
 {
-    public function index()
+    /**
+     * Affiche la liste des animaux.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function index(): View
     {
         $user = auth()->user();
 
@@ -18,7 +25,12 @@ class AnimalController extends Controller
 
         return view('gestion.animals.index', compact('user','animals'));
     }
-    public function create()
+    /**
+     * Affiche le formulaire de création d'un animal.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function create(): View
     {
         $user= auth()->user();
 
@@ -28,7 +40,13 @@ class AnimalController extends Controller
 
         return view('gestion.animals.create', compact('user','races','habitats'));
     }
-    public function edit(Animal $animal)
+    /**
+     * Affiche le formulaire d'édition d'un animal.
+     *
+     * @param  \App\Models\Animal  $animal
+     * @return \Illuminate\View\View
+     */
+    public function edit(Animal $animal): View
     {
         $user = auth()->user();
 
@@ -38,7 +56,14 @@ class AnimalController extends Controller
 
         return view('gestion.animals.edit',compact('animal','user','races','habitats'));
     }
-    public function update(Request $request, Animal $animal)
+    /**
+     * Met à jour les informations d'un animal.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Animal  $animal
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request, Animal $animal): RedirectResponse
     {
         
         $data = $request->validate([
@@ -52,7 +77,13 @@ class AnimalController extends Controller
 
         return redirect()->route('gestion.animals')->with('success','L\'animal à bien été modifié');
     }
-    public function store(Request $request)
+    /**
+     * Stocke un nouvel animal dans la base de données.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request): RedirectResponse
     {
         
         $data = $request->validate([
@@ -66,7 +97,13 @@ class AnimalController extends Controller
 
         return redirect()->route('gestion.animals');
     }
-    public function destroy(Animal $animal)
+     /**
+     * Supprime un animal de la base de données.
+     *
+     * @param  \App\Models\Animal  $animal
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Animal $animal): RedirectResponse
     {
         $animal->delete();
 

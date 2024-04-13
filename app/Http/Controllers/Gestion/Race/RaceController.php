@@ -1,20 +1,33 @@
 <?php
 
-namespace App\Http\Controllers\Gestion;
+namespace App\Http\Controllers\Gestion\Race;
 
 use App\Models\Race;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class RaceController extends Controller
 {
-    public function create()
+    /**
+     * Affiche le formulaire de création d'une race.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function create(): View
     {
         $user = auth()->user();
 
         return view('gestion.animals.races.create',compact('user'));
     }
-    public function store(Request $request)
+    /**
+     * Stocke une nouvelle race dans la base de données.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request): RedirectResponse
     {
         
         $data = $request->validate([

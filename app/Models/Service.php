@@ -9,7 +9,12 @@ class Service extends Model
 {
     use HasFactory;
     public $timestamps = false;
-
+    
+    /**
+     * Les attributs qui peuvent être assignés en masse.
+     *
+     * @var array<int, string>
+     */
     protected $fillable =[
         'nom',
         'description'

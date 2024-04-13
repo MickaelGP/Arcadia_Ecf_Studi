@@ -4,11 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mail\ContactFormMail;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
 {
-    public function send(Request $request)
+    /**
+     * Envoyer un email en utilisant les données du formulaire
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function send(Request $request): RedirectResponse
     {
        $data = $request->validate([
             'titre' =>['required','string','max:255'],

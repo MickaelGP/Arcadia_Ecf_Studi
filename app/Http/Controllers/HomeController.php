@@ -6,6 +6,8 @@ use App\Models\Avi;
 use App\Models\Habitat;
 use App\Models\Horaire;
 use App\Models\Service;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,7 +23,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(): View
     {
         $avis = Avi::where('isValide',1)->get();
 
@@ -35,7 +37,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\View\View
      */
-    public function showServices()
+    public function showServices(): View
     {
         $services = Service::all();
         return view('service', [
@@ -48,7 +50,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function showHabitats()
+    public function showHabitats(): View
     {
         $habitats = Habitat::all();
 
@@ -62,7 +64,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function showContact()
+    public function showContact(): View
     {
         return view('contact',[
             'horaires' => $this->horaires
@@ -74,7 +76,7 @@ class HomeController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $data = $request->validate([
             'pseudo' => ['required', 'string', 'max:255'],

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Horaire;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -16,13 +18,24 @@ class UserController extends Controller
     {
         $this->horaires = Horaire::all();
     }
-    public function connexion()
+    /**
+     * Affiche la vue de connexion.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function connexion(): View
     {
         return view('connexion',[
             'horaires' => $this->horaires
         ]);
     }
-    public function login(Request $request)
+    /**
+     * Gère le processus de connexion de l'utilisateur.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function login(Request $request): RedirectResponse
     {
         $credentials = $request->only('username', 'password');
         
@@ -35,7 +48,12 @@ class UserController extends Controller
             'email' => 'Email ou mot de passe incorrect.',
         ]);
     }
-    public function logout()
+    /**
+     * Déconnecte l'utilisateur.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logout(): RedirectResponse
     {
         Auth::logout(); 
 

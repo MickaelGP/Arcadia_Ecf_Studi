@@ -1,30 +1,40 @@
 <?php
 
-namespace App\Http\Controllers\Gestion;
+namespace App\Http\Controllers\Gestion\Rapport;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Animal;
 use App\Models\RapportVeterinaire;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class ConsultationRapportController extends Controller
 {
-    //
-    public function index()
+    /**
+     * Affiche la liste des rapports.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function index(): View
     {
         $user = auth()->user();
         $rapports = RapportVeterinaire::all();
         
         return view('gestion.rapport.index', compact('user','rapports'));
     }
-    public function search(Request $request)
+    /**
+     * Recherche des rapports en fonction des critères spécifiés.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\View\View
+     */
+    public function search(Request $request): View
     { 
         $rapportVeterinaire = RapportVeterinaire::query();
         // Récupère les paramètres de recherche
         $queryDate = $request->input('date');
         $animal_id = $request->input('animal_id');
-        
-       
         
         // Construit la requête de recherche
         $rapportsQuery = $rapportVeterinaire;
@@ -35,10 +45,15 @@ class ConsultationRapportController extends Controller
             $rapports = $rapportsQuery->get();
         }
        
-        
        return view('gestion.rapport.search', ['rapports' => $rapports]);
     }
-    public function show($id)
+    /**
+     * Affiche les détails d'un rapport.
+     *
+     * @param int $id
+     * @return \Illuminate\View\View
+     */
+    public function show($id): View
     {
         $user = auth()->user();
         
@@ -46,7 +61,12 @@ class ConsultationRapportController extends Controller
         
         return view('gestion.rapport.show',compact('rapport','user'));
     }
-    public function create()
+    /**
+     * Affiche le formulaire de création d'un rapport.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function create(): View
     {
         $user = auth()->user();
 
@@ -54,7 +74,13 @@ class ConsultationRapportController extends Controller
 
         return view('gestion.rapport.create',compact('user','animals'));
     }
-    public function store(Request $request)
+    /**
+     * Stocke un nouveau rapport vétérinaire dans la base de données.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request): RedirectResponse
     {
         
         $userId = auth()->user()->id;

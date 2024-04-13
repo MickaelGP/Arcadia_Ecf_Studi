@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Gestion;
+namespace App\Http\Controllers\Gestion\Compte;
 
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Mail\CreationUtilisateurMail;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\View\View;
 
 class CreateUserController extends Controller
 {
@@ -17,7 +19,12 @@ class CreateUserController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index()
+    /**
+     * Affiche la vue index pour la gestion des comptes.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function index(): View
     {
         $user = auth()->user();
 
@@ -28,7 +35,13 @@ class CreateUserController extends Controller
             'roles' => $roles
         ] );
     }
-    public function store(Request $request)
+    /**
+     * Stocke un nouvel utilisateur dans la base de données.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request): RedirectResponse
     {
         $data = $request->validate([
             'username' => ['required','email','string','max:255','unique:users'],

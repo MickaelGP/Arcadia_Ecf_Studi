@@ -9,6 +9,11 @@ class Avi extends Model
 {
     use HasFactory;
 
+    /**
+     * Les attributs qui peuvent être assignés en masse.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'pseudo',
         'commentaire',
