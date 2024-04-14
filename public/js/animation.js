@@ -1,4 +1,4 @@
-
+//Animation page Home
 const ratio = .2
 const options = {
     root: null,
@@ -18,6 +18,7 @@ const observer = new IntersectionObserver(handleIntersect, options);
 document.querySelectorAll('.reveal').forEach(function (r) {
     observer.observe(r);
 });
+//
 document.addEventListener('DOMContentLoaded', function () {
     let alertSuccess = document.querySelector('#alertSuccess');
     if (alertSuccess) {

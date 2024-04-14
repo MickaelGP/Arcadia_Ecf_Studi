@@ -44,8 +44,8 @@ class UserController extends Controller
         }
 
         // Si l'authentification échoue, rediriger avec un message d'erreur
-        return redirect()->back()->withInput($request->only('email', 'remember'))->withErrors([
-            'email' => 'Email ou mot de passe incorrect.',
+        return redirect()->back()->withInput($request->only('username'))->withErrors([
+            'username' => 'Email ou mot de passe incorrect.',
         ]);
     }
     /**

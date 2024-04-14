@@ -33,7 +33,7 @@
                 @csrf
                 <div class="mb-3">
                     <input type="text" class="form-control shadow  @error('titre') is-invalid @enderror" name="titre"
-                        id="textInput" required placeholder="Titre">
+                        id="inputTitre" required placeholder="Titre">
                     @error('titre')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="mb-3">
                     <input type="text" class="form-control shadow @error('pseudo') is-invalid @enderror" name="pseudo"
-                        id="textInput" required placeholder="Pseudo">
+                        id="inputPseudo" required placeholder="Pseudo">
                     @error('pseudo')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="mb-3">
                     <input type="email" class="form-control shadow @error('email') is-invalid @enderror" name="email"
-                        id="eemailInput" placeholder="Email" required>
+                        id="inputMail" placeholder="Email" required>
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -59,7 +59,8 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <textarea class="form-control shadow @error('description') is-invalid @enderror" name="description" placeholder="Description" required></textarea>
+                    <textarea class="form-control shadow @error('description') is-invalid @enderror" name="description"
+                        placeholder="Description" required></textarea>
                     @error('description')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -72,7 +73,7 @@
             </form>
         </div>
         @if (session('success'))
-            <div class="alert alert-success container w-50  text-center mt-3" id="alertSuccess">
+            <div class="alert alert-success container w-50  text-center mt-5" id="alertSuccess">
                 {{ session('success') }}
             </div>
         @endif

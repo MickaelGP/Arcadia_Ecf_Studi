@@ -11,7 +11,7 @@
                     @csrf
                     <div class="mb-3">
                         <input type="email" class="form-control shadow @error('username') is-invalid @enderror"
-                            id="inputUsername" name="username" placeholder="Email utilisateur" required>
+                            id="inputEmail" name="username" placeholder="Email utilisateur" required>
                         @error('username')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -21,11 +21,13 @@
                     <div class="mb-3">
                         <input type="password" class="form-control shadow @error('password') is-invalid @enderror"
                             id="inputPassword" name="password" placeholder="Mot de passe" required>
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        <span class="invalid-feedback" role="alert">
+                            <strong>
+                                Le mot de passe n'est pas valide : Au moins 8 carractères,
+                                comprenant au moins 1 lettre majuscule, 1 minuscule, 1 chiffre,
+                                1 carractère special.
+                            </strong>
+                        </span>
                     </div>
                     <div class="pt-5">
                         <button type="submit" class="btn  shadow ">Submit</button>

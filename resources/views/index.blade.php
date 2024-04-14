@@ -105,16 +105,19 @@
                             </div>
                             <i class="fa-regular fa-comment icons"></i>
                             <div class="card-body">
-                                <form action="{{ route('store') }}" method="POST">
+                                <form action="{{ route('store') }}" id="formAvis" method="POST">
                                     @csrf
                                     <div class="mb-3">
                                         <input type="text" class="form-control shadow" id="inputPseudo" name="pseudo"
                                             placeholder="pseudo" required>
+                                            <span class="invalid-feedback">
+                                                <strong>Le pseudo doit avoir au moins 4 caractères </strong>
+                                            </span>
                                     </div>
                                     <div class="mb-3">
-                                        <textarea class="form-control shadow" name="commentaire" placeholder="Description" required></textarea>
+                                        <textarea class="form-control shadow" name="commentaire" id="commentaireArea" placeholder="Description" required></textarea>
                                     </div>
-                                    <button type="submit" class="btn shadow">Envoyer</button>
+                                    <button type="submit" class="btn shadow" id="btnValidation">Envoyer</button>
                                 </form>
                             </div>
                         </div>
