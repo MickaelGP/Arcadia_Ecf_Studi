@@ -46,5 +46,4 @@ class RapportVeterinaire extends Model
     {
         return $this->belongsTo(User::class);
     }
-   
 }

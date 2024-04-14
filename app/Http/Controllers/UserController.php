@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     //
     private $horaires;
-    
+
     public function __construct()
     {
         $this->horaires = Horaire::all();
@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function connexion(): View
     {
-        return view('connexion',[
+        return view('connexion', [
             'horaires' => $this->horaires
         ]);
     }
@@ -38,7 +38,7 @@ class UserController extends Controller
     public function login(Request $request): RedirectResponse
     {
         $credentials = $request->only('username', 'password');
-        
+
         if (Auth::attempt($credentials)) {
             return redirect()->route('gestion');
         }
@@ -55,10 +55,10 @@ class UserController extends Controller
      */
     public function logout(): RedirectResponse
     {
-        Auth::logout(); 
+        Auth::logout();
 
         Session::flush();
-         
+
         return redirect()->route('home');
     }
 }

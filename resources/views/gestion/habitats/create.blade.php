@@ -26,7 +26,8 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label  @error('image_data') is-invalid @enderror">Image de l'habitat</label>
+                <label for="image" class="form-label  @error('image_data') is-invalid @enderror">Image de
+                    l'habitat</label>
                 <input type="file" class="form-control" id="image" name="image_data">
                 @error('image_data')
                     <span class="invalid-feedback" role="alert">

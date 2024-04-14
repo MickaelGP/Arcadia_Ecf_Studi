@@ -26,14 +26,14 @@ class GestionController extends Controller
         $user = auth()->user();
 
         $rapports = RapportVeterinaire::all();
-        
+
         $avis = Avi::where('isValide', null)->get();
 
         $alimentations = Alimentation::all();
 
-        return view('gestion.index', compact('user','rapports','avis','alimentations'));
+        return view('gestion.index', compact('user', 'rapports', 'avis', 'alimentations'));
     }
-     /**
+    /**
      * Redirige vers la page de création de comptes.
      *
      * @return \Illuminate\Http\RedirectResponse

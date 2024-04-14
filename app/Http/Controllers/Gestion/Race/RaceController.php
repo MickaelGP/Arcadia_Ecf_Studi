@@ -19,7 +19,7 @@ class RaceController extends Controller
     {
         $user = auth()->user();
 
-        return view('gestion.animals.races.create',compact('user'));
+        return view('gestion.animals.races.create', compact('user'));
     }
     /**
      * Stocke une nouvelle race dans la base de données.
@@ -29,13 +29,13 @@ class RaceController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        
+
         $data = $request->validate([
-            'label' =>['required','string','max:50','unique:races']
+            'label' => ['required', 'string', 'max:50', 'unique:races']
         ]);
-        
+
         Race::create($data);
 
-        return redirect()->route('gestion')->with('success','La race à bien été ajoutée');
+        return redirect()->route('gestion')->with('success', 'La race à bien été ajoutée');
     }
 }

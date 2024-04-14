@@ -21,7 +21,7 @@ class HoraireController extends Controller
 
         $horaires = Horaire::all();
 
-        return view('gestion.horaires.index', compact('user','horaires'));
+        return view('gestion.horaires.index', compact('user', 'horaires'));
     }
     /**
      * Affiche le formulaire de création d'un horaire.
@@ -44,15 +44,15 @@ class HoraireController extends Controller
     {
         $data = $request->validate([
             'ouverture_matin' => ['required', 'date_format:H:i'],
-            'ouverture_soir' => ['nullable','date_format:H:i'],
-            'fermeture_matin' => ['nullable','date_format:H:i'],
-            'fermeture_soir' => ['required','date_format:H:i']
+            'ouverture_soir' => ['nullable', 'date_format:H:i'],
+            'fermeture_matin' => ['nullable', 'date_format:H:i'],
+            'fermeture_soir' => ['required', 'date_format:H:i']
         ]);
 
 
         Horaire::create($data);
 
-        return redirect()->route('gestion.horaires')->with('success','L\'horaire à bien été ajouté');
+        return redirect()->route('gestion.horaires')->with('success', 'L\'horaire à bien été ajouté');
     }
     /**
      * Affiche le formulaire d'édition d'un horaire.
@@ -64,7 +64,7 @@ class HoraireController extends Controller
     {
         $user = auth()->user();
 
-        return view('gestion.horaires.edit',compact('user','horaire'));
+        return view('gestion.horaires.edit', compact('user', 'horaire'));
     }
     /**
      * Met à jour les informations d'un horaire.
@@ -76,15 +76,14 @@ class HoraireController extends Controller
     public function update(Request $request, Horaire $horaire): RedirectResponse
     {
         $data = $request->validate([
-            'ouverture_matin' => ['required','string','max:50'],
-            'ouverture_soir' => ['nullable','string','max:50'],
-            'fermeture_matin' => ['nullable','string','max:50'],
-            'fermeture_soir' => ['required','string','max:50']
+            'ouverture_matin' => ['required', 'string', 'max:50'],
+            'ouverture_soir' => ['nullable', 'string', 'max:50'],
+            'fermeture_matin' => ['nullable', 'string', 'max:50'],
+            'fermeture_soir' => ['required', 'string', 'max:50']
         ]);
 
         $horaire->update($data);
 
-        return redirect()->route('gestion.horaires')->with('success','L\'horaire à bien été modifié');
-
+        return redirect()->route('gestion.horaires')->with('success', 'L\'horaire à bien été modifié');
     }
 }

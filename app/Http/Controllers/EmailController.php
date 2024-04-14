@@ -17,14 +17,14 @@ class EmailController extends Controller
      */
     public function send(Request $request): RedirectResponse
     {
-       $data = $request->validate([
-            'titre' =>['required','string','max:255'],
-            'pseudo' => ['required','string','max:255'],
-            'email' => ['required','email'],
-            'description' => ['required','string','max:255'],
+        $data = $request->validate([
+            'titre' => ['required', 'string', 'max:255'],
+            'pseudo' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email'],
+            'description' => ['required', 'string', 'max:255'],
         ]);
 
-       
+
 
         Mail::send(new ContactFormMail($data));
 

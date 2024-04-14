@@ -1,28 +1,34 @@
-
-html,body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    font-family:"Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
-#pageBody{
+
+#pageBody {
     flex: 1;
 }
+
 #navbar {
     background-color: rgb(157, 188, 152);
 }
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
     color: rgb(235, 217, 180);
 
 }
-.nav-link{
-    color: rgb(67,104,80);
+
+.nav-link {
+    color: rgb(67, 104, 80);
 }
+
 .footer {
     background-color: rgb(157, 188, 152);
-    color: rgb(67,104,80);
+    color: rgb(67, 104, 80);
     flex-shrink: 0;
 }
 
@@ -38,6 +44,7 @@ html,body {
     color: rgb(235, 217, 180);
     text-align: center;
 }
+
 #titreHero h1 {
     position: absolute;
     top: 20%;
@@ -47,6 +54,7 @@ html,body {
     margin: 0;
     padding: 20px;
 }
+
 #textHero {
     position: absolute;
     top: 70%;
@@ -57,166 +65,194 @@ html,body {
     padding: 20px;
 }
 
-#homeSectionServices, #sectionHomeAvis{
+#homeSectionServices,
+#sectionHomeAvis {
     background-color: rgb(249, 239, 219);
 }
 
-#homeSectionServices .card{
+#homeSectionServices .card {
     background-color: rgb(235, 217, 180);
-    color: rgb(67,104,80);
+    color: rgb(67, 104, 80);
 }
 
 #homeSectionServices a,
-#sectionHomeAvis .btn{
-    background-color:rgb(157, 188, 152) ;
+#sectionHomeAvis .btn {
+    background-color: rgb(157, 188, 152);
     color: rgb(249, 239, 219);
 }
 
-#homeSectionServices h1, 
-#sectionHomeHabitats h1, 
+#homeSectionServices h1,
+#sectionHomeHabitats h1,
 #sectionHomeAvis h1 {
-    color: rgb(67,104,80);
+    color: rgb(67, 104, 80);
 }
 
-.icons{
+.icons {
     font-size: 70px;
     color: rgb(99, 136, 137);
 }
 
 #sectionHomeHabitats,
-#sectionHomeAvis .card{
+#sectionHomeAvis .card {
     background-color: rgb(235, 217, 180);
 }
 
-#sectionHomeHabitats .card{
+#sectionHomeHabitats .card {
     background-color: rgb(249, 239, 219);
-    color: rgb(67,104,80);
+    color: rgb(67, 104, 80);
 }
-#sectionHomeHabitats a{
-    background-color:rgb(99, 136, 137) ;
+
+#sectionHomeHabitats a {
+    background-color: rgb(99, 136, 137);
     color: rgb(249, 239, 219);
 }
-#sectionHomeAvis h2{
-    color: rgb(67,104,80);
+
+#sectionHomeAvis h2 {
+    color: rgb(67, 104, 80);
 }
-#sectionHomeAvis .carousel{
-    color: rgb(67,104,80);
+
+#sectionHomeAvis .carousel {
+    color: rgb(67, 104, 80);
 }
-#sectionHomeAvis input, #sectionHomeAvis textarea {
+
+#sectionHomeAvis input,
+#sectionHomeAvis textarea {
     background-color: rgb(249, 239, 219);
-    border-color:rgb(249, 239, 219) ;
-    color: rgb(67,104,80);
+    border-color: rgb(249, 239, 219);
+    color: rgb(67, 104, 80);
 }
 
 /* Page Services */
-#sectionServicesRestauration{
+#sectionServicesRestauration {
     background-color: rgb(249, 239, 219);
-    color: rgb(67,104,80);
+    color: rgb(67, 104, 80);
 }
-#sectionServicesTrain{
+
+#sectionServicesTrain {
     background-color: rgb(235, 217, 180);
-    color: rgb(67,104,80);
+    color: rgb(67, 104, 80);
 }
-#sectionServicesHabitats{
+
+#sectionServicesHabitats {
     background-color: rgb(249, 239, 219);
-    color: rgb(67,104,80); 
+    color: rgb(67, 104, 80);
 }
 
 /* Page Habitats */
-.titre-habitats{
+.titre-habitats {
     background-color: rgb(235, 217, 180);
     height: 100px;
-    color: rgb(67,104,80);
+    color: rgb(67, 104, 80);
 
 }
-#sectionHabitatsJungle, #sectionHabitatsMarais{
+
+#sectionHabitatsJungle,
+#sectionHabitatsMarais {
     background-color: rgb(249, 239, 219);
-    color: rgb(67,104,80);
+    color: rgb(67, 104, 80);
 }
-#sectionHabitatsJungle .btn, #sectionHabitatsMarais .btn{
-    background-color:rgb(157, 188, 152) ;
+
+#sectionHabitatsJungle .btn,
+#sectionHabitatsMarais .btn {
+    background-color: rgb(157, 188, 152);
     color: rgb(249, 239, 219);
 }
-#sectionHabitatsSavane{
+
+#sectionHabitatsSavane {
     background-color: rgb(235, 217, 180);
-    color: rgb(67,104,80);
+    color: rgb(67, 104, 80);
 }
-#sectionHabitatsSavane .btn{
-    background-color:rgb(99, 136, 137) ;
+
+#sectionHabitatsSavane .btn {
+    background-color: rgb(99, 136, 137);
     color: rgb(249, 239, 219);
 }
-.modal-content{
+
+.modal-content {
     background-color: rgb(235, 217, 180);
-    color: rgb(67,104,80);
+    color: rgb(67, 104, 80);
 }
-.modal-content li{
+
+.modal-content li {
     background-color: rgb(249, 239, 219);
     border-color: rgb(249, 239, 219);
-    color: rgb(67,104,80);
+    color: rgb(67, 104, 80);
 }
-.modal-content .btn{
-    background-color:rgb(99, 136, 137) ;
+
+.modal-content .btn {
+    background-color: rgb(99, 136, 137);
     color: rgb(249, 239, 219);
 }
-.modal-content a{
+
+.modal-content a {
     color: rgb(157, 188, 152);
 
 }
 
 /* Page Contact */
-#sectionContactTitre, #sectionContactForm{
+#sectionContactTitre,
+#sectionContactForm {
     background-color: rgb(235, 217, 180);
-    color: rgb(67,104,80);
+    color: rgb(67, 104, 80);
 }
-#sectionContactPhrase{
+
+#sectionContactPhrase {
     background-color: rgb(249, 239, 219);
-    color: rgb(67,104,80);
+    color: rgb(67, 104, 80);
     font-size: 20px;
     height: 140px;
 }
-#sectionContactForm input,#sectionContactForm textarea {
+
+#sectionContactForm input,
+#sectionContactForm textarea {
     background-color: rgb(249, 239, 219);
-    border-color:rgb(249, 239, 219) ;
-    color: rgb(67,104,80);
+    border-color: rgb(249, 239, 219);
+    color: rgb(67, 104, 80);
 }
-#sectionContactForm .btn{
-    background-color:rgb(99, 136, 137) ;
+
+#sectionContactForm .btn {
+    background-color: rgb(99, 136, 137);
     color: rgb(249, 239, 219);
 }
 
 /* Page Connexion */
-#sectionConnexionForm{
+#sectionConnexionForm {
     background-color: rgb(235, 217, 180);
-    color: rgb(67,104,80);
+    color: rgb(67, 104, 80);
     height: 600px;
 }
-#sectionConnexionForm input{
+
+#sectionConnexionForm input {
     background-color: rgb(249, 239, 219);
-    border-color:rgb(249, 239, 219) ;
-    color: rgb(67,104,80); 
+    border-color: rgb(249, 239, 219);
+    color: rgb(67, 104, 80);
 }
-#sectionConnexionForm .btn{
-    background-color:rgb(99, 136, 137) ;
-    color: rgb(249, 239, 219); 
+
+#sectionConnexionForm .btn {
+    background-color: rgb(99, 136, 137);
+    color: rgb(249, 239, 219);
 }
 
 /* Animantion JS */
-.reveal [class*= "reveal-"]{
+.reveal [class*="reveal-"] {
     opacity: 0;
     transform: translateY(30px);
 }
-.reveal-visible [class*= "reveal-"]{
+
+.reveal-visible [class*="reveal-"] {
     opacity: 1;
     transform: translateY(0);
     transition: 1s cubic-bezier(.5, 0, 0, 1);
 }
 
-.reveal-visible .reveal-2{
+.reveal-visible .reveal-2 {
     transition-delay: .1s;
 }
-.reveal-visible .reveal-3{
+
+.reveal-visible .reveal-3 {
     transition-delay: .2s;
 }
-.reveal-visible .reveal-4{
+
+.reveal-visible .reveal-4 {
     transition-delay: .3s;
 }

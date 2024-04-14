@@ -1,6 +1,11 @@
 @extends('layouts.gestion')
 
 @section('content')
+    @if (session('success'))
+        <div class="container w-50 text-center alert alert-success" id="alert">
+            <h1>{{ session('success') }}</h1>
+        </div>
+    @endif
     <div class="container pb-5">
         <div class="row justify-content-center pt-5">
             <div class="col-md-8">
@@ -16,9 +21,15 @@
                                     Alimentation</label>
 
                                 <div class="col-md-6">
-                                    <input id="date_alimentation" type="date" class="form-control"
+                                    <input id="date_alimentation" type="date"
+                                        class="form-control @error('date_alimentation') is-invalid @enderror"
                                         name="date_alimentation" required>
                                 </div>
+                                @error('date_alilmentation')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
 
                             <div class="form-group row mb-3">
@@ -26,9 +37,15 @@
                                     Alimentation</label>
 
                                 <div class="col-md-6">
-                                    <input id="heure_alimentation" type="time" class="form-control"
+                                    <input id="heure_alimentation" type="time"
+                                        class="form-control @error('heure_alimentation') is-invalid @enderror"
                                         name="heure_alimentation" required>
                                 </div>
+                                @error('heure_alilmentation')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
 
                             <div class="form-group row mb-3">
@@ -36,8 +53,15 @@
                                     Donnée</label>
 
                                 <div class="col-md-6">
-                                    <input id="nourriture" type="text" class="form-control" name="nourriture" required>
+                                    <input id="nourriture" type="text"
+                                        class="form-control @error('nourriture') is-invalid @enderror" name="nourriture"
+                                        required>
                                 </div>
+                                @error('nourriture')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
 
                             <div class="form-group row mb-3">
@@ -45,23 +69,29 @@
                                     grammes</label>
 
                                 <div class="col-md-6">
-                                    <input id="quantite" type="number" step="0.01" class="form-control" name="quantite"
+                                    <input id="quantite" type="number" step="0.01"
+                                        class="form-control @error('quantite') is-invalid @enderror" name="quantite"
                                         required>
                                 </div>
+                                @error('quantite')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group row mb-3">
                                 <label for="animal_id" class="col-md-4 col-form-label text-md-right">Animal</label>
                                 <div class="col-md-6">
                                     <select class="form-select" name="animal_id" id="animalSelect"
-                                    aria-label="Default select example">
-                                    <option selected>Selectionner un animal</option>
-                                    @forelse ($animals as $animal)
-                                        <option value="{{ $animal->id }}">{{ $animal->prenom }}
-                                        </option>
-                                    @empty
-                                        <h1>No Data</h1>
-                                    @endforelse 
-                                </select>
+                                        aria-label="Default select example">
+                                        <option selected>Selectionner un animal</option>
+                                        @forelse ($animals as $animal)
+                                            <option value="{{ $animal->id }}">{{ $animal->prenom }}
+                                            </option>
+                                        @empty
+                                            <h1>No Data</h1>
+                                        @endforelse
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row mb-0">

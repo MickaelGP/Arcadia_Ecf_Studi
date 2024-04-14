@@ -23,7 +23,7 @@ class AnimalController extends Controller
 
         $animals = Animal::all();
 
-        return view('gestion.animals.index', compact('user','animals'));
+        return view('gestion.animals.index', compact('user', 'animals'));
     }
     /**
      * Affiche le formulaire de création d'un animal.
@@ -32,13 +32,13 @@ class AnimalController extends Controller
      */
     public function create(): View
     {
-        $user= auth()->user();
+        $user = auth()->user();
 
         $races = Race::all();
 
         $habitats = Habitat::all();
 
-        return view('gestion.animals.create', compact('user','races','habitats'));
+        return view('gestion.animals.create', compact('user', 'races', 'habitats'));
     }
     /**
      * Affiche le formulaire d'édition d'un animal.
@@ -54,7 +54,7 @@ class AnimalController extends Controller
 
         $habitats = Habitat::all();
 
-        return view('gestion.animals.edit',compact('animal','user','races','habitats'));
+        return view('gestion.animals.edit', compact('animal', 'user', 'races', 'habitats'));
     }
     /**
      * Met à jour les informations d'un animal.
@@ -65,17 +65,17 @@ class AnimalController extends Controller
      */
     public function update(Request $request, Animal $animal): RedirectResponse
     {
-        
+
         $data = $request->validate([
-            'prenom' => ['required','string','max:50'],
-            'etat' => ['required','string','max:255'],
-            'race_id' => ['required','int'],
-            'habitat_id' => ['required','int']
+            'prenom' => ['required', 'string', 'max:50'],
+            'etat' => ['required', 'string', 'max:255'],
+            'race_id' => ['required', 'int'],
+            'habitat_id' => ['required', 'int']
         ]);
 
         $animal->update($data);
 
-        return redirect()->route('gestion.animals')->with('success','L\'animal à bien été modifié');
+        return redirect()->route('gestion.animals')->with('success', 'L\'animal à bien été modifié');
     }
     /**
      * Stocke un nouvel animal dans la base de données.
@@ -85,19 +85,19 @@ class AnimalController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        
+
         $data = $request->validate([
-            'prenom' => ['required','string','max:50'],
-            'etat' => ['required','string','max:255'],
-            'race_id' => ['required','int'],
-            'habitat_id' => ['required','int']
+            'prenom' => ['required', 'string', 'max:50'],
+            'etat' => ['required', 'string', 'max:255'],
+            'race_id' => ['required', 'int'],
+            'habitat_id' => ['required', 'int']
         ]);
 
         Animal::create($data);
 
         return redirect()->route('gestion.animals');
     }
-     /**
+    /**
      * Supprime un animal de la base de données.
      *
      * @param  \App\Models\Animal  $animal

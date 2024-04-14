@@ -10,7 +10,7 @@ use Illuminate\View\View;
 
 class AviController extends Controller
 {
-     /**
+    /**
      * Stocke un nouvel avis dans la base de données.
      *
      * @param \Illuminate\Http\Request $request
@@ -35,7 +35,7 @@ class AviController extends Controller
     public function edit(Avi $avi): View
     {
         $user = auth()->user();
-        return view('gestion.avis.edit', compact('user','avi'));
+        return view('gestion.avis.edit', compact('user', 'avi'));
     }
     /**
      * Met à jour les informations d'un avis.
@@ -47,12 +47,12 @@ class AviController extends Controller
     public function update(Request $request, Avi $avi): RedirectResponse
     {
 
-       $data = $request->validate([
-        'isValide' => ['required','int']
-       ]);
-       
+        $data = $request->validate([
+            'isValide' => ['required', 'int']
+        ]);
+
         $avi->update($data);
 
-        return redirect()->route('gestion')->with('success','L\'avi à bien été modifié');
+        return redirect()->route('gestion')->with('success', 'L\'avi à bien été modifié');
     }
 }

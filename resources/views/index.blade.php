@@ -99,48 +99,53 @@
             <div class="conatiner pt-2 ">
                 <div class="row reveal">
                     <div class="col-sm-12 col-md-6">
-                            <div class="card avi shadow reveal-2">
-                                <div class="card-title pt-5">
-                                    <h1>Laissez nous votre avis</h1>
-                                </div>
-                                <i class="fa-regular fa-comment icons"></i>
-                                <div class="card-body">
-                                    <form action="{{ route('store') }}" method="POST">
-                                        @csrf
-                                        <div class="mb-3">
-                                            <input type="text" class="form-control shadow" id="inputPseudo"
-                                                name="pseudo" placeholder="pseudo" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <textarea class="form-control shadow" name="commentaire" placeholder="Description" required></textarea>
-                                        </div>
-                                        <button type="submit" class="btn shadow">Envoyer</button>
-                                    </form>
-                                </div>
+                        <div class="card avi shadow reveal-2">
+                            <div class="card-title pt-5">
+                                <h1>Laissez nous votre avis</h1>
                             </div>
+                            <i class="fa-regular fa-comment icons"></i>
+                            <div class="card-body">
+                                <form action="{{ route('store') }}" method="POST">
+                                    @csrf
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control shadow" id="inputPseudo" name="pseudo"
+                                            placeholder="pseudo" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <textarea class="form-control shadow" name="commentaire" placeholder="Description" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn shadow">Envoyer</button>
+                                </form>
+                            </div>
+                        </div>
+                        @if (session('success'))
+                            <div class="alert alert-success container w-50  text-center mt-3" id="alertSuccess">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                     </div>
                     <div class="col-sm-12 col-md-6">
-                            <h2 class="pt-2">Les avis des visiteurs</h2>
-                            <div id="carouselAvis" class="carousel slide pt-3 reveal-3">
-                                <div class="carousel-inner">
-                                    @foreach ($avis as $key => $avi)
-                                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }} rounded">
-                                            <h5>{{ $avi->pseudo }}</h5>
-                                            <p>{{ $avi->commentaire }}</p>
-                                        </div>
-                                    @endforeach
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselAvis"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselAvis"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
+                        <h2 class="pt-2">Les avis des visiteurs</h2>
+                        <div id="carouselAvis" class="carousel slide pt-3 reveal-3">
+                            <div class="carousel-inner">
+                                @foreach ($avis as $key => $avi)
+                                    <div class="carousel-item {{ $key == 0 ? 'active' : '' }} rounded">
+                                        <h5>{{ $avi->pseudo }}</h5>
+                                        <p>{{ $avi->commentaire }}</p>
+                                    </div>
+                                @endforeach
                             </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAvis"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselAvis"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -35,7 +35,7 @@ class ContactFormMail extends Mailable
             to: 'employe@arcadia.fr',
             replyTo: $this->data['email'],
             subject: 'Demande info zoo'
-            
+
         );
     }
     /**
@@ -49,5 +49,4 @@ class ContactFormMail extends Mailable
             markdown: 'emails.contact_form_email',
         );
     }
-
 }

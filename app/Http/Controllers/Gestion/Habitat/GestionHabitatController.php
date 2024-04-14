@@ -11,7 +11,7 @@ use Illuminate\View\View;
 
 class GestionHabitatController extends Controller
 {
-     /**
+    /**
      * Affiche la liste des habitats.
      *
      * @return \Illuminate\View\View
@@ -24,19 +24,19 @@ class GestionHabitatController extends Controller
         $habitats = Habitat::all();
 
 
-        return view('gestion.habitats.index', compact('user','habitats'));
+        return view('gestion.habitats.index', compact('user', 'habitats'));
     }
     /**
      * Affiche le formulaire de création d'un habitat.
      *
      * @return \Illuminate\View\View
      */
-    public function create():View
+    public function create(): View
     {
         //
         $user = auth()->user();
 
-        return view('gestion.habitats.create',compact('user'));
+        return view('gestion.habitats.create', compact('user'));
     }
     /**
      * Stocke un nouvel habitat dans la base de données.
@@ -50,20 +50,19 @@ class GestionHabitatController extends Controller
             'nom' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:255'],
             'commentaire' => ['nullable', 'string', 'max:255'],
-            'image_data' => ['image', 'nullable'], 
+            'image_data' => ['image', 'nullable'],
         ]);
-    
-        $habitat = Habitat::create($data); 
-        
+
+        $habitat = Habitat::create($data);
+
         if ($request->hasFile('image_data')) {
             $imagePath = $request->file('image_data')->store('img', 'public');
-            $image = Image::create(['image_data' => $imagePath]); 
+            $image = Image::create(['image_data' => $imagePath]);
 
             $habitat->images()->attach($image->id);
-
         }
 
-        return redirect()->route('gestion.habitats')->with('success','L\'habitat à bien été ajouté');
+        return redirect()->route('gestion.habitats')->with('success', 'L\'habitat à bien été ajouté');
     }
     /**
      * Affiche le formulaire d'édition d'un habitat.
@@ -74,7 +73,7 @@ class GestionHabitatController extends Controller
     public function edit(Habitat $habitat): View
     {
         $user = auth()->user();
-        return view('gestion.habitats.edit',compact('habitat','user'));
+        return view('gestion.habitats.edit', compact('habitat', 'user'));
     }
     /**
      * Met à jour les informations d'un habitat.
@@ -85,20 +84,20 @@ class GestionHabitatController extends Controller
      */
     public function update(Request $request, Habitat $habitat): RedirectResponse
     {
-        if(auth()->user()->role->id === 'administrateur'){
+        if (auth()->user()->role->id === 'administrateur') {
             $data = $request->validate([
-                'nom'=>['required','string','max:255'],
-                'description'=>['required','string','max:255'],
-                'commentaire' => ['nullable','string','max:255']
+                'nom' => ['required', 'string', 'max:255'],
+                'description' => ['required', 'string', 'max:255'],
+                'commentaire' => ['nullable', 'string', 'max:255']
             ]);
-        }else{
+        } else {
             $data = $request->validate([
-                'commentaire' => ['nullable','string','max:255']
+                'commentaire' => ['nullable', 'string', 'max:255']
             ]);
         }
         $habitat->update($data);
 
-        return redirect()->route('gestion.habitats')->with('success','L\'habitat à bien été modifié');
+        return redirect()->route('gestion.habitats')->with('success', 'L\'habitat à bien été modifié');
     }
     /**
      * Supprime un habitat de la base de données.

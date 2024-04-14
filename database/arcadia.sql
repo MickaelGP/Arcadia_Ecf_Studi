@@ -120,16 +120,16 @@ INSERT INTO animals (prenom, etat, race_id, habitat_id)
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(255) NOT NULL,
+  username VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL,
   nom VARCHAR(50) NOT NULL,
   prenom VARCHAR(50) NOT NULL,
   role_id INT,
   FOREIGN KEY (role_id) REFERENCES roles(id)
 );
-INSERT INTO users (username, password, nom, prenom, role_id) VALUES('admin@arcadia.fr', '$2y$12$nPL5T6p2Srsh0Nccwm7.PembOVN/L1LD93hTbjDwJ/mLChn8KMoSu','Doe','John',1);
-INSERT INTO users (username, password, nom, prenom, role_id) VALUES('veterinaire@arcadia.fr', '$2y$12$nPL5T6p2Srsh0Nccwm7.PembOVN/L1LD93hTbjDwJ/mLChn8KMoSu','Doe','Bob',2);
-INSERT INTO users (username, password, nom, prenom, role_id) VALUES('employe@arcadia.fr', '$2y$12$nPL5T6p2Srsh0Nccwm7.PembOVN/L1LD93hTbjDwJ/mLChn8KMoSu','Robert','Dupont',3);
+INSERT INTO users (username, password, nom, prenom, role_id) VALUES('admin@arcadia.fr', '$2y$12$gN69L9o1bIpnngf1PuAJdeR272u3cj7CRRYjuvwf7Q7bUf.zoFyfS','Doe','John',1);
+INSERT INTO users (username, password, nom, prenom, role_id) VALUES('veterinaire@arcadia.fr', '$2y$12$DJQxrCTQMA3aJCice9sDeeH/m8eeegprYX907LdpGOs9C.EIv8Zzq','Doe','Bob',2);
+INSERT INTO users (username, password, nom, prenom, role_id) VALUES('employe@arcadia.fr', '$2y$12$rKQ9HO90DU0AzYIRKWXVru3dUpeHPRKsU4cm0.gOijmzR1dDcGUw2','Robert','Dupont',3);
 
 -- Table `rapport_veterinaire`
 DROP TABLE IF EXISTS rapport_veterinaires;

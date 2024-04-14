@@ -15,51 +15,49 @@ use App\Http\Controllers\Gestion\Service\GestionServicesController;
 use App\Http\Controllers\Gestion\Rapport\ConsultationRapportController;
 use App\Http\Controllers\Gestion\Race\RaceController;
 
-//use App\Http\Middleware\GetUserInformation;
-
-Route::get('/',[HomeController::class,'index'])->name('home');
-Route::get('/nos-services',[HomeController::class,'showServices'])->name('service');
-Route::get('/nos-habitats',[HomeController::class,'showHabitats'])->name('habitat');
-Route::get('/contact',[HomeController::class,'showContact'])->name('contact');
-Route::post('/contact',[EmailController::class,'send'])->name('send');
-Route::post('/avis',[AviController::class,'store'])->name('store');
-Route::get('/connexion',[UserController::class,'connexion'])->name('connexion');
-Route::post('/login',[UserController::class,'login'])->name('login');
-Route::get('/logout',[UserController::class,'logout'])->name('logout');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/nos-services', [HomeController::class, 'showServices'])->name('service');
+Route::get('/nos-habitats', [HomeController::class, 'showHabitats'])->name('habitat');
+Route::get('/contact', [HomeController::class, 'showContact'])->name('contact');
+Route::post('/contact', [EmailController::class, 'send'])->name('send');
+Route::post('/avis', [AviController::class, 'store'])->name('store');
+Route::get('/connexion', [UserController::class, 'connexion'])->name('connexion');
+Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 //Route gestion
 Route::get('/gestion', [GestionController::class, 'index'])->name('gestion')->middleware('auth');
 
 //Gestion admin
 Route::middleware('role:administrateur')->group(function () {
     //Route creation de compte
-    Route::controller(CreateUserController::class)->prefix('/gestion')->group(function (){
+    Route::controller(CreateUserController::class)->prefix('/gestion')->group(function () {
         Route::get('/creation-de-compte', 'index')->name('create.comptes');
         Route::post('/ajout-utilisateur', 'store')->name('store.comptes');
     });
     //Route gestion services
-    Route::controller(GestionServicesController::class)->prefix('/gestion')->group(function(){
+    Route::controller(GestionServicesController::class)->prefix('/gestion')->group(function () {
         Route::get('/gestion-services/create', 'create')->name('gestion.services.create');
         Route::post('/gestion-services/store', 'store')->name('gestion.services.store');
         Route::delete('/gestion/gestion-services/{service}', 'destroy')->name('gestion.services.destroy');
     });
     //Route gestion Horaire
-    Route::controller(HoraireController::class)->prefix('/gestion')->group(function(){
+    Route::controller(HoraireController::class)->prefix('/gestion')->group(function () {
         Route::get('/gestion-horaires', 'index')->name('gestion.horaires');
         Route::get('/gestion-horaires/create',  'create')->name('gestion.horaires.create');
         Route::get('/gestion-horaires/{horaire}/edit', 'edit')->name('gestion.horaires.edit');
         Route::post('/gestion-horaires/store', 'store')->name('gestion.horaires.store');
         Route::patch('/gestion-horaires/{horaire}/update-horaire', 'update')->name('gestion.horaires.update');
     });
-   
+
     // Route gestion Habitat
-    Route::controller(GestionHabitatController::class)->prefix('/gestion')->group(function(){
+    Route::controller(GestionHabitatController::class)->prefix('/gestion')->group(function () {
         Route::get('/gestion-habitats/create', 'create')->name('gestion.habitats.create');
         Route::post('/gestion-habitats/store', 'store')->name('gestion.habitats.store');
         Route::delete('/gestion-habitats/{habitat}', 'destroy')->name('gestion.habitats.destroy');
-    });      
-   
+    });
+
     //Route Gestion Animaux
-    Route::controller(AnimalController::class)->prefix('/gestion')->group(function(){
+    Route::controller(AnimalController::class)->prefix('/gestion')->group(function () {
         Route::get('/gestion-animaux', 'index')->name('gestion.animals');
         Route::get('/gestion-animaux/create', 'create')->name('gestion.animals.create');
         Route::get('/gestion-animaux/{animal}/edit', 'edit')->name('gestion.animals.edit');
@@ -67,11 +65,10 @@ Route::middleware('role:administrateur')->group(function () {
         Route::patch('/gestion-animaux/{animal}/update-animal', 'update')->name('gestion.animals.update');
         Route::delete('/gestion-animaux/{animal}', 'destroy')->name('gestion.animals.destroy');
     });
-    Route::controller(RaceController::class)->prefix('/gestion')->group(function (){
+    Route::controller(RaceController::class)->prefix('/gestion')->group(function () {
         Route::get('/gestion-animaux-races/create', 'create')->name('gestion.races');
         Route::post('/gestion-animaux-race/store', 'store')->name('gestion.races.store');
     });
-
 });
 
 //Gestion employe
@@ -84,15 +81,15 @@ Route::middleware('role:employé')->group(function () {
 
 //Gestion veterinaire
 Route::middleware('role:vétérinaire')->group(function () {
-    Route::controller(ConsultationRapportController::class)->prefix('/gestion')->group(function(){
+    Route::controller(ConsultationRapportController::class)->prefix('/gestion')->group(function () {
         Route::get('/rapports/create', 'create')->name('gestion.rapports.create');
         Route::post('/rpports/store', 'store')->name('gestion.rapports.store');
     });
 });
 
 //admin et employé
-Route::middleware('role:administrateur,employé')->group(function(){
-    Route::controller(GestionServicesController::class)->prefix('/gestion')->group(function(){
+Route::middleware('role:administrateur,employé')->group(function () {
+    Route::controller(GestionServicesController::class)->prefix('/gestion')->group(function () {
         Route::get('/gestion-services', 'index')->name('gestion.services');
         Route::get('/gestion-services/{service}/edit', 'edit')->name('gestion.services.edit');
         Route::patch('/gestion-services/{service}/update-service', 'update')->name('gestion.services.update');
@@ -108,10 +105,3 @@ Route::middleware('role:administrateur,vétérinaire')->group(function () {
     Route::get('gestion/rapports/search', [ConsultationRapportController::class, 'search'])->name('gestion.rapports.search');
     Route::get('/gestion/rapports/{id}/show', [ConsultationRapportController::class, 'show'])->name('gestion.rapports.show');
 });
-
-
-
-
-
-
-

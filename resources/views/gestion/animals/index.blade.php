@@ -1,11 +1,16 @@
 @extends('layouts.gestion')
 
 @section('content')
+    @if (session('success'))
+        <div class="container w-50 text-center alert alert-success" id="alert">
+            <h1>{{ session('success') }}</h1>
+        </div>
+    @endif
     <div class="container  mt-3 text-center shadow py-4 rounded">
         <div class="row mb-3">
             <div class="col-12">
-                <a href="{{route('gestion.animals.create')}}" class="btn btn-success">Ajouter un animal</a>
-                <a href="{{route('gestion.races')}}" class="btn btn-success">Ajouter une race</a>
+                <a href="{{ route('gestion.animals.create') }}" class="btn btn-success">Ajouter un animal</a>
+                <a href="{{ route('gestion.races') }}" class="btn btn-success">Ajouter une race</a>
             </div>
         </div>
         <table class="table table-bordered">
@@ -16,19 +21,20 @@
                 </tr>
             </thead>
             <tbody>
-                 @foreach ($animals as $animal) 
-                    <tr> 
-                        <td>{{$animal->prenom}}</td>
+                @foreach ($animals as $animal)
+                    <tr>
+                        <td>{{ $animal->prenom }}</td>
                         <td>
-                            <form action="{{route('gestion.animals.destroy',$animal->id)}}" method="POST">
+                            <form action="{{ route('gestion.animals.destroy', $animal->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <a class="btn btn-warning rounded-5" href="{{route('gestion.animals.edit', $animal->id)}}">Modifier</a>
+                                <a class="btn btn-warning rounded-5"
+                                    href="{{ route('gestion.animals.edit', $animal->id) }}">Modifier</a>
                                 <button type="submit" class="btn btn-danger rounded-5">Supprimer</button>
                             </form>
                         </td>
                     </tr>
-                 @endforeach 
+                @endforeach
             </tbody>
         </table>
     </div>

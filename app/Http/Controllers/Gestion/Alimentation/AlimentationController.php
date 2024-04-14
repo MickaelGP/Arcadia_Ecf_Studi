@@ -11,7 +11,7 @@ use Illuminate\Http\RedirectResponse;
 
 class AlimentationController extends Controller
 {
-      /**
+    /**
      * Affiche la vue index pour la gestion des alimentations.
      *
      * @return \Illuminate\View\View
@@ -22,7 +22,7 @@ class AlimentationController extends Controller
 
         $animals = Animal::all();
 
-        return view('gestion.alimentations.index', compact('user','animals'));
+        return view('gestion.alimentations.index', compact('user', 'animals'));
     }
     /**
      * Stocke une nouvelle alimentation dans la base de données.
@@ -32,7 +32,7 @@ class AlimentationController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        
+
         $data = $request->validate([
             'date_alimentation' => ['required', 'date'],
             'heure_alimentation' => ['required', 'date_format:H:i'],
@@ -40,13 +40,13 @@ class AlimentationController extends Controller
             'quantite' => ['required', 'numeric'],
             'animal_id' => ['required', 'integer'],
         ]);
-        
-        
+
+
 
         auth()->user()->alimentations()->create($data);
 
-        
 
-        return redirect()->route('gestion')->with('success','L\'alimentation a bien été ajoutée');
+
+        return redirect()->route('gestion')->with('success', 'L\'alimentation a bien été ajoutée');
     }
 }

@@ -20,8 +20,8 @@ class ConsultationRapportController extends Controller
     {
         $user = auth()->user();
         $rapports = RapportVeterinaire::all();
-        
-        return view('gestion.rapport.index', compact('user','rapports'));
+
+        return view('gestion.rapport.index', compact('user', 'rapports'));
     }
     /**
      * Recherche des rapports en fonction des critères spécifiés.
@@ -30,22 +30,22 @@ class ConsultationRapportController extends Controller
      * @return \Illuminate\View\View
      */
     public function search(Request $request): View
-    { 
+    {
         $rapportVeterinaire = RapportVeterinaire::query();
         // Récupère les paramètres de recherche
         $queryDate = $request->input('date');
         $animal_id = $request->input('animal_id');
-        
+
         // Construit la requête de recherche
         $rapportsQuery = $rapportVeterinaire;
-    
+
         if ($queryDate || $animal_id) {
             $rapportsQuery->where('date', $queryDate)
-                            ->orWhere('animal_id', $animal_id);
+                ->orWhere('animal_id', $animal_id);
             $rapports = $rapportsQuery->get();
         }
-       
-       return view('gestion.rapport.search', ['rapports' => $rapports]);
+
+        return view('gestion.rapport.search', ['rapports' => $rapports]);
     }
     /**
      * Affiche les détails d'un rapport.
@@ -56,10 +56,10 @@ class ConsultationRapportController extends Controller
     public function show($id): View
     {
         $user = auth()->user();
-        
+
         $rapport = RapportVeterinaire::findOrFail($id);
-        
-        return view('gestion.rapport.show',compact('rapport','user'));
+
+        return view('gestion.rapport.show', compact('rapport', 'user'));
     }
     /**
      * Affiche le formulaire de création d'un rapport.
@@ -72,7 +72,7 @@ class ConsultationRapportController extends Controller
 
         $animals = Animal::all();
 
-        return view('gestion.rapport.create',compact('user','animals'));
+        return view('gestion.rapport.create', compact('user', 'animals'));
     }
     /**
      * Stocke un nouveau rapport vétérinaire dans la base de données.
@@ -82,22 +82,21 @@ class ConsultationRapportController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        
+
         $userId = auth()->user()->id;
-       
+
         $data = $request->validate([
-            'date'=>['required','date'],
-            'detail'=>['string','max:255','nullable'],
-            'nourriture'=>['required','string','max:255'],
-            'etat'=>['string','max:255','required'],
-            'quantite'=>['required','int'],
-            'animal_id'=>['required','int'],
+            'date' => ['required', 'date'],
+            'detail' => ['string', 'max:255', 'nullable'],
+            'nourriture' => ['required', 'string', 'max:255'],
+            'etat' => ['string', 'max:255', 'required'],
+            'quantite' => ['required', 'int'],
+            'animal_id' => ['required', 'int'],
         ]);
         auth()->user()->rapports()->create($data);
-        
-        
 
-        return redirect()->route('gestion.rapports')->with('success','Le rapport a bien été ajouté');
+
+
+        return redirect()->route('gestion.rapports')->with('success', 'Le rapport a bien été ajouté');
     }
-    
 }

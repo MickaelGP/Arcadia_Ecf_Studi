@@ -25,9 +25,9 @@ class HomeController extends Controller
      */
     public function index(): View
     {
-        $avis = Avi::where('isValide',1)->get();
+        $avis = Avi::where('isValide', 1)->get();
 
-        return view('index',[
+        return view('index', [
             'avis' => $avis,
             'horaires' => $this->horaires
         ]);
@@ -45,7 +45,7 @@ class HomeController extends Controller
             'horaires' => $this->horaires
         ]);
     }
-     /**
+    /**
      * Affiche la vue Habitat.
      *
      * @return \Illuminate\View\View
@@ -54,19 +54,19 @@ class HomeController extends Controller
     {
         $habitats = Habitat::all();
 
-        return view('habitat',[
+        return view('habitat', [
             'habitats' => $habitats,
             'horaires' => $this->horaires
         ]);
     }
-     /**
+    /**
      * Affiche la vue Contact.
      *
      * @return \Illuminate\View\View
      */
     public function showContact(): View
     {
-        return view('contact',[
+        return view('contact', [
             'horaires' => $this->horaires
         ]);
     }

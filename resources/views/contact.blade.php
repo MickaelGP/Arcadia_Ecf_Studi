@@ -59,7 +59,12 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <textarea class="form-control shadow" name="description" placeholder="Description" required></textarea>
+                    <textarea class="form-control shadow @error('description') is-invalid @enderror" name="description" placeholder="Description" required></textarea>
+                    @error('description')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="text-center pb-3">
                     <button type="submit" class="btn shadow ">Envoyer</button>

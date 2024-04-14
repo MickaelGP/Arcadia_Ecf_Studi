@@ -15,7 +15,7 @@ class CreationUtilisateurMail extends Mailable
 
     public $data;
 
-     /**
+    /**
      * Création d'une nouvelle instance.
      *
      * @return void
@@ -25,7 +25,7 @@ class CreationUtilisateurMail extends Mailable
         $this->data = $data;
     }
 
-      /**
+    /**
      * Spécifie les détails de l'enveloppe de l'e-mail.
      *
      * @return Envelope
@@ -36,7 +36,7 @@ class CreationUtilisateurMail extends Mailable
             to: $this->data['username'],
             replyTo: 'admin@arcadia.fr',
             subject: 'Votre nouvel identifiant'
-            
+
         );
     }
     /**
@@ -50,5 +50,4 @@ class CreationUtilisateurMail extends Mailable
             markdown: 'emails.user_form_email',
         );
     }
-
 }

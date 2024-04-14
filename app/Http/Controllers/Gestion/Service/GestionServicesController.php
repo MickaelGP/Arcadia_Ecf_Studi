@@ -22,7 +22,7 @@ class GestionServicesController extends Controller
         $services = Service::all();
 
 
-        return view('gestion.servicesZoo.index', compact('user','services'));
+        return view('gestion.servicesZoo.index', compact('user', 'services'));
     }
     /**
      * Affiche le formulaire de création d'un service.
@@ -34,7 +34,7 @@ class GestionServicesController extends Controller
         //
         $user = auth()->user();
 
-        return view('gestion.servicesZoo.create',compact('user'));
+        return view('gestion.servicesZoo.create', compact('user'));
     }
     /**
      * Stocke un nouveau service dans la base de données.
@@ -45,12 +45,12 @@ class GestionServicesController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $data = $request->validate([
-            'nom'=>['required','string','max:255'],
-            'description'=>['required','string','max:255']
+            'nom' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'max:255']
         ]);
         Service::create($data);
 
-        return redirect()->route('gestion.services')->with('success','Le service à bien été ajouté');
+        return redirect()->route('gestion.services')->with('success', 'Le service à bien été ajouté');
     }
     /**
      * Affiche le formulaire d'édition d'un service.
@@ -61,7 +61,7 @@ class GestionServicesController extends Controller
     public function edit(Service $service): View
     {
         $user = auth()->user();
-        return view('gestion.servicesZoo.edit',compact('service','user'));
+        return view('gestion.servicesZoo.edit', compact('service', 'user'));
     }
     /**
      * Met à jour les informations d'un service.
@@ -73,13 +73,13 @@ class GestionServicesController extends Controller
     public function update(Request $request, Service $service): RedirectResponse
     {
         $data = $request->validate([
-            'nom'=>['required','string','max:255'],
-            'description'=>['required','string','max:255']
+            'nom' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'max:255']
         ]);
 
         $service->update($data);
 
-        return redirect()->route('gestion.services')->with('success','Le service à bien été modifié');
+        return redirect()->route('gestion.services')->with('success', 'Le service à bien été modifié');
     }
     /**
      * Supprime un service de la base de données.

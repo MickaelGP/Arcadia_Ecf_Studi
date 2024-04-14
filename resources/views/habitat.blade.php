@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="titre-habitats">
-  <div class="text-center pt-3">
-    <h1>Nos Habitats</h1>
-</div>
-</section>
-    <section  id="sectionHabitatsJungle">
+    <section class="titre-habitats">
+        <div class="text-center pt-3">
+            <h1>Nos Habitats</h1>
+        </div>
+    </section>
+    <section id="sectionHabitatsJungle">
         <div class="text-center pt-2">
             <div class="">
                 <h3>La jungle</h3>

@@ -21,13 +21,13 @@ class Image extends Model
     {
         return $this->belongsToMany(Habitat::class);
     }
-     /**
+    /**
      * Renvoie l'URL de l'image.
      *
      * @return string
      */
     public function showImage(): string
     {
-        return '/storage/'. $this->image_data;
+        return '/storage/' . $this->image_data;
     }
 }

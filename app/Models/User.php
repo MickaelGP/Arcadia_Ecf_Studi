@@ -37,7 +37,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
-     /**
+    /**
      * Récupère tous les rapports vétérinaires associés à cet utilisateur.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -55,5 +55,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Alimentation::class);
     }
-    
 }
