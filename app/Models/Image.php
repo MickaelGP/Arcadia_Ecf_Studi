@@ -11,6 +11,8 @@ class Image extends Model
     use HasFactory;
     protected $guarded = [];
     public $timestamps = false;
+    protected $connection = "mysql";
+
 
     /**
      * Définit la relation "appartient à plusieurs" avec le modèle Habitat.

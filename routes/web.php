@@ -24,6 +24,7 @@ Route::post('/avis', [AviController::class, 'store'])->name('store');
 Route::get('/connexion', [UserController::class, 'connexion'])->name('connexion');
 Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+Route::get('/animals/{animal}/show', [AnimalController::class, 'show'])->name('show');
 //Route gestion
 Route::get('/gestion', [GestionController::class, 'index'])->name('gestion')->middleware('auth');
 

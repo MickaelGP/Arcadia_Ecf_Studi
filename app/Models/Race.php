@@ -10,6 +10,8 @@ class Race extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $connection = "mysql";
+
 
     /**
      * Les attributs qui peuvent être assignés en masse.

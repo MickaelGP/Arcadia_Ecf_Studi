@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Gestion;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Alimentation;
 use App\Models\Avi;
-use App\Models\RapportVeterinaire;
-use Illuminate\Http\RedirectResponse;
+use App\Models\Vue;
 use Illuminate\View\View;
+use App\Models\Alimentation;
+use Illuminate\Http\Request;
+use App\Models\RapportVeterinaire;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 
 class GestionController extends Controller
 {
@@ -31,7 +33,14 @@ class GestionController extends Controller
 
         $alimentations = Alimentation::all();
 
-        return view('gestion.index', compact('user', 'rapports', 'avis', 'alimentations'));
+        try {
+            $animalTrends = Vue::all();
+        } catch (\Exception $e) {
+            $animalTrends = [];
+            Log::error('Une erreur est survenue lors de la récupération des tendances des animaux: ' . $e->getMessage());
+        }
+
+        return view('gestion.index', compact('user', 'rapports', 'avis', 'alimentations', 'animalTrends'));
     }
     /**
      * Redirige vers la page de création de comptes.

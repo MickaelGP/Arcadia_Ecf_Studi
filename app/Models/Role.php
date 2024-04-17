@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Role extends Model
 {
     use HasFactory;
+    protected $connection = "mysql";
+
     /**
      * Récupère tous les utilisateurs ayant ce rôle.
      *

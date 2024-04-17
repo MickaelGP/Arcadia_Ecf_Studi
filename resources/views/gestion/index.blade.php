@@ -9,6 +9,17 @@
             <h1>{{ session('success') }}</h1>
         </div>
     @endif
+    @if ($user->role->label === 'administrateur')
+        <div class="container text-center w-50">
+            <ul class="list-group">
+                @forelse ($animalTrends as $trend)
+                    <li class="list-group-item">{{ $trend->nom }} à été consulté :{{ $trend->nombreDeVue }} fois</li>
+                @empty
+                    <h1>Aucune données</h1>
+                @endforelse
+            </ul>
+        </div>
+    @endif
     @if ($user->role->label === 'vétérinaire')
         <div class="container mt-3">
             <div class="row justify-content-center pb-5">

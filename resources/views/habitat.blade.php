@@ -124,8 +124,8 @@
                     <p>{{ $habitats[2]->description }}</p>
                     <h3>Les animaux :</h3>
                     <ul class="list-group">
-                        @foreach ($habitats[2]->animals as $habitat)
-                            <li class="list-group-item">{{ $habitat->prenom }} : <a href="#">En savoir plus</a></li>
+                        @foreach ($habitats[2]->animals as $animal)
+                            <li class="list-group-item">{{ $animal->prenom }} : <a href="{{route('show', $animal->id)}}">En savoir plus</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -148,8 +148,8 @@
                     <p>{{ $habitats[0]->description }}</p>
                     <h3>Les animaux :</h3>
                     <ul class="list-group">
-                        @foreach ($habitats[0]->animals as $habitat)
-                            <li class="list-group-item">{{ $habitat->prenom }} : <a href="#">En savoir plus</a></li>
+                        @foreach ($habitats[0]->animals as $animal)
+                            <li class="list-group-item">{{ $animal->prenom }} : <a href="{{route('show', $animal->id)}}">En savoir plus</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -172,8 +172,8 @@
                     <p>{{ $habitats[1]->description }}</p>
                     <h3>Les animaux :</h3>
                     <ul class="list-group">
-                        @foreach ($habitats[1]->animals as $habitat)
-                            <li class="list-group-item">{{ $habitat->prenom }} : <a href="#">En savoir plus</a></li>
+                        @foreach ($habitats[1]->animals as $animal)
+                            <li class="list-group-item">{{ $animal->prenom }} : <a href="{{route('show', $animal->id)}}">En savoir plus</a></li>
                         @endforeach
                     </ul>
                 </div>

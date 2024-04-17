@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Avi extends Model
 {
     use HasFactory;
+    protected $connection = "mysql";
+
 
     /**
      * Les attributs qui peuvent être assignés en masse.

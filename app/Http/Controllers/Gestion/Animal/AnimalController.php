@@ -2,16 +2,24 @@
 
 namespace App\Http\Controllers\Gestion\Animal;
 
+use App\Models\Vue;
 use App\Models\Race;
 use App\Models\Animal;
 use App\Models\Habitat;
+use App\Models\Horaire;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 
 class AnimalController extends Controller
 {
+    private $horaires;
+    public function __construct()
+    {
+        $this->horaires = Horaire::all();
+    }
     /**
      * Affiche la liste des animaux.
      *
@@ -24,6 +32,31 @@ class AnimalController extends Controller
         $animals = Animal::all();
 
         return view('gestion.animals.index', compact('user', 'animals'));
+    }
+    public function show(Animal $animal): View
+    {
+        try {
+            $document = Vue::where('nom', $animal->prenom)->first();
+            if ($document) {
+                Vue::where('nom', $animal->prenom)->update([
+                    'nombreDeVue' => $document->nombreDeVue + 1,
+                ]);
+            } else {
+                // Si le document n'existe pas, création d'un nouveau avec la valeur initiale
+                Vue::create([
+                    'nom' => $animal->prenom,
+                    'nombreDeVue' => 1,
+                ]);
+            }
+        } catch (\Exception $e) {
+
+            Log::error('Une erreur est survenue lors de l\'ajout des tendances des animaux: ' . $e->getMessage());
+        }
+
+        return view('show', [
+            'animal' => $animal,
+            'horaires' => $this->horaires,
+        ]);
     }
     /**
      * Affiche le formulaire de création d'un animal.

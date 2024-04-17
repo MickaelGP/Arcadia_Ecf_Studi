@@ -101,19 +101,19 @@ DROP TABLE IF EXISTS animals;
 CREATE TABLE animals (
   id INT AUTO_INCREMENT PRIMARY KEY,
   prenom VARCHAR(50) NOT NULL,
-  etat VARCHAR(255) NOT NULL,
+  description VARCHAR(255) NOT NULL,
   race_id INT,
   habitat_id INT,
   FOREIGN KEY (race_id) REFERENCES races(id) ON DELETE SET NULL,
   FOREIGN KEY (habitat_id) REFERENCES habitats(id) ON DELETE SET NULL
 );
-INSERT INTO animals (prenom, etat, race_id, habitat_id) 
+INSERT INTO animals (prenom, description, race_id, habitat_id) 
   VALUES ('Simba', 'Un lion de 1O ans', 1, 1);
-INSERT INTO animals (prenom, etat, race_id, habitat_id) 
+INSERT INTO animals (prenom, description, race_id, habitat_id) 
   VALUES ('Sheldon', 'Un python royal', 2, 2);
-INSERT INTO animals (prenom, etat, race_id, habitat_id) 
+INSERT INTO animals (prenom, description, race_id, habitat_id) 
   VALUES ('Rio', 'Un perroquet', 3, 3);
-INSERT INTO animals (prenom, etat, race_id, habitat_id) 
+INSERT INTO animals (prenom, description, race_id, habitat_id) 
   VALUES ('Kong', 'Un Gorille de 12 ans', 1, 3);
 
 -- Table `utilisateur`

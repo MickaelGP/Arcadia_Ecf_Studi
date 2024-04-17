@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Alimentation extends Model
 {
     use HasFactory;
+    protected $connection = "mysql";
+
     protected $fillable = [
         'user_id',
         'animal_id ',
