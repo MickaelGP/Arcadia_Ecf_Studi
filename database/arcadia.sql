@@ -145,8 +145,8 @@ CREATE TABLE rapport_veterinaires (
   FOREIGN KEY (animal_id) REFERENCES animals(id),
   FOREIGN KEY (user_id) REFERENCES users(id)
 );
-INSERT INTO rapport_veterinaires (date, detail, animal_id, user_id) 
-  VALUES ('2024-04-02', 'Examen de routine pour vérifier la santé du lion.', 1, 2);
+INSERT INTO rapport_veterinaires (date, detail, nourriture, etat, animal_id, user_id) 
+  VALUES ('2024-04-02', 'Examen de routine pour vérifier la santé du lion.','Viande','Bon', 1, 2);
 -- Table alimentation
 CREATE TABLE alimentations (
     id INT AUTO_INCREMENT PRIMARY KEY,
