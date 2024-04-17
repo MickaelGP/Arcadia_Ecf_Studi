@@ -7,10 +7,10 @@
             <form method="POST" action="{{ route('gestion.animals.store') }}">
                 @csrf
                 <div class="mb-3">
-                    <label for="inputEtat" class="form-label">Etat de l'annimal </label>
-                    <input type="text" class="form-control  @error('etat') is-invalid @enderror" id="etat"
-                        name="etat" required>
-                    @error('etat')
+                    <label for="inputEtat" class="form-label">Description de l'annimal </label>
+                    <input type="text" class="form-control  @error('description') is-invalid @enderror" id="description"
+                        name="description" required>
+                    @error('description')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

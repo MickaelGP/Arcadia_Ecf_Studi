@@ -8,9 +8,9 @@
             @csrf
             @method('PATCH')
             <div class="mb-3">
-                <label for="inputEtat" class="form-label">Etat de l'annimal </label>
-                <input type="text" class="form-control  @error('etat') is-invalid @enderror"  id="etat" name="etat" value="{{$animal->etat}}" required>
-                @error('etat')
+                <label for="inputEtat" class="form-label">Description de l'annimal </label>
+                <input type="text" class="form-control  @error('description') is-invalid @enderror"  id="description" name="description" value="{{$animal->description}}" required>
+                @error('description')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

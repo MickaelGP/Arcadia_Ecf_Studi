@@ -101,7 +101,7 @@ class AnimalController extends Controller
 
         $data = $request->validate([
             'prenom' => ['required', 'string', 'max:50'],
-            'etat' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'max:255'],
             'race_id' => ['required', 'int'],
             'habitat_id' => ['required', 'int']
         ]);
@@ -121,7 +121,7 @@ class AnimalController extends Controller
 
         $data = $request->validate([
             'prenom' => ['required', 'string', 'max:50'],
-            'etat' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'max:255'],
             'race_id' => ['required', 'int'],
             'habitat_id' => ['required', 'int']
         ]);
