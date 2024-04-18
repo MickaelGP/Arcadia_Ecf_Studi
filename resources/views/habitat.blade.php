@@ -48,16 +48,12 @@
             </div>
             <div class="container pt-3 w-50">
                 <div id="carouselSavane" class="carousel slide pb-2">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active rounded">
-                            <img src="https://picsum.photos/200/140"class="d-block w-100" alt="...">
+                    <div class="carousel-inner rounded">
+                        @foreach ($habitats[0]->images as $item)
+                        <div class="carousel-item active">
+                            <img src="/storage/{{$item->image_data}}"class="d-block w-100" alt="...">
                         </div>
-                        <div class="carousel-item rounded">
-                            <img src="https://picsum.photos/200/140" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item rounded">
-                            <img src="https://picsum.photos/200/140" class="d-block w-100" alt="...">
-                        </div>
+                        @endforeach
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselSavane"
                         data-bs-slide="prev">
@@ -81,18 +77,15 @@
             <div class="pt-2">
                 <h3>Le marais</h3>
             </div>
+            
             <div class="container pt-3 w-50">
                 <div id="carouselMarais" class="carousel slide pb-2">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active rounded">
-                            <img src="https://picsum.photos/200/140"class="d-block w-100" alt="...">
+                    <div class="carousel-inner rounded">
+                        @foreach ($habitats[3]->images as $item)
+                        <div class="carousel-item active">
+                            <img src="/storage/{{$item->image_data}}"class="d-block w-100" alt="...">
                         </div>
-                        <div class="carousel-item rounded">
-                            <img src="https://picsum.photos/200/140" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item rounded">
-                            <img src="https://picsum.photos/200/140" class="d-block w-100" alt="...">
-                        </div>
+                        @endforeach
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselMarais"
                         data-bs-slide="prev">

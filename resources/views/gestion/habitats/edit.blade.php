@@ -3,7 +3,7 @@
 @section('content')
     <div class="container py-4 mt-5 shadow rounded">
         <h1 class="text-center">Modifier un habitat</h1>
-        <form method="POST" action="{{ route('gestion.habitats.update', $habitat) }}">
+        <form method="POST" action="{{ route('gestion.habitats.update', $habitat) }}" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
             @if ($user->role->label === 'administrateur')
@@ -32,6 +32,16 @@
                     <input type="text" class="form-control  @error('commentaire') is-invalid @enderror" id="commentaire"
                         name="commentaire" value="{{ $habitat->commentaire }}">
                     @error('description')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label  @error('image_data') is-invalid @enderror">Image de
+                        l'habitat</label>
+                    <input type="file" class="form-control" id="image" name="image_data[]" multiple>
+                    @error('image_data')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

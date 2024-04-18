@@ -4,11 +4,13 @@
     <section id="sectionContactTitre">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-12 text-center">
+                <div class="col-md-6 col-sm-12 text-center pt-5">
                     <h1>Nous contacter</h1>
                 </div>
-                <div class="col-md-6 d-none d-sm-block">
-                    <img src="https://picsum.photos/200/140" class="rounded">
+                <div class="col-md-6 d-none d-sm-block pt-2">
+                    <div class="container w-50 pb-2" id="imgContact">
+                        <img src="/img/hero.jpg" class="shadow img-fluid" >
+                    </div>
                 </div>
             </div>
         </div>

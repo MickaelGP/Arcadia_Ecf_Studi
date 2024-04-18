@@ -50,16 +50,17 @@ class GestionHabitatController extends Controller
             'nom' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:255'],
             'commentaire' => ['nullable', 'string', 'max:255'],
-            'image_data' => ['image', 'nullable'],
+            'image_data.*' => ['image', 'nullable'],
         ]);
 
         $habitat = Habitat::create($data);
 
         if ($request->hasFile('image_data')) {
-            $imagePath = $request->file('image_data')->store('img', 'public');
-            $image = Image::create(['image_data' => $imagePath]);
-
-            $habitat->images()->attach($image->id);
+            foreach ($request->file('image_data') as $file) {
+                $imagePath = $file->store('img', 'public');
+                $image = Image::create(['image_data' => $imagePath]);
+                $habitat->images()->attach($image->id);
+            }
         }
 
         return redirect()->route('gestion.habitats')->with('success', 'L\'habitat à bien été ajouté');
@@ -88,14 +89,24 @@ class GestionHabitatController extends Controller
             $data = $request->validate([
                 'nom' => ['required', 'string', 'max:255'],
                 'description' => ['required', 'string', 'max:255'],
-                'commentaire' => ['nullable', 'string', 'max:255']
+                'commentaire' => ['nullable', 'string', 'max:255'],
+                'image_data.*' => ['image', 'nullable'],
             ]);
         } else {
             $data = $request->validate([
                 'commentaire' => ['nullable', 'string', 'max:255']
             ]);
         }
+
         $habitat->update($data);
+       
+        if ($request->hasFile('image_data')) {
+            foreach ($request->file('image_data') as $file) {
+                $imagePath = $file->store('img', 'public');
+                $image = Image::create(['image_data' => $imagePath]);
+                $habitat->images()->attach($image->id);
+            }
+        }
 
         return redirect()->route('gestion.habitats')->with('success', 'L\'habitat à bien été modifié');
     }

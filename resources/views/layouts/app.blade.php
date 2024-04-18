@@ -23,8 +23,8 @@
     <header>
         <nav class="navbar navbar-expand-lg" id="navbar">
             <div class="container-fluid">
-                <a class="navbar-brand {{ request()->routeIs('home') ? 'active' : '' }}"
-                    href="{{ route('home') }}">Mettre Logo</a>
+                <a class="navbar-brand  {{ request()->routeIs('home') ? 'active' : '' }}"
+                    href="{{ route('home') }}"><img src="/img/logo.png" alt="Logo arcadia" class="img-fluid w-50"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -62,7 +62,7 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 text-center">
                     <ul class="list-unstyled mt-3">
                         <li><a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
                                 href="{{ route('home') }}">Acceuil</a></li>
@@ -77,13 +77,13 @@
                     </ul>
                 </div>
                 <div class="col-md-3 mt-5">
-                    <ul class="list-unstyled mt-3">
+                    <ul class="list-unstyled mt-3 text-center">
                         <li>Adresse : 123 route du zoo brocéliande</li>
                         <li>Telephone : 00.00.00.00.00</li>
                         <li>Mail : contact@arcadia.fr</li>
                     </ul>
                 </div>
-                <div class="col-md-3 mt-3">
+                <div class="col-md-3 mt-3 text-center">
                     <ul class="list-unstyled mt-3">
                         <li>Du lundi au vendredi : </li>
                         <li>De {{ $horaires[0]->ouverture_matin }}H à {{ $horaires[0]->fermeture_soir }}H</li>
@@ -93,8 +93,8 @@
                         <li> Fermé</li>
                     </ul>
                 </div>
-                <div class="col-md-3">
-                    <h5>Mettre logo</h5>
+                <div class="col-md-3 text-center">
+                    <h5><img src="/img/logo.png" alt="Logo arcadia" class="img-fluid w-50 "></h5>
                 </div>
             </div>
             <div class="row">
