@@ -33,42 +33,31 @@
         <div class="container w-50 pt-3">
             <form action="{{ route('send') }}" method="POST">
                 @csrf
-                <div class="mb-3">
-                    <input type="text" class="form-control shadow  @error('titre') is-invalid @enderror" name="titre"
-                        id="inputTitre" required placeholder="Titre">
-                    @error('titre')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control shadow @error('pseudo') is-invalid @enderror" name="pseudo"
-                        id="inputPseudo" required placeholder="Pseudo">
-                    @error('pseudo')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <input type="email" class="form-control shadow @error('email') is-invalid @enderror" name="email"
-                        id="inputMail" placeholder="Email" required>
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <textarea class="form-control shadow @error('description') is-invalid @enderror" name="description"
-                        placeholder="Description" required></textarea>
-                    @error('description')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
+                @include('shared.input',[
+                    'class' => 'mb-3',
+                    'name' => 'titre',
+                    'id' => 'inputTitre',
+                    'feedBack' => true
+                ])
+                @include('shared.input',[
+                    'class' => 'mb-3',
+                    'name' => 'pseudo',
+                    'id' => 'inputPseudo',
+                    'feedBack' => true
+                ])
+                @include('shared.input',[
+                    'type' => 'email',
+                    'class' => 'mb-3',
+                    'name' => 'email',
+                    'id' => 'inputMail',
+                    'feedBack' => true
+                ])
+                @include('shared.input',[
+                    'type' => 'textarea',
+                    'class' => 'mb-3',
+                    'name' => 'description',
+                    'feedBack' => true
+                ])
                 <div class="text-center pb-3">
                     <button type="submit" class="btn shadow ">Envoyer</button>
                 </div>

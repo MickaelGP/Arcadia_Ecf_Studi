@@ -4,7 +4,7 @@
     $type ??= 'text';
     $class ??= null;
     $name ??= '';
-    $id ??= '';
+    $id ??= $name.ucfirst($type);
     $value ??= '';
     $messagePerso ??= 'Le champ n\'est pas conforme';
     $placeholder ??= ucfirst($name);
@@ -19,13 +19,13 @@
     @endif
     @if ($type === 'textarea')
         <textarea class="form-control @error($name) is-invalid @enderror" type="{{ $type }}" name="{{ $name }}"
-            id="{{ $id }}" required>
+            id="{{ $id }}" placeholder="{{ $placeholder }}" required>
         {{ old($name, $value) }}
     </textarea>
     @else
         <input class="form-control @error($name) is-invalid @enderror" type="{{ $type }}"
             name="{{ $name }}" value="{{ old($name, $value) }}" id="{{ $id }}"
-            placeholder="{{ $placeholder }}">
+            placeholder="{{ $placeholder }}" required>
     @endif
     @if ($feedBack)
         @error($name)
