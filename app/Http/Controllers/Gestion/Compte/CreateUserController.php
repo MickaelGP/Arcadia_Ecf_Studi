@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Gestion\Compte;
 
 use App\Models\Role;
 use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateUserRequest;
 use App\Mail\CreationUtilisateurMail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
@@ -14,11 +14,6 @@ use Illuminate\View\View;
 
 class CreateUserController extends Controller
 {
-    //
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Affiche la vue index pour la gestion des comptes.
      *
@@ -38,18 +33,12 @@ class CreateUserController extends Controller
     /**
      * Stocke un nouvel utilisateur dans la base de données.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \App\Http\Requests\CreateUserRequest; $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(CreateUserRequest $request): RedirectResponse
     {
-        $data = $request->validate([
-            'username' => ['required', 'email', 'string', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', 'string', 'min:8'],
-            'nom' => ['required', 'string', 'max:50'],
-            'prenom' => ['required', 'string', 'max:50'],
-            'role_id' => ['required', 'int']
-        ]);
+        $data = $request->validated();
         if ($data) {
             $user =  User::create([
                 'username' => $data['username'],

@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Gestion\Habitat;
 
 use App\Models\Image;
 use App\Models\Habitat;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\HabitatRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -41,27 +41,16 @@ class GestionHabitatController extends Controller
     /**
      * Stocke un nouvel habitat dans la base de données.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Http\Requests\HabitatRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(HabitatRequest $request): RedirectResponse
     {
-        $data = $request->validate([
-            'nom' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255'],
-            'commentaire' => ['nullable', 'string', 'max:255'],
-            'image_data.*' => ['image', 'nullable'],
-        ]);
+        $data = $request->validated();
 
         $habitat = Habitat::create($data);
 
-        if ($request->hasFile('image_data')) {
-            foreach ($request->file('image_data') as $file) {
-                $imagePath = $file->store('img', 'public');
-                $image = Image::create(['image_data' => $imagePath]);
-                $habitat->images()->attach($image->id);
-            }
-        }
+        $this->processImages($request, $habitat);
 
         return redirect()->route('gestion.habitats')->with('success', 'L\'habitat à bien été ajouté');
     }
@@ -79,19 +68,14 @@ class GestionHabitatController extends Controller
     /**
      * Met à jour les informations d'un habitat.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Http\Requests\HabitatRequest $request
      * @param \App\Models\Habitat $habitat
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Habitat $habitat): RedirectResponse
+    public function update(HabitatRequest $request, Habitat $habitat): RedirectResponse
     {
         if (auth()->user()->role->id === 'administrateur') {
-            $data = $request->validate([
-                'nom' => ['required', 'string', 'max:255'],
-                'description' => ['required', 'string', 'max:255'],
-                'commentaire' => ['nullable', 'string', 'max:255'],
-                'image_data.*' => ['image', 'nullable'],
-            ]);
+            $data = $request->validated();
         } else {
             $data = $request->validate([
                 'commentaire' => ['nullable', 'string', 'max:255']
@@ -99,7 +83,20 @@ class GestionHabitatController extends Controller
         }
 
         $habitat->update($data);
-       
+
+        $this->processImages($request, $habitat);
+
+        return redirect()->route('gestion.habitats')->with('success', 'L\'habitat à bien été modifié');
+    }
+    /**
+     * Traite les images téléchargées pour l'habitat.
+     *
+     * @param \App\Http\Requests\HabitatRequest $request
+     * @param \App\Models\Habitat $habitat
+     * @return void
+     */
+    protected function processImages(HabitatRequest $request, Habitat $habitat): void
+    {
         if ($request->hasFile('image_data')) {
             foreach ($request->file('image_data') as $file) {
                 $imagePath = $file->store('img', 'public');
@@ -107,8 +104,6 @@ class GestionHabitatController extends Controller
                 $habitat->images()->attach($image->id);
             }
         }
-
-        return redirect()->route('gestion.habitats')->with('success', 'L\'habitat à bien été modifié');
     }
     /**
      * Supprime un habitat de la base de données.

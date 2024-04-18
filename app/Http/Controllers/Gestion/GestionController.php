@@ -14,18 +14,15 @@ use Illuminate\Http\RedirectResponse;
 
 class GestionController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
     /**
      * Affiche la page d'accueil du module de gestion.
      *
      * @return \Illuminate\View\View
      */
-    public function index(): View
+    public function index(Request $request): View
     {
-        $user = auth()->user();
+        $user = $request->user();
 
         $rapports = RapportVeterinaire::all();
 
