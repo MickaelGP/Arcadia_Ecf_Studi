@@ -163,7 +163,7 @@ return [
         /*
          * Application Service Providers...
          */
-        MongoDB\Laravel\MongoDBServiceProvider::class,
+        //MongoDB\Laravel\MongoDBServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
