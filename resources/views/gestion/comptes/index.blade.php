@@ -12,14 +12,24 @@
             <div class="card shadow">
                 <h1 class="text-center pt-5">Création de compte utilisateurs</h1>
 
-                <div class="card-body">
-
+                
+                <div class="container w-50">  
                     <form method="POST" action="{{ route('store.comptes') }}">
                         @csrf
                         <div class="row mb-3">
-                            <label for="username" class="col-md-4 col-form-label text-md-end">Email de l'utilisateur</label>
+                            @include('shared.input',[
+                                'feedBack' => true,
+                                'needLabel' => true,
+                                'class' => 'col',
+                                'label' => 'Nom d\'utilisateur',
+                                'placeholder' => 'employe@arcadia.fr',
+                                'type' => 'email',
+                                'id' => 'username',
+                                'name' => 'username',
+                            ])
+                            {{-- <label for="username" class="col-md-4 col-form-label text-md-end">Email de l'utilisateur</label>
 
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <input id="username" type="email"
                                     class="form-control @error('username') is-invalid @enderror" name="username" required>
 
@@ -28,10 +38,19 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                            </div> --}} 
                         </div>
                         <div class="row mb-3">
-                            <label for="nom" class="col-md-4 col-form-label text-md-end">Nom de l'utilisateur</label>
+                            @include('shared.input',[
+                                'feedBack' => true,
+                                'needLabel' => true,
+                                'class' => 'col',
+                                'label' => 'Nom',
+                                'placeholder' => 'Doe',
+                                'id' => 'nom',
+                                'name' => 'nom',
+                            ])
+                            {{-- <label for="nom" class="col-md-4 col-form-label text-md-end">Nom de l'utilisateur</label>
 
                             <div class="col-md-6">
                                 <input id="nom" type="text" class="form-control @error('nom') is-invalid @enderror"
@@ -42,10 +61,19 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="row mb-3">
-                            <label for="prenom" class="col-md-4 col-form-label text-md-end">Prénom de
+                            @include('shared.input',[
+                                'feedBack' => true,
+                                'needLabel' => true,
+                                'class' => 'col',
+                                'label' => 'Prénom',
+                                'placeholder' => 'Jane',
+                                'id' => 'prénom',
+                                'name' => 'prenom',
+                            ])
+                            {{-- <label for="prenom" class="col-md-4 col-form-label text-md-end">Prénom de
                                 l'utilisateur</label>
 
                             <div class="col-md-6">
@@ -57,10 +85,20 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">Mot de passe</label>
+                            @include('shared.input',[
+                                'feedBack' => true,
+                                'needLabel' => true,
+                                'class' => 'col',
+                                'label' => 'Mot de passe',
+                                'placeholder' => '....',
+                                'type' => 'password',
+                                'id' => 'password',
+                                'name' => 'password',
+                            ])
+                            {{-- <label for="password" class="col-md-4 col-form-label text-md-end">Mot de passe</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password"
@@ -71,14 +109,24 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="row mb-3">
-                            <label for="password_confirmation" class="col-md-4 col-form-label text-md-end">Confirmation du
+                            @include('shared.input',[
+                                'feedBack' => true,
+                                'needLabel' => true,
+                                'class' => 'col',
+                                'label' => 'Confirmation du mot de passe',
+                                'placeholder' => '...',
+                                'type' => 'password',
+                                'id' => 'password_confirmation',
+                                'name' => 'password_confirmation',
+                            ])
+                            {{-- <label for="password_confirmation" class="col-md-4 col-form-label text-md-end">Confirmation du
                                 mot de passe</label>
 
-                            <div class="col-md-6">
-                                <input id="password_confirmation" type="password"
+                            <div class="col-md-6"> --}}
+                                {{-- <input id="password_confirmation" type="password"
                                     class="form-control @error('password_confirmation') is-invalid @enderror"
                                     name="password_confirmation" required>
 
@@ -87,9 +135,9 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                            </div> --}}
                         </div>
-                        <div class="container w-50 text-center mb-3">
+                        <div class=" mb-3">
                             <select class="form-select @error('role_id') is-invalid @enderror" name="role_id"
                                 id="categorySelect" aria-label="Default select example" required>
                                 <option selected>Sélectionner un rôle</option>
@@ -105,7 +153,7 @@
                                 </span>
                             @enderror
                         </div>
-                        <div class="row mb-0">
+                        <div class="row mb-5">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-info rounded-5">
                                     Créer l'ustilisateur
