@@ -1,61 +1,61 @@
-# Arcadia
+# Application Zoo Arcadia
 
-Arcadia is a website developed with Laravel, Bootstrap, CSS, and JavaScript.
+Cette application web est conçue pour le zoo Arcadia, situé en France près de la forêt de Brocéliande, en Bretagne. Elle permet aux visiteurs de visualiser les animaux, leurs habitats, les services disponibles et les horaires du zoo. L'application met en avant les valeurs écologiques du zoo et sa gestion responsable des ressources.
 
-## Local Installation
+## Configuration requise
 
-To install Arcadia locally on XAMPP or MAMP, follow these steps:
+Avant de commencer, assurez-vous d'avoir installé les logiciels suivants sur votre machine :
 
-1. Make sure you have [XAMPP](https://www.apachefriends.org/index.html) or [MAMP](https://www.mamp.info/en/) installed on your system.
+- [Mamp](https://www.mamp.info/)
+- [Composer](https://getcomposer.org/) (Sur Mac : `brew install composer`)
+- [MongoDB](https://www.mongodb.com/) (Sur Mac : `brew tap mongodb/brew && brew install mongodb-community`)
+- [Extension PHP MongoDB](https://www.php.net/manual/en/mongodb.installation.pecl.php) (Sur Mac : `pecl install mongodb`)
 
-2. Clone this GitHub repository into the `htdocs` directory (for XAMPP) or `htdocs` directory (for MAMP) of your local server:
+## Installation et déploiement
 
-    ```bash
-    git clone https://github.com/MickaelGP/Arcadia_Ecf_Studi.git
+Suivez les étapes ci-dessous pour installer et déployer l'application localement :
+
+1. Configurez Mamp sur votre machine et assurez-vous que les serveurs MySQL et Apache sont en cours   d'exécution.
+
+2. Dans votre fichier de configuration Apache (habituellement `httpd.conf` ou `httpd-vhosts.conf`), ajoutez ou modifiez une directive DocumentRoot pour qu'elle pointe vers le dossier public de votre application Laravel.
+
+3. Clonez ce dépôt GitHub dans le fichier `htdocs` (MAMP) en utilisant la commande suivante :
+
+   ```bash
+   git clone https://github.com/MickaelGP/Arcadia_Ecf_Studi.git
     ```
 
-3. Navigate to the project directory:
-
+4. Naviguez jusqu'au répertoire de l'application et installez les dépendances PHP en exécutant la commande suivante :
     ```bash
-    cd arcadia
-    ```
-
-4. Install PHP dependencies by running the following command:
-
-    ```bash
+    cd Arcadia_Ecf_Studi
     composer install
     ```
 
-5. Copy the `.env.example` file and rename it to `.env`:
+5. Importez le fichier SQL fourni (arcadia_db.sql) dans votre gestionnaire de base de données MySQL pour créer les tables nécessaires à l'application.
 
+6. Activez l'extension PHP pour MongoDB en suivant les instructions fournies dans la documentation officielle.
+
+7. Copiez le fichier `.env.example` et renommez-le en `.env`. Modifiez ce fichier pour y inclure les informations de connexion à votre base de données MySQL et MongoDB.
     ```bash
     cp .env.example .env
     ```
 
-6. Generate a new Laravel application key:
+8. Générez une nouvelle clé d'application Laravel en exécutant la commande suivante :
 
     ```bash
     php artisan key:generate
     ```
 
-7. Configure the database information in the `.env` file by specifying the database name, user, and password.
-
-8. Import the provided SQL file (`arcadia.sql`) into your database. You can use phpMyAdmin or the MySQL command line:
-
-    ```bash
-    mysql -u your_user -p your_database_name < arcadia.sql
-    ```
-
-9. Start your local server (Apache and MySQL).
-
-10. Launch the site by accessing `http://localhost/arcadia` in your browser.
+9. Importez le fichier SQL fourni  (`arcadia.sql`) dans votre gestionnaire de base de données MySQL pour créer les tables nécessaires à l'application. Vous pouvez utiliser phpMyAdmin.
 
 
+10. Accédez à l'application dans votre navigateur en ouvrant l'URL `http://localhost:8888`.
 
-## Authors
 
-- MickaelGP - https://github.com/MickaelGP
+## Auteur
+
+- MickaelGP - https://github.com/MickaelGP dans le cadre d'un ECF pour l'école [STUDI](https://www.studi.com/)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Ce projet est sous licence MIT. Pour plus d'informations, consultez le fichier [LICENSE](LICENSE).
