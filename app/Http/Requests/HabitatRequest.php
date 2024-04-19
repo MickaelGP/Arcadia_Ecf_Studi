@@ -21,11 +21,18 @@ class HabitatRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'nom' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255'],
-            'commentaire' => ['nullable', 'string', 'max:255'],
-            'image_data.*' => ['image', 'nullable'],
-        ];
+        if (auth()->user()->role->label === 'administrateur') {
+            return [
+                'nom' => ['required', 'string', 'max:255'],
+                'description' => ['required', 'string', 'max:255'],
+                'commentaire' => ['nullable', 'string', 'max:255'],
+                'image_data.*' => ['image', 'nullable'],
+            ];
+        }else{
+            return [
+                'commentaire' => ['nullable', 'string', 'max:255'],
+            ];
+        }
+        
     }
 }

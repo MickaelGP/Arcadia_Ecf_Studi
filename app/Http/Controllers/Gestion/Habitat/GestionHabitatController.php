@@ -74,13 +74,7 @@ class GestionHabitatController extends Controller
      */
     public function update(HabitatRequest $request, Habitat $habitat): RedirectResponse
     {
-        if (auth()->user()->role->id === 'administrateur') {
-            $data = $request->validated();
-        } else {
-            $data = $request->validate([
-                'commentaire' => ['nullable', 'string', 'max:255']
-            ]);
-        }
+        $data = $request->validated();
 
         $habitat->update($data);
 

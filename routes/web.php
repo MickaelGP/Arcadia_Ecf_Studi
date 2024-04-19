@@ -48,6 +48,7 @@ Route::middleware('role:administrateur')->group(function () {
         Route::get('/gestion-horaires/{horaire}/edit', 'edit')->name('gestion.horaires.edit');
         Route::post('/gestion-horaires/store', 'store')->name('gestion.horaires.store');
         Route::patch('/gestion-horaires/{horaire}/update-horaire', 'update')->name('gestion.horaires.update');
+        Route::delete('/gestion-horaires/{horaire}', 'destroy')->name('gestion.horaires.destroy');
     });
 
     // Route gestion Habitat

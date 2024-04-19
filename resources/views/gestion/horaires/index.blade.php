@@ -34,7 +34,12 @@
                         <td>{{ $horaire->ouverture_soir }}</td>
                         <td>{{ $horaire->fermeture_soir }}</td>
                         <td>
-                            <a class="btn btn-warning rounded-5"
+                            <form action="{{ route('gestion.horaires.destroy', $horaire->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger rounded-5">Supprimer</button>
+                            </form>
+                            <a class="btn btn-warning mt-2 rounded-5"
                                 href="{{ route('gestion.horaires.edit', $horaire->id) }}">Modifier</a>
                         </td>
                     </tr>

@@ -86,4 +86,16 @@ class HoraireController extends Controller
 
         return redirect()->route('gestion.horaires')->with('success', 'L\'horaire à bien été modifié');
     }
+     /**
+     * Supprime un habitat de la base de données.
+     *
+     * @param \App\Models\Horaire $habitat
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Horaire $horaire): RedirectResponse
+    {
+        $horaire->delete();
+
+        return redirect()->back()->with('success', 'Horaire supprimé');
+    }
 }
