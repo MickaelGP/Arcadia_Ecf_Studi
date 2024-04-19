@@ -7,77 +7,65 @@
             @csrf
             @method('PATCH')
             @if ($user->role->label === 'administrateur')
-                <div class="mb-3">
-                    <label for="inputNom" class="form-label">Nom</label>
-                    <input type="text" class="form-control  @error('nom') is-invalid @enderror" id="nom"
-                        name="nom" value="{{ $habitat->nom }}" required>
-                    @error('nom')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="inputDescription" class="form-label">Description</label>
-                    <input type="text" class="form-control  @error('description') is-invalid @enderror" id="description"
-                        name="description" value="{{ $habitat->description }}" required>
-                    @error('description')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="inputCommentaire" class="form-label">Commentaire</label>
-                    <input type="text" class="form-control  @error('commentaire') is-invalid @enderror" id="commentaire"
-                        name="commentaire" value="{{ $habitat->commentaire }}">
-                    @error('description')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="image" class="form-label  @error('image_data') is-invalid @enderror">Image de
-                        l'habitat</label>
-                    <input type="file" class="form-control" id="image" name="image_data[]" multiple>
-                    @error('image_data')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
+                @include('shared.input', [
+                    'feedBack' => true,
+                    'needLabel' => true,
+                    'class' => 'mb-3',
+                    'name' => 'nom',
+                    'value' => $habitat->nom,
+                ])
+                @include('shared.input', [
+                    'feedBack' => true,
+                    'needLabel' => true,
+                    'type' => 'textarea',
+                    'class' => 'mb-3',
+                    'name' => 'description',
+                    'value' => $habitat->description,
+                ])
+                @include('shared.input', [
+                    'feedBack' => true,
+                    'needLabel' => true,
+                    'isRequired' => false,
+                    'class' => 'mb-3',
+                    'name' => 'commentaire',
+                    'value' => $habitat->commentaire,
+                ])
+                @include('shared.input', [
+                    'feedBack' => true,
+                    'needLabel' => true,
+                    'type' => 'file',
+                    'class' => 'mb-3',
+                    'label' => 'Image de l\'habitat',
+                    'name' => 'image_data',
+                ])
             @else
-                <div class="mb-3">
-                    <label for="inputNom" class="form-label">Nom</label>
-                    <input type="text" class="form-control  @error('nom') is-invalid @enderror" id="nom"
-                        name="nom" value="{{ $habitat->nom }}" disabled>
-                    @error('nom')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="inputDescription" class="form-label">Description</label>
-                    <input type="text" class="form-control  @error('description') is-invalid @enderror" id="description"
-                        name="description" value="{{ $habitat->description }}" disabled>
-                    @error('description')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="inputCommentaire" class="form-label">Commentaire</label>
-                    <input type="text" class="form-control  @error('commentaire') is-invalid @enderror" id="commentaire"
-                        name="commentaire" value="{{ $habitat->commentaire }}">
-                    @error('description')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
+            @include('shared.input', [
+                    'feedBack' => true,
+                    'needLabel' => true,
+                    'isRequired' => false,
+                    'isDisabled' => true,
+                    'class' => 'mb-3',
+                    'name' => 'nom',
+                    'value' => $habitat->nom,
+                ])
+                @include('shared.input', [
+                    'feedBack' => true,
+                    'needLabel' => true,
+                    'isRequired' => false,
+                    'isDisabled' => true,
+                    'type' => 'textarea',
+                    'class' => 'mb-3',
+                    'name' => 'description',
+                    'value' => $habitat->description,
+                ])
+                @include('shared.input', [
+                    'feedBack' => true,
+                    'needLabel' => true,
+                    'isRequired' => false,
+                    'class' => 'mb-3',
+                    'name' => 'commentaire',
+                    'value' => $habitat->commentaire,
+                ])
             @endif
             <div class="text-center">
                 <button type="submit" class="btn btn-warning">Modifier</button>

@@ -4,11 +4,7 @@
     <div class="container text-center mt-3">
         <h1>Bienvenu sur votre espace {{ $user->prenom }}</h1>
     </div>
-    @if (session('success'))
-        <div class="container w-50 text-center alert alert-success" id="alert">
-            <h1>{{ session('success') }}</h1>
-        </div>
-    @endif
+    @include('shared.flash')
     @if ($user->role->label === 'administrateur')
         <div class="container text-center w-50">
             <ul class="list-group">

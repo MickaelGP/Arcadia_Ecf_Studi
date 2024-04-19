@@ -4,11 +4,7 @@
     <div class="container text-center mt-3">
         <h1>Gestion des horaires du zoo</h1>
     </div>
-    @if (session('success'))
-        <div class="container w-50 text-center alert alert-success" id="alert">
-            <h1>{{ session('success') }}</h1>
-        </div>
-    @endif
+    @include('shared.flash')
     <div class="container  mt-3 text-center shadow py-4 rounded">
 
         <div class="row mb-3">

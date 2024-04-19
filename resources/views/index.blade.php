@@ -107,29 +107,25 @@
                             <div class="card-body">
                                 <form action="{{ route('store') }}" id="formAvis" method="POST">
                                     @csrf
-                                    @include('shared.input',[
+                                    @include('shared.input', [
                                         'class' => 'mb-3',
                                         'type' => 'text',
                                         'name' => 'pseudo',
                                         'messagePerso' => 'Le pseudo doit avoir au moins 4 caractères',
-                                        'id' => 'inputPseudo'
+                                        'id' => 'inputPseudo',
                                     ])
-                                    @include('shared.input',[
+                                    @include('shared.input', [
                                         'feedBack' => true,
                                         'class' => 'mb-3',
                                         'type' => 'textarea',
                                         'name' => 'commentaire',
-                                        'id' => 'commentaireArea'
+                                        'id' => 'commentaireArea',
                                     ])
                                     <button type="submit" class="btn shadow" id="btnValidation">Envoyer</button>
                                 </form>
                             </div>
                         </div>
-                        @if (session('success'))
-                            <div class="alert alert-success container w-50  text-center mt-3" id="alertSuccess">
-                                {{ session('success') }}
-                            </div>
-                        @endif
+                        @include('shared.flash')
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <h2 class="pt-2">Les avis des visiteurs</h2>

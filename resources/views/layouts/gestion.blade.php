@@ -118,7 +118,7 @@
             });
         });
         document.addEventListener('DOMContentLoaded', function() {
-            let alertSuccess = document.querySelector('#alertSuccess');
+            let alertSuccess = document.querySelector('.alert');
             if (alertSuccess) {
                 setTimeout(() => {
                     alertSuccess.remove();

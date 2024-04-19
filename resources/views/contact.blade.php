@@ -63,10 +63,6 @@
                 </div>
             </form>
         </div>
-        @if (session('success'))
-            <div class="alert alert-success container w-50  text-center mt-5" id="alertSuccess">
-                {{ session('success') }}
-            </div>
-        @endif
+        @include('shared.flash')
     </section>
 @endsection

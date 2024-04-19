@@ -4,6 +4,7 @@
     <div class="container text-center mt-5">
         <h1>Gestion des habitats du zoo</h1>
     </div>
+    @include('shared.flash')
     <div class="container pb-3 mt-5 text-center shadow py-4 rounded">
         @if ($user->role->label === 'administrateur')
             <div class="row mb-3">
@@ -45,10 +46,5 @@
                 @endforeach
             </tbody>
         </table>
-        @if (session('success'))
-            <div class="container w-50 text-center alert alert-success" id="alert">
-                <h1>{{ session('success') }}</h1>
-            </div>
-        @endif
     </div>
 @endsection

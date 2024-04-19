@@ -1,11 +1,7 @@
 @extends('layouts.gestion')
 
 @section('content')
-    @if (session('success'))
-        <div class="container w-50 text-center alert alert-success" id="alert">
-            <h1>{{ session('success') }}</h1>
-        </div>
-    @endif
+    @include('shared.flash')
     <div class="container  mt-3 text-center shadow py-4 rounded">
         <div class="row mb-3">
             <div class="col-12">

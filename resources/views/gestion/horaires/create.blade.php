@@ -20,6 +20,7 @@
                 @include('shared.input', [
                     'feedBack' => true,
                     'needLabel' => true,
+                    'isRequired' => false,
                     'class' => 'mb-3',
                     'label' => 'Horaire de fermeture du matin',
                     'type' => 'time',
@@ -29,6 +30,7 @@
                 @include('shared.input', [
                     'feedBack' => true,
                     'needLabel' => true,
+                    'isRequired' => false,
                     'class' => 'mb-3',
                     'label' => 'Horaire d\'ouverture du soir',
                     'type' => 'time',

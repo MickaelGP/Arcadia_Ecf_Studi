@@ -2,12 +2,7 @@
 
 @section('content')
     <div class="mb-5">
-
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
+    @include('shared.flash')
         <div class="container pt-2">
             <div class="card shadow">
                 <h1 class="text-center pt-5">Création de compte utilisateurs</h1>

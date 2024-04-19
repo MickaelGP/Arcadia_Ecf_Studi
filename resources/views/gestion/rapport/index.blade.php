@@ -4,11 +4,7 @@
     <div class="container text-center mt-2">
         <h1>Compte rendus</h1>
     </div>
-    @if (session('success'))
-        <div class="container w-50 text-center alert alert-success" id="alertSuccess">
-            <h1>{{ session('success') }}</h1>
-        </div>
-    @endif
+    @include('shared.flash')
     <div class="row">
         <div class="container col-6 text-center mt-3">
             <div class="row justify-content-center pb-3">
