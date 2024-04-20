@@ -127,6 +127,9 @@
         });
     </script>
 
+
+ <script src="/js/gestion/check.js"></script>
+
 </body>
 
 </html>

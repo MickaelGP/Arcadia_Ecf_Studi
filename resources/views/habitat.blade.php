@@ -11,7 +11,7 @@
         'carouselId' => 'carouselJungle',
         'titre' =>'La jungle',
         'idModal' => 'modalJungle',
-        'options' => $habitats[0]->images
+        'options' => $habitats[2]->images
     ])
     @include('shared.carouselImage',[
         'sectionId' => 'sectionHabitatsSavane',
@@ -25,7 +25,7 @@
         'carouselId' => 'carouselMarais',
         'titre' =>'Le marais',
         'idModal' => 'modalMarais',
-        'options' => $habitats[3]->images
+        'options' => $habitats[1]->images
     ])
     {{-- Modal Jungle --}}
     @include('shared.modal',[

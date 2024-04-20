@@ -57,10 +57,10 @@
                         </div>
                         <div class="row mb-3">
                             @include('shared.input',[
-                                'feedBack' => true,
                                 'needLabel' => true,
                                 'class' => 'col',
                                 'label' => 'Confirmation du mot de passe',
+                                'messagePerso' => 'Le mot de passe ne correspond pas.',
                                 'placeholder' => '...',
                                 'type' => 'password',
                                 'id' => 'password_confirmation',
