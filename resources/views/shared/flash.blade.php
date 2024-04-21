@@ -1,4 +1,4 @@
-<div class="container w-50 text-center">
+<div class="container w-50 mt-2 text-center">
     @if (session('success'))
         <div class="container alert alert-success text-center">
             {{ session('success') }}

@@ -7,56 +7,46 @@
             <h1 class="text-center">Ajouter un rapport</h1>
             <form method="POST" action="{{ route('gestion.rapports.store') }}">
                 @csrf
-                <div class="mb-3">
-                    <label for="inputDate" class="form-label">Date de passage</label>
-                    <input type="date" class="form-control  @error('date') is-invalid @enderror" id="date"
-                        name="date" required>
-                    @error('date')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="inputDetail" class="form-label">Detail de l'etat de l'animal </label>
-                    <input type="text" class="form-control  @error('detail') is-invalid @enderror" id="detail"
-                        name="detail">
-                    @error('detail')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="inputEtat" class="form-label">Etat de l'annimal </label>
-                    <input type="text" class="form-control  @error('etat') is-invalid @enderror" id="etat"
-                        name="etat" required>
-                    @error('etat')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="inputNourriture" class="form-label">Type de nourriture </label>
-                    <input type="text" class="form-control  @error('nourriture') is-invalid @enderror" id="nourriture"
-                        name="nourriture" required>
-                    @error('nourriture')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="inputquantite" class="form-label">Quantitée de nourriture en gramme</label>
-                    <input type="number" class="form-control  @error('quantite') is-invalid @enderror" id="quantite"
-                        name="quantite" required>
-                    @error('quantite')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
+                @include('shared.input',[
+                    'feedBack' => true,
+                    'needLabel' => true,
+                    'label' => 'Date de passage',
+                    'type' => 'date',
+                    'class' => 'mb-3',
+                    'name' => 'date'
+                ])
+                @include('shared.input',[
+                    'feedBack' => true,
+                    'needLabel' => true,
+                    'isRequired' => false,
+                    'label' => 'Detail de l\'etat de l\'animal',
+                    'type' => 'textarea',
+                    'class' => 'mb-3',
+                    'name' => 'detail'
+                ])
+                @include('shared.input',[
+                    'feedBack' => true,
+                    'needLabel' => true,
+                    'label' => 'Etat de l\'annimal',
+                    'type' => 'textarea',
+                    'class' => 'mb-3',
+                    'name' => 'etat'
+                ])
+                @include('shared.input',[
+                    'feedBack' => true,
+                    'needLabel' => true,
+                    'label' => 'Type de nourriture',
+                    'class' => 'mb-3',
+                    'name' => 'nourriture'
+                ])
+                @include('shared.input',[
+                    'feedBack' => true,
+                    'needLabel' => true,
+                    'label' => 'Quantitée de nourriture en gramme',
+                    'type' => 'number',
+                    'class' => 'mb-3',
+                    'name' => 'quantite'
+                ])
                 <div class="mb-3">
                     <select class="form-select" name="animal_id" id="animalSelect" aria-label="Default select example">
                         <option selected>Selectionner un animal</option>

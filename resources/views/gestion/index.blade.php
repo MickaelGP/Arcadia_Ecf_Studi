@@ -36,16 +36,9 @@
                                 <tbody>
                                     @foreach ($alimentations as $alimentation)
                                         <tr>
-                                            <td>
-                                                @if ($alimentation->animal)
-                                                    {{ $alimentation->animal->prenom }}
-                                                @else
-                                                    N/A
-                                                @endif
-                                            </td>
+                                            <td>{{ $alimentation->animal->prenom }}</td>
                                             <td>{{ $alimentation->nourriture }}</td>
                                             <td>{{ $alimentation->quantite }} G</td>
-
                                         </tr>
                                     @endforeach
                                 </tbody>

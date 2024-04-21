@@ -128,7 +128,7 @@ class AnimalController extends Controller
 
         Animal::create($data);
 
-        return redirect()->route('gestion.animals');
+        return redirect()->route('gestion.animals')->with('success', 'L\'animal à bien été ajouté');
     }
     /**
      * Supprime un animal de la base de données.
@@ -140,6 +140,6 @@ class AnimalController extends Controller
     {
         $animal->delete();
 
-        return redirect()->back()->with('success', 'Service supprimé');
+        return redirect()->back()->with('success', 'L\'animal à bien été supprimé');
     }
 }

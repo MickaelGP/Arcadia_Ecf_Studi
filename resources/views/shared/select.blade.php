@@ -4,6 +4,7 @@
     $name ??= '';
     $id ??= 'select'.ucfirst($name);
     $label ??= ucfirst($name);
+    $message ??= 'Sélectionner une valeur';
 @endphp
 
 
@@ -13,7 +14,7 @@
         <label for="{{ $name }}">{{ $label }}</label>
     @endif
     <select class="form-select" name="{{ $name }}" id="{{ $id }}" required>
-        <option selected>Sélectionner une valeur</option>
+        <option selected>{{ $message }}</option>
         @forelse ($options as $valeur)
          <option value="{{ $valeur->id }}">{{ $valeur->label }}</option>
         @empty

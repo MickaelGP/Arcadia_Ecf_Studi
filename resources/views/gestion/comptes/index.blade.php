@@ -39,7 +39,7 @@
                                 'class' => 'col',
                                 'label' => 'Prénom',
                                 'placeholder' => 'Jane',
-                                'id' => 'prénom',
+                                'id' => 'prenom',
                                 'name' => 'prenom',
                             ])
                         </div>

@@ -33,7 +33,7 @@
                                 <form action="{{ route('gestion.habitats.destroy', $habitat->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <a class="btn btn-warning rounded-5"
+                                    <a class="btn btn-warning rounded-5 mb-2"
                                         href="{{ route('gestion.habitats.edit', $habitat->id) }}">Modifier</a>
                                     <button type="submit" class="btn btn-danger rounded-5">Supprimer</button>
                                 </form>

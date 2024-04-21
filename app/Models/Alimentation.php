@@ -13,7 +13,7 @@ class Alimentation extends Model
 
     protected $fillable = [
         'user_id',
-        'animal_id ',
+        'animal_id',
         'date_alimentation',
         'heure_alimentation',
         'nourriture',
