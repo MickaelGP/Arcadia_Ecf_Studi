@@ -8,9 +8,9 @@ use App\Models\Animal;
 use App\Models\Habitat;
 use App\Models\Horaire;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AnimalRequest;
 use Illuminate\Http\RedirectResponse;
 
 class AnimalController extends Controller
@@ -92,19 +92,14 @@ class AnimalController extends Controller
     /**
      * Met à jour les informations d'un animal.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\AnimalRequest  $request
      * @param  \App\Models\Animal  $animal
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Animal $animal): RedirectResponse
+    public function update(AnimalRequest $request, Animal $animal): RedirectResponse
     {
 
-        $data = $request->validate([
-            'prenom' => ['required', 'string', 'max:50'],
-            'description' => ['required', 'string', 'max:255'],
-            'race_id' => ['required', 'int'],
-            'habitat_id' => ['required', 'int']
-        ]);
+        $data = $request->validated();
 
         $animal->update($data);
 
@@ -113,18 +108,13 @@ class AnimalController extends Controller
     /**
      * Stocke un nouvel animal dans la base de données.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\AnimalRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(AnimalRequest $request): RedirectResponse
     {
 
-        $data = $request->validate([
-            'prenom' => ['required', 'string', 'max:50'],
-            'description' => ['required', 'string', 'max:255'],
-            'race_id' => ['required', 'int'],
-            'habitat_id' => ['required', 'int']
-        ]);
+        $data = $request->validated();
 
         Animal::create($data);
 

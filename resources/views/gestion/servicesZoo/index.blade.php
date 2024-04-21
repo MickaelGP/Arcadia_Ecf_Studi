@@ -31,7 +31,7 @@
                                 <form action="{{ route('gestion.services.destroy', $service->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <a class="btn btn-warning rounded-5"
+                                    <a class="btn btn-warning mb-2 rounded-5"
                                         href="{{ route('gestion.services.edit', $service->id) }}">Modifier</a>
                                     <button type="submit" class="btn btn-danger rounded-5">Supprimer</button>
                                 </form>

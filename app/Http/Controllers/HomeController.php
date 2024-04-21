@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AvisRequest;
 use App\Models\Avi;
 use App\Models\Habitat;
 use App\Models\Horaire;
 use App\Models\Service;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -69,21 +69,5 @@ class HomeController extends Controller
         return view('contact', [
             'horaires' => $this->horaires
         ]);
-    }
-    /**
-     * Stocke un nouvel avis dans la base de données.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function store(Request $request): RedirectResponse
-    {
-        $data = $request->validate([
-            'pseudo' => ['required', 'string', 'max:255'],
-            'commentaire' => ['required', 'string', 'max:255'],
-        ]);
-        Avi::create($data);
-
-        return redirect()->back()->with('success', 'Votre avis à bien été envoyé');
     }
 }

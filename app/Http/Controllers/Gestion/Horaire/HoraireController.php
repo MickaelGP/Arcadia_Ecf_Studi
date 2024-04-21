@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Gestion\Horaire;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\HoraireRequest;
 use App\Models\Horaire;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -37,18 +37,12 @@ class HoraireController extends Controller
     /**
      * Stocke un nouvel horaire dans la base de données.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Http\Requests\HoraireRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(HoraireRequest $request): RedirectResponse
     {
-        $data = $request->validate([
-            'ouverture_matin' => ['required', 'date_format:H:i'],
-            'ouverture_soir' => ['nullable', 'date_format:H:i'],
-            'fermeture_matin' => ['nullable', 'date_format:H:i'],
-            'fermeture_soir' => ['required', 'date_format:H:i']
-        ]);
-
+        $data = $request->validated();
 
         Horaire::create($data);
 
@@ -69,18 +63,13 @@ class HoraireController extends Controller
     /**
      * Met à jour les informations d'un horaire.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Http\Requests\HoraireRequest $request
      * @param \App\Models\Horaire $horaire
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Horaire $horaire): RedirectResponse
+    public function update(HoraireRequest $request, Horaire $horaire): RedirectResponse
     {
-        $data = $request->validate([
-            'ouverture_matin' => ['required', 'string', 'max:50'],
-            'ouverture_soir' => ['nullable', 'string', 'max:50'],
-            'fermeture_matin' => ['nullable', 'string', 'max:50'],
-            'fermeture_soir' => ['required', 'string', 'max:50']
-        ]);
+        $data = $request->validated();
 
         $horaire->update($data);
 

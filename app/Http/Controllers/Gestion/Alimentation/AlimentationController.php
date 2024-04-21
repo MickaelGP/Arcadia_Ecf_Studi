@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Gestion\Alimentation;
 
 use App\Models\Animal;
 use Illuminate\View\View;
-use App\Models\Alimentation;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AlimentationRequest;
 use Illuminate\Http\RedirectResponse;
 
 class AlimentationController extends Controller
@@ -27,25 +26,15 @@ class AlimentationController extends Controller
     /**
      * Stocke une nouvelle alimentation dans la base de données.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Http\Requests\AlimentationRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(AlimentationRequest $request): RedirectResponse
     {
 
-        $data = $request->validate([
-            'date_alimentation' => ['required', 'date'],
-            'heure_alimentation' => ['required', 'date_format:H:i'],
-            'nourriture' => ['required', 'string', 'max:255'],
-            'quantite' => ['required', 'numeric'],
-            'animal_id' => ['required', 'integer'],
-        ]);
-
-
+        $data = $request->validated();
 
         auth()->user()->alimentations()->create($data);
-
-
 
         return redirect()->route('gestion')->with('success', 'L\'alimentation a bien été ajoutée');
     }

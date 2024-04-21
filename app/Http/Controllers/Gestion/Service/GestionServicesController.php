@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Gestion\Service;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ServiceRequest;
 use App\Models\Service;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -39,15 +40,13 @@ class GestionServicesController extends Controller
     /**
      * Stocke un nouveau service dans la base de données.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Http\Requests\ServiceRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(ServiceRequest $request): RedirectResponse
     {
-        $data = $request->validate([
-            'nom' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255']
-        ]);
+        $data = $request->validated();
+
         Service::create($data);
 
         return redirect()->route('gestion.services')->with('success', 'Le service à bien été ajouté');
@@ -61,21 +60,19 @@ class GestionServicesController extends Controller
     public function edit(Service $service): View
     {
         $user = auth()->user();
+
         return view('gestion.servicesZoo.edit', compact('service', 'user'));
     }
     /**
      * Met à jour les informations d'un service.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Http\Requests\ServiceRequest $request
      * @param \App\Models\Service $service
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Service $service): RedirectResponse
+    public function update(ServiceRequest $request, Service $service): RedirectResponse
     {
-        $data = $request->validate([
-            'nom' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255']
-        ]);
+        $data = $request->validated();
 
         $service->update($data);
 
