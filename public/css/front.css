@@ -195,7 +195,9 @@ body {
     background-color: rgb(235, 217, 180);
     color: rgb(67, 104, 80);
 }
-
+#sectionContactForm {
+    height: 500px;
+}
 #sectionContactPhrase {
     background-color: rgb(249, 239, 219);
     color: rgb(67, 104, 80);

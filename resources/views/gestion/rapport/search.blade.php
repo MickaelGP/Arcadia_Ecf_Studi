@@ -23,7 +23,7 @@
                                     <td>{{ $rapport->animal->prenom }}</td>
                                     <td>
                                         <a href="{{ route('gestion.rapports.show', $rapport->id) }}"
-                                            class="btn btn-info">Voir</a>
+                                            class="btn btn-info rounded-5">Voir</a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -40,7 +40,7 @@
                     </select>
                 </div>
                 <div class="text-center pt-2">
-                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                    <button type="submit" class="btn btn-primary rounded-5">Ajouter</button>
                 </div>
             </form>
         </div>

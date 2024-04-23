@@ -25,7 +25,7 @@
                 'value' => $service->description
             ])
             <div class="text-center">
-                <button type="submit" class="btn btn-warning">Modifier</button>
+                <button type="submit" class="btn btn-warning rounded-5">Modifier</button>
             </div>
         </form>
     </div>

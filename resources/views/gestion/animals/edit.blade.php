@@ -43,7 +43,7 @@
                     </select>
                 </div>
                 <div class="text-center pt-2">
-                    <button type="submit" class="btn btn-warning">Modifier</button>
+                    <button type="submit" class="btn btn-warning rounded-5">Modifier</button>
                 </div>
             </form>
         </div>

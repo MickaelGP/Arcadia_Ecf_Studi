@@ -30,7 +30,7 @@
                         </span>
                     </div>
                     <div class="pt-5">
-                        <button type="submit" class="btn  shadow ">Submit</button>
+                        <button type="submit" class="btn  shadow rounded-5 ">Connexion</button>
                     </div>
                 </form>
             </div>

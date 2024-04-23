@@ -11,7 +11,7 @@
                 <div class="carousel-inner rounded">
                     @foreach ($options as $item)
                     <div class="carousel-item active">
-                        <img src="/storage/{{$item->image_data}}"class="d-block w-100" alt="...">
+                        <img src="/storage/{{$item->image_data}}"class="d-block w-100" alt="Zoo Arcadia">
                     </div>
                     @endforeach
                 </div>
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="pb-3">
-            <button class="btn shadow" data-bs-toggle="modal" data-bs-target="#{{$idModal}}">En savoir plus</button>
+            <button class="btn shadow rounded-5" data-bs-toggle="modal" data-bs-target="#{{$idModal}}">En savoir plus</button>
         </div>
     </div>
 </section>

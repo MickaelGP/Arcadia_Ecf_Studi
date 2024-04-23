@@ -26,11 +26,11 @@
         </div>
     </section>
     <section id="sectionContactForm">
-        <div class="text-center pt-3">
+        <div class="text-center pt-5">
             <h1>Envoyez nous un message</h1>
 
         </div>
-        <div class="container w-50 pt-3">
+        <div class="container w-50 pt-5">
             <form action="{{ route('send') }}" method="POST">
                 @csrf
                 @include('shared.input',[
@@ -59,7 +59,7 @@
                     'feedBack' => true
                 ])
                 <div class="text-center pb-3">
-                    <button type="submit" class="btn shadow ">Envoyer</button>
+                    <button type="submit" class="btn shadow rounded-5 ">Envoyer</button>
                 </div>
             </form>
         </div>

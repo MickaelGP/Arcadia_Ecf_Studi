@@ -86,3 +86,6 @@
         </div>
     </div>
 @endsection
+@section('script')
+<script src="/js/gestion/check.js"></script>
+@endsection

@@ -5,8 +5,8 @@
     <div class="container  mt-3 text-center shadow py-4 rounded">
         <div class="row mb-3">
             <div class="col-12">
-                <a href="{{ route('gestion.animals.create') }}" class="btn btn-success">Ajouter un animal</a>
-                <a href="{{ route('gestion.races') }}" class="btn btn-success">Ajouter une race</a>
+                <a href="{{ route('gestion.animals.create') }}" class="btn btn-success rounded-5">Ajouter un animal</a>
+                <a href="{{ route('gestion.races') }}" class="btn btn-success rounded-5">Ajouter une race</a>
             </div>
         </div>
         <table class="table table-bordered">

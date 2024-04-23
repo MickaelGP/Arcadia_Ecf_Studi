@@ -19,7 +19,7 @@
                             <div class="card-body">
                                 <i class="fa-solid fa-utensils icons"></i>
                                 <p>Snack, restaurant</p>
-                                <a class="btn shadow" href="{{ route('service') }}">En savoir plus</a>
+                                <a class="btn shadow rounded-5" href="{{ route('service') }}">En savoir plus</a>
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                             <div class="card-body">
                                 <i class="fa-solid fa-train icons"></i>
                                 <p>Visite en petit train</p>
-                                <a class="btn shadow" href="{{ route('service') }}">En savoir plus</a>
+                                <a class="btn shadow rounded-5" href="{{ route('service') }}">En savoir plus</a>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                             <div class="card-body">
                                 <i class="fa-solid fa-signs-post icons"></i>
                                 <p>Visite des habitats</p>
-                                <a class="btn shadow" href="{{ route('service') }}">En savoir plus</a>
+                                <a class="btn shadow rounded-5" href="{{ route('service') }}">En savoir plus</a>
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                                 <h5 class="card-title">Savane</h5>
                                 <p>Écosystème captivant, animaux majestueux, paysage authentique,</br> expérience immersive.
                                 </p>
-                                <a class="btn shadow" href="{{ route('habitat') }}">En savoir plus</a>
+                                <a class="btn shadow rounded-5" href="{{ route('habitat') }}">En savoir plus</a>
                             </div>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                                 <p>Mystères luxuriants, créatures exotiques, aventures épiques, exploration fascinante,
                                     ambiance
                                     envoûtante.</p>
-                                <a class="btn shadow" href="{{ route('habitat') }}">En savoir plus</a>
+                                <a class="btn shadow rounded-5" href="{{ route('habitat') }}">En savoir plus</a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                                 <p>Écosystème unique, faune fascinante, mystères aquatiques, biodiversité préservée,
                                     expériences
                                     captivantes.</p>
-                                <a class="btn shadow" href="{{ route('habitat') }}">En savoir plus</a>
+                                <a class="btn shadow rounded-5" href="{{ route('habitat') }}">En savoir plus</a>
                             </div>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                                         'name' => 'commentaire',
                                         'id' => 'commentaireArea',
                                     ])
-                                    <button type="submit" class="btn shadow" id="btnValidation">Envoyer</button>
+                                    <button type="submit" class="btn shadow rounded-5" id="btnValidation">Envoyer</button>
                                 </form>
                             </div>
                         </div>
