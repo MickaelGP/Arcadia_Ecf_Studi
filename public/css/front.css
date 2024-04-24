@@ -16,6 +16,10 @@ body {
     background-color: rgb(157, 188, 152);
 }
 
+#imgLogo {
+    height: 150px;
+}
+
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show {
     color: rgb(235, 217, 180);
@@ -47,15 +51,16 @@ body {
 
 #titreHero h1 {
     position: absolute;
-    top: 20%;
+    top: 50%;
     left: 50%;
-    font-size: 80px;
+    font-size: 90px;
+    font-weight: bold;
     transform: translate(-50%, -50%);
     margin: 0;
     padding: 20px;
 }
 
-#textHero {
+/* #textHero {
     position: absolute;
     top: 70%;
     left: 50%;
@@ -63,14 +68,14 @@ body {
     transform: translate(-50%, -50%);
     margin: 0;
     padding: 20px;
-}
+} */
 
 #homeSectionServices,
 #sectionHomeAvis {
     background-color: rgb(249, 239, 219);
 }
 
-#homeSectionServices .card {
+#homeSectionServices .card{
     background-color: rgb(235, 217, 180);
     color: rgb(67, 104, 80);
 }
@@ -83,7 +88,8 @@ body {
 
 #homeSectionServices h1,
 #sectionHomeHabitats h1,
-#sectionHomeAvis h1 {
+#sectionHomeAvis h1,
+#homeSectionServices p{
     color: rgb(67, 104, 80);
 }
 

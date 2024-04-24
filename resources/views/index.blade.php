@@ -5,9 +5,18 @@
         <div class="container" id="titreHero">
             <h1>Arcadia</h1>
         </div>
-        <p id="textHero">Arcadia est un zoo situé en France près de la forêt de Brocéliande, en bretagne depuis 1960.</p>
     </div>
     <section id="homeSectionServices">
+        <div class="text-center container pt-5">
+            <h1>Notre histoire</h1>
+            <p class="pb-3">
+                Arcadia est un zoo situé en France, près de la forêt de Brocéliande en Bretagne, <strong>depuis 1960</strong>.</br> 
+                Nous possédons tout un panel d'animaux, répartis par habitat.</br>
+                La santé des animaux est notre <strong>priorité</strong>.</br>
+                Nos vétérinaires effectues des contrôles sur chaque animal avant l'ouverture.</br>
+                Arcadia est indépendant énergétiquement : le zoo est équipé à <strong>100% d'énergie verte</strong>.
+            </p>
+        </div>
         <div class="text-center pb-5">
             <div class="pt-3">
                 <h1>Nos services</h1>

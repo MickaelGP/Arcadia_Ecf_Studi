@@ -23,8 +23,7 @@
     <header>
         <nav class="navbar navbar-expand-lg" id="navbar">
             <div class="container-fluid">
-                <a class="navbar-brand  {{ request()->routeIs('home') ? 'active' : '' }}"
-                    href="{{ route('home') }}"><img src="/img/logo.png" alt="Logo arcadia" class="img-fluid w-50"></a>
+                <a class="navbar-brand" href="{{ route('home') }}"><img src="/img/logo.png" alt="Logo arcadia" id="imgLogo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
