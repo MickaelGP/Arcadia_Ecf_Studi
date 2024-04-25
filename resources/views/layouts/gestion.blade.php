@@ -129,6 +129,7 @@
         });
     </script>
 @endif
+<script src="/js/gestion/deleteSuccess.js"></script>
 </body>
 
 </html>
