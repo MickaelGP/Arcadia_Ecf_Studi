@@ -1,0 +1,26 @@
+[
+    {
+        "nom": "Simba",
+        "nombreDeVue": {
+            "$numberInt": "4"
+        }
+    },
+    {
+        "nom": "Kong",
+        "nombreDeVue": {
+            "$numberInt": "8"
+        }
+    },
+    {
+        "nom": "Rio",
+        "nombreDeVue": {
+            "$numberInt": "7"
+        }
+    },
+    {
+        "nom": "Sheldon",
+        "nombreDeVue": {
+            "$numberInt": "2"
+        }
+    }
+]
