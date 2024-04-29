@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Gestion\Rapport;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RapportRequest;
 use App\Models\Animal;
 use App\Models\RapportVeterinaire;
 use Illuminate\Http\RedirectResponse;
@@ -77,25 +78,17 @@ class ConsultationRapportController extends Controller
     /**
      * Stocke un nouveau rapport vétérinaire dans la base de données.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Http\Requests\RapportRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(RapportRequest $request): RedirectResponse
     {
 
-        $userId = auth()->user()->id;
+        $user = auth()->user();
 
-        $data = $request->validate([
-            'date' => ['required', 'date'],
-            'detail' => ['string', 'max:255', 'nullable'],
-            'nourriture' => ['required', 'string', 'max:255'],
-            'etat' => ['string', 'max:255', 'required'],
-            'quantite' => ['required', 'int'],
-            'animal_id' => ['required', 'int'],
-        ]);
-        auth()->user()->rapports()->create($data);
+        $data = $request->validated();
 
-
+        $user->rapports()->create($data);
 
         return redirect()->route('gestion.rapports')->with('success', 'Le rapport a bien été ajouté');
     }

@@ -1,6 +1,5 @@
 @extends('layouts.app')
-
-
+@section('title', $animal->prenom)
 @section('content')
 <section>
     <div class="container text-center">

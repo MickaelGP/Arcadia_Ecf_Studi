@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Arcadia | Acceuil')
 @section('content')
     <div id="main">
         <div class="container" id="titreHero">

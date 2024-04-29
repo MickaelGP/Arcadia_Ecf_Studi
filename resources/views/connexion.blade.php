@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Espace-employés')
 
 @section('content')
     <section id="sectionConnexionForm">

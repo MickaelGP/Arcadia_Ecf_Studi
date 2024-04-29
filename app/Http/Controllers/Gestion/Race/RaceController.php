@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Gestion\Race;
 
 use App\Models\Race;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RaceRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -24,15 +24,13 @@ class RaceController extends Controller
     /**
      * Stocke une nouvelle race dans la base de données.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Http\Requests\RaceRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(RaceRequest $request): RedirectResponse
     {
 
-        $data = $request->validate([
-            'label' => ['required', 'string', 'max:50', 'unique:races']
-        ]);
+        $data = $request->validated();
 
         Race::create($data);
 

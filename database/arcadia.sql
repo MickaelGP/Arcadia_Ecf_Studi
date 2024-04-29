@@ -38,7 +38,7 @@ INSERT INTO habitats (nom, description)
 DROP TABLE IF EXISTS races;
 CREATE TABLE races (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  label VARCHAR(50) NOT NULL
+  label VARCHAR(50) NOT NULL UNIQUE
 );
 INSERT INTO races (label) 
   VALUES('Mammifères');
