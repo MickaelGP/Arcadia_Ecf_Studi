@@ -46,19 +46,23 @@ Suivez les étapes ci-dessous pour installer et déployer l'application localeme
     php artisan key:generate
     ```
 
-9. Importez le fichier SQL fourni  (`arcadia.sql`) dans votre gestionnaire de base de données MySQL pour créer les tables nécessaires à l'application. Vous pouvez utiliser phpMyAdmin.
+7. Configure the database information in the `.env` file by specifying the database name, user, and password.
 
-10. Effectuez la commande suivante pour créer le lien symbolique du répertoire storage et pouvoir ajouter les images.
+8. Import the provided SQL file (`arcadia.sql`) into your database. You can use phpMyAdmin or the MySQL command line:
+
     ```bash
-    php artisan storage:link
+    mysql -u your_user -p your_database_name < arcadia.sql
     ```
 
-11. Accédez à l'application dans votre navigateur en ouvrant l'URL `http://localhost:8888`.
+9. Start your local server (Apache and MySQL).
+
+10. Launch the site by accessing `http://localhost/arcadia` in your browser.
 
 
-## Auteur
 
-- MickaelGP - https://github.com/MickaelGP dans le cadre d'un ECF pour l'école [STUDI](https://www.studi.com/)
+## Authors
+
+- MickaelGP - https://github.com/MickaelGP
 
 ## License
 
