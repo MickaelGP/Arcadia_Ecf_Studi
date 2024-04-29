@@ -25,7 +25,7 @@ function validateMail(input){
     }
 }
 function validateRequired(input){
-    if(input.value != '' && input.value.length > 3){
+    if(input.value != '' && input.value.length > 3 && input.value.length < 50){
         input.classList.add("is-valid");
         input.classList.remove("is-invalid");
     }else{

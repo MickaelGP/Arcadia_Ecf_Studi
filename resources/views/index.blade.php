@@ -120,7 +120,7 @@
                                         'class' => 'mb-3',
                                         'type' => 'text',
                                         'name' => 'pseudo',
-                                        'messagePerso' => 'Le pseudo doit avoir au moins 4 caractères',
+                                        'messagePerso' => 'Le pseudo doit avoir au moins 4 caractères et être inférieur à 50 caractères',
                                         'id' => 'inputPseudo',
                                     ])
                                     @include('shared.input', [
