@@ -61,8 +61,12 @@ Suivez les étapes ci-dessous pour installer et déployer l'application localeme
 
 
 
+10. Effectuez la commande suivante pour créer le lien symbolique du répertoire storage et pouvoir ajouter les images.
+    ```bash
+    php artisan storage:link
+    ```
 
-10. Accédez à l'application dans votre navigateur en ouvrant l'URL `http://localhost:8888`.
+11. Accédez à l'application dans votre navigateur en ouvrant l'URL `http://localhost:8888`.
 
 
 ## Auteur
