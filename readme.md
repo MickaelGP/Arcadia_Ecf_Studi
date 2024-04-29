@@ -48,6 +48,7 @@ Suivez les étapes ci-dessous pour installer et déployer l'application localeme
 
 9. Importez le fichier SQL fourni  (`arcadia.sql`) dans votre gestionnaire de base de données MySQL pour créer les tables nécessaires à l'application. Vous pouvez utiliser phpMyAdmin.
 
+
 10. Effectuez la commande suivante pour créer le lien symbolique du répertoire storage et pouvoir ajouter les images.
     ```bash
     php artisan storage:link
@@ -57,6 +58,15 @@ Suivez les étapes ci-dessous pour installer et déployer l'application localeme
 
 
 ## Auteur
+
+
+
+
+10. Accédez à l'application dans votre navigateur en ouvrant l'URL `http://localhost:8888`.
+
+
+## Auteur
+
 
 - MickaelGP - https://github.com/MickaelGP dans le cadre d'un ECF pour l'école [STUDI](https://www.studi.com/)
 
