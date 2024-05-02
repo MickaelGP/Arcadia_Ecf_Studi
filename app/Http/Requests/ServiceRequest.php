@@ -22,7 +22,7 @@ class ServiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nom' => ['required', 'string', 'max:255'],
+            'nom' => ['required', 'string', 'max:50'],
             'description' => ['required', 'string', 'max:255']
         ];
     }

@@ -24,7 +24,7 @@ class AlimentationRequest extends FormRequest
         return [
             'date_alimentation' => ['required', 'date'],
             'heure_alimentation' => ['required', 'date_format:H:i'],
-            'nourriture' => ['required', 'string', 'max:255'],
+            'nourriture' => ['required', 'string', 'max:50'],
             'quantite' => ['required', 'numeric'],
             'animal_id' => ['required', 'integer'],
         ];

@@ -24,8 +24,8 @@ class RapportRequest extends FormRequest
         return [
             'date' => ['required', 'date'],
             'detail' => ['string', 'max:255', 'nullable'],
-            'nourriture' => ['required', 'string', 'max:255'],
-            'etat' => ['string', 'max:255', 'required'],
+            'nourriture' => ['required', 'string', 'max:50'],
+            'etat' => ['string', 'max:50', 'required'],
             'quantite' => ['required', 'int'],
             'animal_id' => ['required', 'int'],
         ];

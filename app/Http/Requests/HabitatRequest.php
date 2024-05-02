@@ -23,7 +23,7 @@ class HabitatRequest extends FormRequest
     {
         if (auth()->user()->role->label === 'administrateur') {
             return [
-                'nom' => ['required', 'string', 'max:255'],
+                'nom' => ['required', 'string', 'max:50'],
                 'description' => ['required', 'string', 'max:255'],
                 'commentaire' => ['nullable', 'string', 'max:255'],
                 'image_data.*' => ['image', 'nullable'],

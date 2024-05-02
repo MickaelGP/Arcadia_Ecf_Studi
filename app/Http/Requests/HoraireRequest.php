@@ -22,10 +22,10 @@ class HoraireRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'ouverture_matin' => ['required', 'string', 'max:50'],
-            'ouverture_soir' => ['nullable', 'string', 'max:50'],
-            'fermeture_matin' => ['nullable', 'string', 'max:50'],
-            'fermeture_soir' => ['required', 'string', 'max:50']
+            'ouverture_matin' => ['required', 'date_format:H:i'],
+            'ouverture_soir' => ['nullable', 'date_format:H:i'],
+            'fermeture_matin' => ['nullable', 'date_format:H:i'],
+            'fermeture_soir' => ['required', 'date_format:H:i']
         ];
     }
 }
