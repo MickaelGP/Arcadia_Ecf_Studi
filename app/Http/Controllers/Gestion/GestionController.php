@@ -31,7 +31,7 @@ class GestionController extends Controller
         $alimentations = Alimentation::all();
 
         try {
-            $animalTrends = Vue::all();
+            $animalTrends = Vue::orderBy('nombreDeVue', 'DESC')->get();
         } catch (\Exception $e) {
             $animalTrends = [];
             Log::error('Une erreur est survenue lors de la récupération des tendances des animaux: ' . $e->getMessage());

@@ -63,7 +63,7 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-6 pt-2">
                         <div class="card habitat shadow reveal-2">
-                            <img src="https://picsum.photos/200/140" class="card-img-top" alt="">
+                            <img src="https://picsum.photos/200/140" class="card-img-top" alt="Arcadia">
                             <div class="card-body">
                                 <h5 class="card-title">Savane</h5>
                                 <p>Écosystème captivant, animaux majestueux, paysage authentique,</br> expérience immersive.
@@ -74,7 +74,7 @@
                     </div>
                     <div class="col-md-4 col-sm-6 pt-2">
                         <div class="card habitat shadow reveal-3">
-                            <img src="https://picsum.photos/200/140" class="card-img-top" alt="">
+                            <img src="https://picsum.photos/200/140" class="card-img-top" alt="Arcadia">
                             <div class="card-body">
                                 <h5 class="card-title">Jungle</h5>
                                 <p>Mystères luxuriants, créatures exotiques, aventures épiques, exploration fascinante,
@@ -86,7 +86,7 @@
                     </div>
                     <div class="col-md-4 col-sm-6 pt-2">
                         <div class="card habitat shadow reveal-4">
-                            <img src="https://picsum.photos/200/140" class="card-img-top" alt="">
+                            <img src="https://picsum.photos/200/140" class="card-img-top" alt="Arcadia">
                             <div class="card-body">
                                 <h5 class="card-title">Marais</h5>
                                 <p>Écosystème unique, faune fascinante, mystères aquatiques, biodiversité préservée,
