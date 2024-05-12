@@ -70,4 +70,10 @@ class HomeController extends Controller
             'horaires' => $this->horaires
         ]);
     }
+    public function mentionsLegales()
+    {
+        return view('mentions', [
+            'horaires' => $this->horaires
+        ]);
+    }
 }

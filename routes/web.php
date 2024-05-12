@@ -19,6 +19,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/nos-services', [HomeController::class, 'showServices'])->name('service');
 Route::get('/nos-habitats', [HomeController::class, 'showHabitats'])->name('habitat');
 Route::get('/contact', [HomeController::class, 'showContact'])->name('contact');
+Route::get('/les-mentions-legales', [HomeController::class, 'mentionsLegales'])->name('mentions-legales');
 Route::post('/contact', [EmailController::class, 'send'])->name('send');
 Route::post('/avis', [AviController::class, 'store'])->name('store');
 Route::get('/connexion', [UserController::class, 'connexion'])->name('connexion');

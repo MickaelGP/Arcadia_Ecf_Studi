@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title','Arcadia')</title>
+    <title>@yield('title', 'Arcadia')</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -24,7 +24,8 @@
     <header>
         <nav class="navbar navbar-expand-lg" id="navbar">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ route('home') }}"><img src="/img/logo.png" alt="Logo arcadia" id="imgLogo"></a>
+                <a class="navbar-brand" href="{{ route('home') }}"><img src="/img/logo.png" alt="Logo arcadia"
+                        id="imgLogo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -74,6 +75,8 @@
                                 href="{{ route('contact') }}">Contact</a></li>
                         <li><a class="nav-link {{ request()->routeIs('connexion') ? 'active' : '' }}"
                                 href="{{ route('connexion') }}">Connexion</a></li>
+                        <li><a class="nav-link {{ request()->routeIs('mentions-legales') ? 'active' : '' }}"
+                                href="{{ route('mentions-legales') }}">Mentions légales</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 mt-5">
