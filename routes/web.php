@@ -68,6 +68,7 @@ Route::middleware('role:administrateur')->group(function () {
         Route::patch('/gestion-animaux/{animal}/update-animal', 'update')->name('gestion.animals.update');
         Route::delete('/gestion-animaux/{animal}', 'destroy')->name('gestion.animals.destroy');
     });
+    //Route Gestion Races
     Route::controller(RaceController::class)->prefix('/gestion')->group(function () {
         Route::get('/gestion-animaux-races/create', 'create')->name('gestion.races');
         Route::post('/gestion-animaux-race/store', 'store')->name('gestion.races.store');
