@@ -1,6 +1,3 @@
-@php
-
-@endphp
 <section id="{{$sectionId}}">
     <div class="text-center">
         <div class="pt-2">
