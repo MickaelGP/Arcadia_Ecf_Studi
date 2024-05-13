@@ -16,7 +16,8 @@
 <body>
     <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Arcadia</a>
+            <a class="navbar-brand {{ request()->routeIs('home') ? 'active' : '' }}"
+                href="{{ route('home') }}">Arcadia</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -84,52 +85,10 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     @yield('script')
-    @if(Request::route()->getName() == 'gestion.rapports')
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Capture l'événement de soumission du formulaire
-            document.getElementById('searchForm').addEventListener('submit', function(e) {
-                e.preventDefault(); // Empêche la soumission du formulaire par défaut
-
-                // Récupère les valeurs des champs
-                var dateSelect = document.getElementById('dateSelect').value;
-                var animal_id = document.getElementById('animalSelect').value;
-
-                // Construit les paramètres de la requête
-                var params = new URLSearchParams();
-                params.append('date', dateSelect);
-                params.append('animal_id', animal_id);
-
-                // Envoie une requête fetch au serveur
-                fetch('{{ route('gestion.rapports.search') }}?' + params, {
-                        method: 'GET',
-                        headers: {
-                            'Accept': 'text/html',
-                        },
-                    })
-                    .then(response => response.text())
-                    .then(data => {
-                        // Met à jour la section des résultats avec les données de la réponse
-                        document.getElementById('searchResults').innerHTML = data;
-
-                    })
-                    .catch(error => console.error('Error in fetch request:', error));
-
-                document.getElementById('dateSelect').value = "Rechercher par dates";
-                document.getElementById('animalSelect').value = "Rechercher par animal";
-            });
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            let alertSuccess = document.querySelector('.alert');
-            if (alertSuccess) {
-                setTimeout(() => {
-                    alertSuccess.remove();
-                }, 3000);
-            }
-        });
-    </script>
-@endif
-<script src="/js/gestion/deleteSuccess.js"></script>
+    @if (Request::route()->getName() == 'gestion.rapports')
+        <script src="/js/gestion/search.js"></script>
+    @endif
+    <script src="/js/gestion/deleteSuccess.js"></script>
 </body>
 
 </html>
