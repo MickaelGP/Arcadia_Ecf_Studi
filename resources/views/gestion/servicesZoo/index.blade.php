@@ -33,7 +33,7 @@
                                     @method('DELETE')
                                     <a class="btn btn-warning mb-2 rounded-5"
                                         href="{{ route('gestion.services.edit', $service->id) }}">Modifier</a>
-                                    <button type="submit" class="btn btn-danger rounded-5">Supprimer</button>
+                                    <x-button type=" btn-danger shadow rounded-5">Supprimer</x-button>
                                 </form>
                             @else
                                 <a class="btn btn-warning rounded-5"

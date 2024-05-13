@@ -31,7 +31,7 @@
                                 </label>
                               </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-warning shadow">Modifier</button>
+                                <x-button type=" btn-warning shadow rounded-5">Modifier</x-button>
                             </div>
                         </form>
                     </div>

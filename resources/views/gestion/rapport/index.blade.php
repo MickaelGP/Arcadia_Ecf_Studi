@@ -40,7 +40,7 @@
                                             @endforelse
                                         </select>
                                     </div>
-                                    <button type="submit" class="btn btn-primary rounded-5">Rechercher</button>
+                                    <x-button type=" btn-primary shadow rounded-5">Rechercher</x-button>
                                     @if ($user->role->label === 'vétérinaire')
                                         <a href="{{ route('gestion.rapports.create') }}"
                                             class="btn btn-success pr-3 rounded-5">Ajouter un compte rendu</a>

@@ -75,9 +75,7 @@
                         ])
                         <div class="row mb-5">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-info rounded-5">
-                                    Créer l'ustilisateur
-                                </button>
+                                <x-button type=" btn-primary shadow rounded-5">Créer l'utilisateur</x-button>
                             </div>
                         </div>
                     </form>

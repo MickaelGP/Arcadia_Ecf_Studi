@@ -31,7 +31,7 @@
                         </span>
                     </div>
                     <div class="pt-5">
-                        <x-button type=" shadow rounded-5" buttonType="submit">Se connecter</x-button>
+                        <x-button type=" shadow rounded-5">Se connecter</x-button>
                     </div>
                 </form>
             </div>

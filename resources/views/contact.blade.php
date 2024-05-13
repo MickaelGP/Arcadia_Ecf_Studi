@@ -60,7 +60,7 @@
                     'feedBack' => true
                 ])
                 <div class="text-center pb-3">
-                    <button type="submit" class="btn shadow rounded-5 ">Envoyer</button>
+                    <x-button type=" shadow rounded-5">Envoyer</x-button>
                 </div>
             </form>
         </div>

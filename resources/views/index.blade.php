@@ -10,7 +10,8 @@
         <div class="text-center container pt-5">
             <h1>Notre histoire</h1>
             <p class="pb-3">
-                Arcadia est un zoo situé en France, près de la forêt de Brocéliande en Bretagne, <strong>depuis 1960</strong>.</br> 
+                Arcadia est un zoo situé en France, près de la forêt de Brocéliande en Bretagne, <strong>depuis
+                    1960</strong>.</br>
                 Nous possédons tout un panel d'animaux, répartis par habitat.</br>
                 La santé des animaux est notre <strong>priorité</strong>.</br>
                 Nos vétérinaires effectues des contrôles sur chaque animal avant l'ouverture.</br>
@@ -120,7 +121,8 @@
                                         'class' => 'mb-3',
                                         'type' => 'text',
                                         'name' => 'pseudo',
-                                        'messagePerso' => 'Le pseudo doit avoir au moins 4 caractères et être inférieur à 50 caractères',
+                                        'messagePerso' =>
+                                            'Le pseudo doit avoir au moins 4 caractères et être inférieur à 50 caractères',
                                         'id' => 'inputPseudo',
                                     ])
                                     @include('shared.input', [
@@ -130,7 +132,7 @@
                                         'name' => 'commentaire',
                                         'id' => 'commentaireArea',
                                     ])
-                                    <button type="submit" class="btn shadow rounded-5" id="btnValidation">Envoyer</button>
+                                    <x-button type=" shadow rounded-5" idName="btnValidation">Envoyer</x-button>
                                 </form>
                             </div>
                         </div>

@@ -28,7 +28,7 @@
                 'name' => 'image_data'
             ])
             <div class="text-center">
-                <button type="submit" class="btn btn-primary rounded-5">Ajouter</button>
+                <x-button type=" btn-primary shadow rounded-5">Ajouter</x-button>
             </div>
         </form>
     </div>

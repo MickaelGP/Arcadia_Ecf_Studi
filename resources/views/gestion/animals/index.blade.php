@@ -26,7 +26,7 @@
                                 @method('DELETE')
                                 <a class="btn btn-warning rounded-5"
                                     href="{{ route('gestion.animals.edit', $animal->id) }}">Modifier</a>
-                                <button type="submit" class="btn btn-danger rounded-5">Supprimer</button>
+                                    <x-button type=" btn-danger shadow rounded-5">Supprimer</x-button>
                             </form>
                         </td>
                     </tr>
