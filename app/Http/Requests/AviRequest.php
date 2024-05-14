@@ -22,14 +22,15 @@ class AviRequest extends FormRequest
     public function rules(): array
     {
         
-        if (auth()->user()->role->label === 'employé') {
-            return [
-                'isValide' => ['required', 'int']
-            ];
-        }else{
+        if (!auth()->user()) {
             return [
                 'pseudo' => ['required', 'string', 'max:50'],
                 'commentaire' => ['required', 'string', 'max:255'],
+            ];
+           
+        }else if(auth()->user()->role->label === 'employé'){
+            return [
+                'isValide' => ['required', 'int']
             ];
         }
             

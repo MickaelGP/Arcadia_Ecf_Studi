@@ -22,8 +22,8 @@ Route::get('/contact', [HomeController::class, 'showContact'])->name('contact');
 Route::get('/les-mentions-legales', [HomeController::class, 'mentionsLegales'])->name('mentions-legales');
 Route::post('/contact', [EmailController::class, 'send'])->name('send');
 Route::post('/avis', [AviController::class, 'store'])->name('store');
-Route::get('/connexion', [UserController::class, 'connexion'])->name('connexion')->middleware('throttle:connexion'); 
-Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::get('/connexion', [UserController::class, 'connexion'])->name('connexion')->middleware('throttle:login'); 
+Route::post('/login', [UserController::class, 'login'])->name('login')->middleware('throttle:login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/animals/{animal}/show', [AnimalController::class, 'show'])->name('show');
 //Route gestion
