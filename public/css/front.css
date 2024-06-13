@@ -129,20 +129,20 @@ body {
 }
 
 /* Page Services */
-#sectionServicesRestauration {
+.sectionServicesPair {
     background-color: rgb(249, 239, 219);
     color: rgb(67, 104, 80);
 }
 
-#sectionServicesTrain {
+.sectionServicesImpair {
     background-color: rgb(235, 217, 180);
     color: rgb(67, 104, 80);
 }
 
-#sectionServicesHabitats {
+/* #sectionServicesHabitats {
     background-color: rgb(249, 239, 219);
     color: rgb(67, 104, 80);
-}
+} */
 
 /* Page Habitats */
 .titre-habitats {

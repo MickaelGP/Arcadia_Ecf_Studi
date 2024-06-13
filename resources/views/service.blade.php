@@ -1,7 +1,40 @@
 @extends('layouts.app')
 @section('title', 'Nos-services')
 @section('content')
-    <section id="sectionServicesRestauration">
+    @foreach ($services as $service)
+        @if ($service->id % 2 === 0)
+            <section class="sectionServicesPair">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 pt-5 text-center">
+                        <h1>{{ $service->nom }}</h1>
+                        <p>
+                            {{ $service->description }}
+                        </p>
+                        <i class="fa-solid fa-train icons"></i>
+                    </div>
+                    <div class="col-6 px-0 d-none d-lg-block">
+                        <img src="/img/hero.jpg" class="img-fluid" alt="Visite en petit train">
+                    </div>
+                </div>
+            </section>
+        @else
+            <section class="sectionServicesImpair">
+                <div class="row">
+                    <div class="col-6 px-0 d-none d-lg-block">
+                        <img src="/img/hero.jpg" class="img-fluid" alt="Restauration du parc">
+                    </div>
+                    <div class="col-lg-6 col-md-12 pt-5 text-center">
+                        <h1>{{ $service->nom }}</h1>
+                        <p>
+                            {{ $service->description }}
+                        </p>
+                        <i class="fa-solid fa-utensils icons"></i>
+                    </div>
+                </div>
+            </section>
+        @endif
+    @endforeach
+    {{-- <section id="sectionServicesRestauration">
         <div class="row">
             <div class="col-6 px-0 d-none d-lg-block">
                 <img src="/img/hero.jpg" class="img-fluid" alt="Restauration du parc">
@@ -42,5 +75,5 @@
                 <i class="fa-solid fa-signs-post icons"></i>
             </div>
         </div>
-    </section>
+    </section> --}}
 @endsection
