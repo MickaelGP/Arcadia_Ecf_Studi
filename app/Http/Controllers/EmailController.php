@@ -18,8 +18,8 @@ class EmailController extends Controller
     public function send(Request $request): RedirectResponse
     {
         $data = $request->validate([
-            'titre' => ['required', 'string', 'max:255'],
-            'pseudo' => ['required', 'string', 'max:255'],
+            'titre' => ['required', 'string', 'max:255', 'min:4'],
+            'pseudo' => ['required', 'string', 'max:255', 'min:4'],
             'email' => ['required', 'email'],
             'description' => ['required', 'string', 'max:255'],
         ]);

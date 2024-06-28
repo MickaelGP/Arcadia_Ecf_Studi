@@ -39,7 +39,7 @@ class UserController extends Controller
     {
         $request->validate([
             'username' => ['required', 'email'],
-            'password' => ['required', 'string']
+            'password' => ['required', 'string', 'min:8']
         ]);
         $credentials = $request->only('username', 'password');
 
