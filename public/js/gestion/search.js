@@ -25,7 +25,7 @@ document.getElementById('searchForm').addEventListener('submit', function (event
             document.getElementById('searchResults').innerHTML = data;
 
         })
-        .catch(error => console.error('Error in fetch request:', error));
+        .catch(error => console.error('Erreur lors de la requête fetch:', error));
     //RAZ des selectes
     document.getElementById('dateSelect').value = "Rechercher par dates";
     document.getElementById('animalSelect').value = "Rechercher par animal";
