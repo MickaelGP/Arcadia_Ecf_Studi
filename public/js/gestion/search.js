@@ -1,7 +1,7 @@
 const url = "http://127.0.0.1:8000/gestion/rapports/search?";
 
-document.getElementById('searchForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // Empêche la soumission du formulaire par défaut
+document.getElementById('searchForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Empêche la soumission du formulaire par défaut
 
     // Récupère les valeurs des champs
     let dateSelect = document.getElementById('dateSelect').value;
@@ -25,8 +25,8 @@ document.getElementById('searchForm').addEventListener('submit', function (e) {
             document.getElementById('searchResults').innerHTML = data;
 
         })
-        .catch(error => console.error('Error in fetch request:', error));
-    //RAZ des selectes 
+        .catch(error => console.error('Erreur lors de la requête fetch:', error));
+    //RAZ des selectes
     document.getElementById('dateSelect').value = "Rechercher par dates";
     document.getElementById('animalSelect').value = "Rechercher par animal";
 });
