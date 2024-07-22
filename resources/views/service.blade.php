@@ -4,7 +4,7 @@
     @foreach ($services as $service)
         @if ($service->id % 2 === 0)
             <section class="sectionServicesPair">
-                <div class="row">
+                <div class="row mx-0">
                     <div class="col-lg-6 col-md-12 pt-5 text-center">
                         <h1>{{ $service->nom }}</h1>
                         <p>
@@ -19,7 +19,7 @@
             </section>
         @else
             <section class="sectionServicesImpair">
-                <div class="row">
+                <div class="row mx-0">
                     <div class="col-6 px-0 d-none d-lg-block">
                         <img src="/img/hero.jpg" class="img-fluid" alt="Restauration du parc">
                     </div>

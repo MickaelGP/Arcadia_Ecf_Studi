@@ -29,7 +29,7 @@
                             <div class="card-body">
                                 <i class="fa-solid fa-utensils icons"></i>
                                 <p>Snack, restaurant</p>
-                                <a class="btn shadow rounded-5" href="{{ route('service') }}">En savoir plus</a>
+                                <a class="btn shadow rounded-5 px-1" href="{{ route('service') }}">En savoir plus</a>
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                             <div class="card-body">
                                 <i class="fa-solid fa-train icons"></i>
                                 <p>Visite en petit train</p>
-                                <a class="btn shadow rounded-5" href="{{ route('service') }}">En savoir plus</a>
+                                <a class="btn shadow rounded-5 px-1" href="{{ route('service') }}">En savoir plus</a>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                             <div class="card-body">
                                 <i class="fa-solid fa-signs-post icons"></i>
                                 <p>Visite des habitats</p>
-                                <a class="btn shadow rounded-5" href="{{ route('service') }}">En savoir plus</a>
+                                <a class="btn shadow rounded-5 px-1" href="{{ route('service') }}">En savoir plus</a>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                 <h1>Nos Habitats</h1>
             </div>
             <div class="container pt-2 reveal">
-                <div class="row">
+                <div class="row mx-0">
                     <div class="col-md-4 col-sm-6 pt-2">
                         <div class="card habitat shadow reveal-2">
                             <img src="https://picsum.photos/200/140" class="card-img-top" alt="Arcadia">
@@ -107,7 +107,7 @@
                 <h1>Les avis</h1>
             </div>
             <div class="conatiner pt-2 ">
-                <div class="row reveal">
+                <div class="row reveal mx-0">
                     <div class="col-sm-12 col-md-6">
                         <div class="card avi shadow reveal-2">
                             <div class="card-title pt-5">
