@@ -49,6 +49,10 @@
                                         href="{{ route('gestion.animals') }}">Animaux</a></li>
                                 <li><a class="dropdown-item {{ request()->routeIs('create.comptes') ? 'active' : '' }}"
                                         href="{{ route('create.comptes') }}">Création de comptes</a></li>
+                                <li><a class="dropdown-item {{ request()->routeIs('update.comptes') ? 'active' : '' }}"
+                                        href="{{ route('update.comptes') }}">Réinitialiser un mot de passe</a></li>
+                                <li><a class="dropdown-item {{ request()->routeIs('delete.comptes') ? 'active' : '' }}"
+                                        href="{{ route('delete.comptes') }}">Supprimer un compte</a></li>
                             </ul>
                         </li>
                     @endif

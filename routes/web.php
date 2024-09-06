@@ -35,6 +35,11 @@ Route::middleware('role:administrateur')->group(function () {
     Route::controller(CreateUserController::class)->prefix('/gestion')->group(function () {
         Route::get('/creation-de-compte', 'index')->name('create.comptes');
         Route::post('/ajout-utilisateur', 'store')->name('store.comptes');
+        Route::get('/réinitialisation-mot-de-passe', 'showUpdateView')->name('update.comptes');
+        Route::post('/réinitialisation-mot-de-passe', 'update')->name('update.comptes');
+        Route::get('/supprimer-un-compte', 'showDeleteView')->name('delete.comptes');
+        Route::delete('/supprimer-un-compte/{user}', 'destroy')->name('delete.user.comptes');
+
     });
     //Route gestion services
     Route::controller(GestionServicesController::class)->prefix('/gestion')->group(function () {
