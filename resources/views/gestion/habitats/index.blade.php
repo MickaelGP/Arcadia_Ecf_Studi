@@ -13,38 +13,40 @@
                 </div>
             </div>
         @endif
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Commentaire</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($habitats as $habitat)
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
                     <tr>
-                        <td>{{ $habitat->nom }}</td>
-                        <td>{{ $habitat->description }}</td>
-                        <td>{{ $habitat->commentaire }}</td>
-                        <td>
-                            @if ($user->role->label === 'administrateur')
-                                <form action="{{ route('gestion.habitats.destroy', $habitat->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <a class="btn btn-warning rounded-5 mb-2"
-                                        href="{{ route('gestion.habitats.edit', $habitat->id) }}">Modifier</a>
-                                        <x-button type=" btn-danger shadow rounded-5">Supprimer</x-button>
-                                </form>
-                            @else
-                                <a class="btn btn-warning rounded-5"
-                                    href="{{ route('gestion.habitats.edit', $habitat->id) }}">Modifier</a>
-                            @endif
-                        </td>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Commentaire</th>
+                        <th scope="col">Actions</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ($habitats as $habitat)
+                        <tr>
+                            <td>{{ $habitat->nom }}</td>
+                            <td>{{ $habitat->description }}</td>
+                            <td>{{ $habitat->commentaire }}</td>
+                            <td>
+                                @if ($user->role->label === 'administrateur')
+                                    <form action="{{ route('gestion.habitats.destroy', $habitat->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a class="btn btn-warning rounded-5 mb-2"
+                                            href="{{ route('gestion.habitats.edit', $habitat->id) }}">Modifier</a>
+                                            <x-button type=" btn-danger shadow rounded-5">Supprimer</x-button>
+                                    </form>
+                                @else
+                                    <a class="btn btn-warning rounded-5"
+                                        href="{{ route('gestion.habitats.edit', $habitat->id) }}">Modifier</a>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection

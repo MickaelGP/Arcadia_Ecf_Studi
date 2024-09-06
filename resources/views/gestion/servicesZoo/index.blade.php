@@ -13,36 +13,38 @@
                 </div>
             </div>
         @endif
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($services as $service)
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
                     <tr>
-                        <td>{{ $service->nom }}</td>
-                        <td>{{ $service->description }}</td>
-                        <td>
-                            @if ($user->role->label === 'administrateur')
-                                <form action="{{ route('gestion.services.destroy', $service->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <a class="btn btn-warning mb-2 rounded-5"
-                                        href="{{ route('gestion.services.edit', $service->id) }}">Modifier</a>
-                                    <x-button type=" btn-danger shadow rounded-5">Supprimer</x-button>
-                                </form>
-                            @else
-                                <a class="btn btn-warning rounded-5"
-                                    href="{{ route('gestion.services.edit', $service->id) }}">Modifier</a>
-                            @endif
-                        </td>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Actions</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ($services as $service)
+                        <tr>
+                            <td>{{ $service->nom }}</td>
+                            <td>{{ $service->description }}</td>
+                            <td>
+                                @if ($user->role->label === 'administrateur')
+                                    <form action="{{ route('gestion.services.destroy', $service->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a class="btn btn-warning mb-2 rounded-5"
+                                            href="{{ route('gestion.services.edit', $service->id) }}">Modifier</a>
+                                        <x-button type=" btn-danger shadow rounded-5">Supprimer</x-button>
+                                    </form>
+                                @else
+                                    <a class="btn btn-warning rounded-5"
+                                        href="{{ route('gestion.services.edit', $service->id) }}">Modifier</a>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection

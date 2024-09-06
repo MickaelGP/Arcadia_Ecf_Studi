@@ -4,8 +4,10 @@
     @include('shared.flash')
     <div class="container  mt-3 text-center shadow py-4 rounded">
         <div class="row mb-3">
-            <div class="col-12">
+            <div class="col-lg-6 py-2">
                 <a href="{{ route('gestion.animals.create') }}" class="btn btn-success rounded-5">Ajouter un animal</a>
+            </div>
+            <div class="col-lg-6 py-2">
                 <a href="{{ route('gestion.races') }}" class="btn btn-success rounded-5">Ajouter une race</a>
             </div>
         </div>

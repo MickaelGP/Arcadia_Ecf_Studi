@@ -74,8 +74,8 @@
                             'options' => $roles,
                         ])
                         <div class="row mb-5">
-                            <div class="col-md-8 offset-md-4">
-                                <x-button type=" btn-primary shadow rounded-5">Créer l'utilisateur</x-button>
+                            <div class="col-12 text-center">
+                                <x-button type=" btn-primary shadow rounded-5 btn-sm">Créer l'utilisateur</x-button>
                             </div>
                         </div>
                     </form>
