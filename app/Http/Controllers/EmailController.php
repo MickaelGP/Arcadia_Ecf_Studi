@@ -22,9 +22,12 @@ class EmailController extends Controller
             'pseudo' => ['required', 'string', 'max:255', 'min:4'],
             'email' => ['required', 'email'],
             'description' => ['required', 'string', 'max:255'],
+            'consent' => ['required' , 'boolean']
         ]);
 
-
+        if($data['consent'] != 1){
+            return back()->withErrors('Le consentement est obligatoire pour envoyer un email');
+        }
 
         Mail::send(new ContactFormMail($data));
 

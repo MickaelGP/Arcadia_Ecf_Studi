@@ -132,6 +132,12 @@
                                         'name' => 'commentaire',
                                         'id' => 'commentaireArea',
                                     ])
+                                    <div class="form-check my-2">
+                                        <input class="form-check-input" type="checkbox" name="consent" value="1" id="consent">
+                                        <label class="form-check-label" for="consent">
+                                            J'accepte que mes données personnelles soient traitées conformément à la <a href="{{route('mentions-legales')}}">politique de confidentialité</a>.
+                                        </label>
+                                    </div>
                                     <x-button type=" shadow rounded-5" idName="btnValidation">Envoyer</x-button>
                                 </form>
                             </div>

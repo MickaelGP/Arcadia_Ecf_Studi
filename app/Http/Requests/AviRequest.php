@@ -26,6 +26,7 @@ class AviRequest extends FormRequest
             return [
                 'pseudo' => ['required', 'string', 'max:50', 'min:4'],
                 'commentaire' => ['required', 'string', 'max:255'],
+                'consent' => ['required', 'boolean']
             ];
 
         }else if(auth()->user()->role->label === 'employé'){

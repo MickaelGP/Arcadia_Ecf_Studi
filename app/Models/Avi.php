@@ -19,7 +19,8 @@ class Avi extends Model
     protected $fillable = [
         'pseudo',
         'commentaire',
-        'isValide'
+        'isValide',
+        'consent'
     ];
     public $timestamps = false;
 }
